@@ -2,7 +2,6 @@
 
 # Serverless-proxy
 
-This project will provide you with a local development environment machine with DynamoDB, ElasticSearch and Kibana
 
 ### Prerequisites
 
