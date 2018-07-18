@@ -1,5 +1,6 @@
 const manifest = require('../../config/manifest');
 const { Utils } = require('../utils/Utils');
+const AWS = require('aws-sdk');
 const EventsManager = require('../events/Manager');
 const chalk = require('chalk');
 
@@ -101,6 +102,11 @@ class Plugin {
      */
     configureEnvironment() {
         this.log('Configuring environment');
+        // TODO: @diego[FIX] There is probably a better way to retrieves credentials in the Serverless framework...
+        const awsCredentials = new AWS.SharedIniFileCredentials({ profile: this.serverless.service.provider.profile });
+        process.env.AWS_ACCESS_KEY_ID = awsCredentials.accessKeyId;
+        process.env.AWS_SECRET_ACCESS_KEY = awsCredentials.secretAccessKey;
+        process.env.AWS_SESSION_TOKEN = awsCredentials.sessionToken;
         const envVars = this.serverless.service.provider.environment;
         Object.keys(envVars).map(envKey => process.env[envKey] = envVars[envKey]);
     }
