@@ -1,0 +1,23 @@
+{
+  "proxy": {
+    "usage": "Proxy",
+    "lifecycleEvents": [
+      "start",
+      "stop"
+    ],
+    "commands": {
+      "start": {
+        "usage": "Start proxy service",
+        "lifecycleEvents": [
+          "init"
+        ]
+      },
+      "stop": {
+        "usage": "Stop proxy service",
+        "lifecycleEvents": [
+          "end"
+        ]
+      }
+    }
+  }
+}
