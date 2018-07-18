@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const Router = require('koa-router');
-const { invoke } = require('./middlewares/invoke');
+const { invoke } = require('./middleware/invoke');
 
 const EventsManager = require('../../events/Manager');
 const LOG_PREFIX = 'FunctionsProxy::';
