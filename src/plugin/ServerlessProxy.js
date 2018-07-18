@@ -107,6 +107,9 @@ class Plugin {
         process.env.AWS_ACCESS_KEY_ID = awsCredentials.accessKeyId;
         process.env.AWS_SECRET_ACCESS_KEY = awsCredentials.secretAccessKey;
         process.env.AWS_SESSION_TOKEN = awsCredentials.sessionToken;
+        if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+            this.log('AWS credentials are empty', LOGGER_LEVELS.WARNING);
+        }
         const envVars = this.serverless.service.provider.environment;
         Object.keys(envVars).map(envKey => process.env[envKey] = envVars[envKey]);
     }
@@ -124,7 +127,7 @@ class Plugin {
             case LOGGER_LEVELS.ERROR:
                 return this.serverless.cli.log(chalk.red(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️  ${message}`));
             case LOGGER_LEVELS.WARNING:
-                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.WARNING}] ⚠️️ ${message}`);
+                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.WARNING}] ⚠️️  ${message}`);
             case LOGGER_LEVELS.NO_TAGS:
             default:
                 return this.serverless.cli.log(message);
