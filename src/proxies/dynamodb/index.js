@@ -15,21 +15,32 @@ const MIDDLEWARES_LIST = [
 
     },
     {
-
         label: 'dynamoDbTriggers',
         resolver: dynamoDbTriggers
     }
 ];
 
-const DynamoDBTriggersProxy = (proxyConfig) => {
+/**
+ * DynamoDBTriggersProxy
+ *
+ * @return {null}
+ * @constructor
+ * @param proxySettings
+ */
+const DynamoDBTriggersProxy = (proxySettings) => {
     const { OUTPUT_LOG_INFO, OUTPUT_LOG_WARNING, OUTPUT_LOG_ERROR } = EventsManager.eventsList;
     try {
-        const { isActive, proxy_host, proxy_port, dynamo_db_host, middlewares } = proxyConfig;
+        // Validation
+        validateProxyConfig(proxySettings);
+        const { isActive, proxy_host, proxy_port, dynamo_db_host, middlewares } = proxySettings.config;
         if (isActive === false)
             return null;
 
+        // Start server
         const app = new koa();
         app.use(convert(body({ limit: '10kb', fallback: true })));
+
+        // Assign middlewares
         middlewares.forEach(requestedMiddleware => {
             const middleware = MIDDLEWARES_LIST.find(middleware => middleware.label === requestedMiddleware);
             (middleware)
@@ -37,10 +48,23 @@ const DynamoDBTriggersProxy = (proxyConfig) => {
                 : EventsManager.emit(OUTPUT_LOG_WARNING, `No middleware found with name ${requestedMiddleware} `);
         });
         app.use(convert(index({ host: dynamo_db_host }))).listen(proxy_port);
+
+        // Done
         EventsManager.emit(OUTPUT_LOG_INFO, `Started DynamoDBTriggers proxy at ${proxy_host}:${proxy_port}`);
     } catch (e) {
         EventsManager.emit(OUTPUT_LOG_ERROR, `DynamoDBTriggers: ${e.message}`);
     }
 };
+
+/**
+ *
+ * @param config
+ * @return {*}
+ */
+const validateProxyConfig = (config) => {
+    //TODO: Validate config
+    return config;
+};
+
 
 module.exports = { DynamoDBTriggersProxy };

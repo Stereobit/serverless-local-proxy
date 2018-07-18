@@ -3,6 +3,10 @@ const { Utils } = require('../utils/Utils');
 const EventsManager = require('../events/Manager');
 const chalk = require('chalk');
 
+const AVAILABLE_PROXIES = {
+    DYNAMODB: 'dynamodb',
+    FUNCTIONS_TO_HTTP: 'functionsToHttp'
+};
 const LOGGER_LEVELS = { INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS: 'NO_TAGS' };
 const LOGGER_PREFIX = '[SERVERLESS-PROXY]';
 
@@ -48,7 +52,6 @@ class Plugin {
         }
     }
 
-
     /**
      * ConfigureProxies
      *
@@ -57,9 +60,29 @@ class Plugin {
         this.log('Configuring proxies');
         const proxiesConfig = this.serverless.service.custom.serverlessProxy;
         proxiesConfig.proxies.map(proxy => {
-            if (proxy.hasOwnProperty('dynamodb') && proxy.dynamodb.isActive) {
-                EventsManager.emit(EventsManager.eventsList.PROXY_START_DDB, proxy.dynamodb);
+
+            // Dynamo Proxy
+            if (proxy.hasOwnProperty(AVAILABLE_PROXIES.DYNAMODB) && proxy[AVAILABLE_PROXIES.DYNAMODB].isActive) {
+                EventsManager.emit(
+                    EventsManager.eventsList.PROXY_START_DDB,
+                    {
+                        config: proxy[AVAILABLE_PROXIES.DYNAMODB],
+                        functions: this.functionsCollection[Symbol.iterator]()
+                    }
+                );
             }
+
+            // Functions Proxy
+            if (proxy.hasOwnProperty(AVAILABLE_PROXIES.FUNCTIONS_TO_HTTP) && proxy[AVAILABLE_PROXIES.FUNCTIONS_TO_HTTP].isActive) {
+                EventsManager.emit(
+                    EventsManager.eventsList.PROXY_START_FUNCTIONS_TO_HTTP,
+                    {
+                        config: proxy[AVAILABLE_PROXIES.FUNCTIONS_TO_HTTP],
+                        functions: this.functionsCollection[Symbol.iterator]()
+                    }
+                );
+            }
+
         });
     }
 
