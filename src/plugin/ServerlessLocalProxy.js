@@ -9,7 +9,7 @@ const AVAILABLE_PROXIES = {
     FUNCTIONS: 'functions'
 };
 const LOGGER_LEVELS = { INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS: 'NO_TAGS' };
-const LOGGER_PREFIX = '[SERVERLESS-PROXY]';
+const LOGGER_PREFIX = '[SLS-LOCAL-PROXY]';
 
 class Plugin {
 
@@ -102,7 +102,7 @@ class Plugin {
      */
     configureEnvironment() {
         this.log('Configuring environment');
-        // TODO: @diego[FIX] There is probably a better way to retrieves credentials in the Serverless framework...
+        // TODO: @diego[FIX] Probably, there is a better way to retrieves credentials in the Serverless framework...
         const awsCredentials = new AWS.SharedIniFileCredentials({ profile: this.serverless.service.provider.profile });
         process.env.AWS_ACCESS_KEY_ID = awsCredentials.accessKeyId;
         process.env.AWS_SECRET_ACCESS_KEY = awsCredentials.secretAccessKey;

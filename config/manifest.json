@@ -1,6 +1,6 @@
 {
   "proxy": {
-    "usage": "Proxy",
+    "usage": "proxy",
     "lifecycleEvents": [
       "start",
       "stop"
