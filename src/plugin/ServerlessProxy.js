@@ -106,14 +106,13 @@ class Plugin {
     log(message, level = LOGGER_LEVELS.INFO) {
         switch (level) {
             case LOGGER_LEVELS.INFO:
-                message = `${LOGGER_PREFIX}[${LOGGER_LEVELS.INFO}] ${message}`;
-                break;
+                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.INFO}] ${message}`);
+
             case LOGGER_LEVELS.ERROR:
-                message = chalk.red(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️  ${message}`);
-                break;
+                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️  ${message}`);
+
             case LOGGER_LEVELS.WARNING:
-                message = `${LOGGER_PREFIX}[${LOGGER_LEVELS.WARNING}] ⚠️️ ${message}`;
-                break;
+                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.WARNING}] ⚠️️ ${message}`);
 
             case LOGGER_LEVELS.NO_TAGS:
             default:

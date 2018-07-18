@@ -12,7 +12,6 @@ const MIDDLEWARES_LIST = [
     {
         label: 'terraformSupport',
         resolver: terraformSupport
-
     },
     {
         label: 'dynamoDbTriggers',
@@ -50,7 +49,7 @@ const DynamoDBTriggersProxy = (proxySettings) => {
         app.use(convert(index({ host: dynamo_db_host }))).listen(proxy_port);
 
         // Done
-        EventsManager.emit(OUTPUT_LOG_INFO, `Started DynamoDBTriggers proxy at ${proxy_host}:${proxy_port}`);
+        EventsManager.emit(OUTPUT_LOG_INFO, `Proxy DynamoDBTriggers started at ${proxy_host}:${proxy_port}`);
     } catch (e) {
         EventsManager.emit(OUTPUT_LOG_ERROR, `DynamoDBTriggers: ${e.message}`);
     }

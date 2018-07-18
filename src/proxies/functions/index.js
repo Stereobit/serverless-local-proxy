@@ -37,7 +37,7 @@ const FunctionToHttpProxy = (proxySettings) => {
             .use(router.allowedMethods())
             .listen(proxy_port);
 
-        EventsManager.emit(OUTPUT_LOG_INFO, `Started FunctionToHttpProxy proxy at ${proxy_host}:${proxy_port}`);
+        EventsManager.emit(OUTPUT_LOG_INFO, `Proxy FunctionToHttpProxy started at ${proxy_host}:${proxy_port}`);
     } catch (e) {
         EventsManager.emit(OUTPUT_LOG_ERROR, `FunctionToHttpProxy error  ${e.message}`);
     }
