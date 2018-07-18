@@ -2,14 +2,14 @@ const koa = require('koa');
 const body = require('koa-json-body');
 const index = require('koa-proxy');
 const convert = require('koa-convert');
-const { terraformSupport } = require('./middlewares/terraform_support');
-const { dynamoDbTriggers } = require('./middlewares/dynamo_triggers');
+const { terraformSupport } = require('./middleware/terraform_support');
+const { dynamoDbTriggers } = require('./middleware/dynamo_triggers');
 const EventsManager = require('../../events/Manager');
 
 const LOG_PREFIX = 'DynamoDBProxy::';
 EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => DynamoDBProxy(config));
 
-const MIDDLEWARES_LIST = [
+const MIDDLEWARE_LIST = [
     {
         label: 'terraformSupport',
         resolver: terraformSupport
@@ -32,7 +32,7 @@ const DynamoDBProxy = (proxySettings) => {
     try {
         // Validation
         validateProxyConfig(proxySettings);
-        const { isActive, proxy_host, proxy_port, dynamo_db_host, middlewares } = proxySettings.config;
+        const { isActive, proxy_host, proxy_port, dynamo_db_host, middleware } = proxySettings.config;
         if (isActive === false)
             return null;
 
@@ -40,9 +40,9 @@ const DynamoDBProxy = (proxySettings) => {
         const app = new koa();
         app.use(convert(body({ limit: '10kb', fallback: true })));
 
-        // Assign middlewares
-        middlewares.forEach(requestedMiddleware => {
-            const middleware = MIDDLEWARES_LIST.find(middleware => middleware.label === requestedMiddleware);
+        // Assign middleware
+        middleware.forEach(requestedMiddleware => {
+            const middleware = MIDDLEWARE_LIST.find(middleware => middleware.label === requestedMiddleware);
             (middleware)
                 ? app.use(middleware.resolver)
                 : EventsManager.emit(OUTPUT_LOG_WARNING, `No middleware found with name ${requestedMiddleware} `);

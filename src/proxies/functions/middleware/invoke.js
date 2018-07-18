@@ -6,8 +6,6 @@ const invoke = async (ctx, next, functionName, functionPath) => {
     catch (e) {
         console.log(e);
     }
-
-    ctx.body = 'Hello!!';
     return next();
 };
 
