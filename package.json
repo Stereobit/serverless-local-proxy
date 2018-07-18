@@ -33,6 +33,7 @@
         "travis-deploy-once": "^5.0.1"
     },
     "dependencies": {
+        "aws-sdk": "^2.276.1",
         "chalk": "^2.4.1",
         "koa": "^2.5.2",
         "koa-convert": "^1.2.0",
