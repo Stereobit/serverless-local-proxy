@@ -93,8 +93,18 @@ class Plugin {
     configureFunctions() {
         this.log('Configuring functions');
         Utils.extractFunctionsList(this.serverless.service.functions)
-            .forEach(functionDetails => this.functionsCollection.set(functionDetails.name, functionDetails));
+            .forEach(functionDetails =>
+                this.functionsCollection.set(functionDetails.name, functionDetails));
         EventsManager.emit(EventsManager.eventsList.FUNCTION_LIST_READY, this.functionsCollection[Symbol.iterator]());
+    }
+
+    /**
+     * ConfigureEnvironment
+     *
+     */
+    configureEnvironment() {
+        const envVars = this.serverless.service.provider.environment;
+        Object.keys(envVars).map(envKey => process.env[envKey] = envVars[envKey]);
     }
 
     /**
@@ -107,19 +117,14 @@ class Plugin {
         switch (level) {
             case LOGGER_LEVELS.INFO:
                 return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.INFO}] ${message}`);
-
             case LOGGER_LEVELS.ERROR:
-                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️  ${message}`);
-
+                return this.serverless.cli.log(chalk.red(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️  ${message}`));
             case LOGGER_LEVELS.WARNING:
                 return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.WARNING}] ⚠️️ ${message}`);
-
             case LOGGER_LEVELS.NO_TAGS:
             default:
-                break;
-
+                return this.serverless.cli.log(message);
         }
-        this.serverless.cli.log(message);
     }
 
     /**
@@ -128,6 +133,7 @@ class Plugin {
      */
     beforeStart() {
         this.log(Utils.asciiGreeting(), LOGGER_LEVELS.NO_TAGS);
+        this.configureEnvironment();
         this.configureFunctions();
         this.configureProxies();
     }
@@ -143,7 +149,7 @@ class Plugin {
      * AfterStart
      */
     afterStart() {
-        this.log('All proxies are loaded')
+        this.log('All proxies were loaded')
     }
 
     /**

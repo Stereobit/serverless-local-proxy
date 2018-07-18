@@ -19,7 +19,6 @@
     },
     "homepage": "https://github.com/useless-stuff/serverless-proxy#readme",
     "peerDependencies": {
-        "chalk": "^2.0.0",
         "serverless": "^1.28.0"
     },
     "devDependencies": {
