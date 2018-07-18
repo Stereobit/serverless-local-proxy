@@ -6,7 +6,8 @@ const { terraformSupport } = require('./middlewares/terraform_support');
 const { dynamoDbTriggers } = require('./middlewares/dynamo_triggers');
 const EventsManager = require('../../events/Manager');
 
-EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => DynamoDBTriggersProxy(config));
+const LOG_PREFIX = 'DynamoDBProxy::';
+EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => DynamoDBProxy(config));
 
 const MIDDLEWARES_LIST = [
     {
@@ -26,7 +27,7 @@ const MIDDLEWARES_LIST = [
  * @constructor
  * @param proxySettings
  */
-const DynamoDBTriggersProxy = (proxySettings) => {
+const DynamoDBProxy = (proxySettings) => {
     const { OUTPUT_LOG_INFO, OUTPUT_LOG_WARNING, OUTPUT_LOG_ERROR } = EventsManager.eventsList;
     try {
         // Validation
@@ -49,9 +50,9 @@ const DynamoDBTriggersProxy = (proxySettings) => {
         app.use(convert(index({ host: dynamo_db_host }))).listen(proxy_port);
 
         // Done
-        EventsManager.emit(OUTPUT_LOG_INFO, `Proxy DynamoDBTriggers started at ${proxy_host}:${proxy_port}`);
+        EventsManager.emit(OUTPUT_LOG_INFO, `${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`);
     } catch (e) {
-        EventsManager.emit(OUTPUT_LOG_ERROR, `DynamoDBTriggers: ${e.message}`);
+        EventsManager.emit(OUTPUT_LOG_ERROR, `${LOG_PREFIX} ${e.message}`);
     }
 };
 
@@ -66,4 +67,4 @@ const validateProxyConfig = (config) => {
 };
 
 
-module.exports = { DynamoDBTriggersProxy };
+module.exports = { DynamoDBProxy };

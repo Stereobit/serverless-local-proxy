@@ -5,7 +5,7 @@ const chalk = require('chalk');
 
 const AVAILABLE_PROXIES = {
     DYNAMODB: 'dynamodb',
-    FUNCTIONS_TO_HTTP: 'functionsToHttp'
+    FUNCTIONS: 'functions'
 };
 const LOGGER_LEVELS = { INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS: 'NO_TAGS' };
 const LOGGER_PREFIX = '[SERVERLESS-PROXY]';
@@ -20,9 +20,9 @@ class Plugin {
      */
     constructor(serverless, options) {
         this.serverless = serverless;
+        this.options = options;
         this.hooks = this.configureHooks();
         this.commands = manifest;
-        this.options = options;
         this.functionsCollection = new Map();
         EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_INFO, (message) => this.log(message, LOGGER_LEVELS.INFO));
         EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_ERROR, (message) => this.log(message, LOGGER_LEVELS.ERROR));
@@ -45,10 +45,7 @@ class Plugin {
         return {
             'before:proxy:start:init': this.beforeStart.bind(this),
             'proxy:start:init': this.proxyStart.bind(this),
-            'after:proxy:start:init': this.afterStart.bind(this),
-            'before:proxy:stop:end': this.beforeStop.bind(this),
-            'proxy:stop:end': this.proxyStop.bind(this),
-            'after:proxy:stop:end': this.afterStop.bind(this),
+            'after:proxy:start:init': this.afterStart.bind(this)
         }
     }
 
@@ -73,11 +70,11 @@ class Plugin {
             }
 
             // Functions Proxy
-            if (proxy.hasOwnProperty(AVAILABLE_PROXIES.FUNCTIONS_TO_HTTP) && proxy[AVAILABLE_PROXIES.FUNCTIONS_TO_HTTP].isActive) {
+            if (proxy.hasOwnProperty(AVAILABLE_PROXIES.FUNCTIONS) && proxy[AVAILABLE_PROXIES.FUNCTIONS].isActive) {
                 EventsManager.emit(
                     EventsManager.eventsList.PROXY_START_FUNCTIONS_TO_HTTP,
                     {
-                        config: proxy[AVAILABLE_PROXIES.FUNCTIONS_TO_HTTP],
+                        config: proxy[AVAILABLE_PROXIES.FUNCTIONS],
                         functions: this.functionsCollection
                     }
                 );
@@ -103,6 +100,7 @@ class Plugin {
      *
      */
     configureEnvironment() {
+        this.log('Configuring environment');
         const envVars = this.serverless.service.provider.environment;
         Object.keys(envVars).map(envKey => process.env[envKey] = envVars[envKey]);
     }
@@ -142,35 +140,14 @@ class Plugin {
      * ProxyStart
      */
     proxyStart() {
-
+        this.log('Proxy start command done');
     }
 
     /**
      * AfterStart
      */
     afterStart() {
-        this.log('All proxies were loaded')
-    }
-
-    /**
-     * BeforeStop
-     */
-    beforeStop() {
-
-    }
-
-    /**
-     * ProxyStop
-     */
-    proxyStop() {
-
-    }
-
-    /**
-     * AfterStop
-     */
-    afterStop() {
-
+        this.log('All proxies were loaded');
     }
 }
 
