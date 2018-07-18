@@ -3,5 +3,5 @@ require('./utils/hotreload');
 require('./proxies/dynamodb');
 require('./proxies/functions');
 require('https');
-const ServerlessProxy = require('./plugin/ServerlessProxy');
-module.exports = ServerlessProxy;
+const ServerlessLocalProxy = require('./plugin/ServerlessLocalProxy');
+module.exports = ServerlessLocalProxy;
