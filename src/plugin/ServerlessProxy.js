@@ -78,7 +78,7 @@ class Plugin {
                     EventsManager.eventsList.PROXY_START_FUNCTIONS_TO_HTTP,
                     {
                         config: proxy[AVAILABLE_PROXIES.FUNCTIONS_TO_HTTP],
-                        functions: this.functionsCollection[Symbol.iterator]()
+                        functions: this.functionsCollection
                     }
                 );
             }
@@ -109,7 +109,7 @@ class Plugin {
                 message = `${LOGGER_PREFIX}[${LOGGER_LEVELS.INFO}] ${message}`;
                 break;
             case LOGGER_LEVELS.ERROR:
-                message = chalk.red(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️ ${message}`);
+                message = chalk.red(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️  ${message}`);
                 break;
             case LOGGER_LEVELS.WARNING:
                 message = `${LOGGER_PREFIX}[${LOGGER_LEVELS.WARNING}] ⚠️️ ${message}`;
