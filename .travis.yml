@@ -1,9 +1,6 @@
 language: node_js
 install:
   - npm install -g codecov
-script:
-  - yarn test
-  - codecov
 cache:
   directories:
     - ~/.npm
@@ -17,3 +14,6 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+script:
+  - yarn test
+  - codecov
