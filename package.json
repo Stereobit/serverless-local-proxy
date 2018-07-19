@@ -43,6 +43,10 @@
         "koa-router": "^7.4.0"
     },
     "private": false,
+    "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+    },
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
