@@ -2,7 +2,7 @@ language: node_js
 install:
   - npm install -g codecov
 script:
-  - sudo $(which npm) test
+  - yarn test
   - codecov
 cache:
   directories:
