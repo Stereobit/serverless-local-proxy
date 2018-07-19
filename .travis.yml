@@ -15,5 +15,5 @@ branches:
   except:
     - /^v\d+\.\d+\.\d+$/
 script:
-  - yarn test
+  - node_modules/.bin/jest
   - codecov
