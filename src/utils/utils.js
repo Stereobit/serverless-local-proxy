@@ -12,7 +12,7 @@ class Utils {
                 return {
                     name,
                     path,
-                    config: functions[functionKey]
+                    slsConfig: functions[functionKey]
                 }
             });
     }

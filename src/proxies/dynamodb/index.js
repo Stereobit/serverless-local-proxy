@@ -47,6 +47,7 @@ const DynamoDBProxy = (proxySettings) => {
                 ? app.use(middleware.resolver)
                 : EventsManager.emit(OUTPUT_LOG_WARNING, `No middleware found with name ${requestedMiddleware} `);
         });
+        // TODO: @diego[refactor] Move the proxy function as a middleware
         app.use(convert(index({ host: dynamo_db_host }))).listen(proxy_port);
 
         // Done

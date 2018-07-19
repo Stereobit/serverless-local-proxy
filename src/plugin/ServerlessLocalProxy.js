@@ -1,14 +1,14 @@
 const manifest = require('../../config/manifest');
-const { Utils } = require('../utils/Utils');
+const { Utils } = require('../utils/utils');
+const { mapMiddlewareSettingsToFunctions } = require('../utils/functions');
 const AWS = require('aws-sdk');
 const EventsManager = require('../events/Manager');
 const chalk = require('chalk');
-
 const AVAILABLE_PROXIES = {
     DYNAMODB: 'dynamodb',
     FUNCTIONS: 'functions'
 };
-const LOGGER_LEVELS = { INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS: 'NO_TAGS' };
+const LOGGER_LEVEL = { INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS: 'NO_TAGS' };
 const LOGGER_PREFIX = '[SLS-LOCAL-PROXY]';
 
 class Plugin {
@@ -25,9 +25,9 @@ class Plugin {
         this.hooks = this.configureHooks();
         this.commands = manifest;
         this.functionsCollection = new Map();
-        EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_INFO, (message) => this.log(message, LOGGER_LEVELS.INFO));
-        EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_ERROR, (message) => this.log(message, LOGGER_LEVELS.ERROR));
-        EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_WARNING, (message) => this.log(message, LOGGER_LEVELS.WARNING));
+        EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_INFO, (message) => this.log(message, LOGGER_LEVEL.INFO));
+        EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_ERROR, (message) => this.log(message, LOGGER_LEVEL.ERROR));
+        EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_WARNING, (message) => this.log(message, LOGGER_LEVEL.WARNING));
     }
 
     /**
@@ -58,29 +58,29 @@ class Plugin {
         this.log('Configuring proxies');
         const proxiesConfig = this.serverless.service.custom.serverlessProxy;
         proxiesConfig.proxies.map(proxy => {
-
             // Dynamo Proxy
             if (proxy.hasOwnProperty(AVAILABLE_PROXIES.DYNAMODB) && proxy[AVAILABLE_PROXIES.DYNAMODB].isActive) {
                 EventsManager.emit(
                     EventsManager.eventsList.PROXY_START_DDB,
                     {
                         config: proxy[AVAILABLE_PROXIES.DYNAMODB],
-                        functions: this.functionsCollection[Symbol.iterator]()
+                        serviceFunctions: this.functionsCollection[Symbol.iterator]()
                     }
                 );
             }
-
             // Functions Proxy
             if (proxy.hasOwnProperty(AVAILABLE_PROXIES.FUNCTIONS) && proxy[AVAILABLE_PROXIES.FUNCTIONS].isActive) {
                 EventsManager.emit(
-                    EventsManager.eventsList.PROXY_START_FUNCTIONS_TO_HTTP,
+                    EventsManager.eventsList.PROXY_START_FUNCTIONS,
                     {
                         config: proxy[AVAILABLE_PROXIES.FUNCTIONS],
-                        functions: this.functionsCollection
+                        serviceFunctions: mapMiddlewareSettingsToFunctions(
+                            Array.from(this.functionsCollection.values()),
+                            proxy[AVAILABLE_PROXIES.FUNCTIONS].configFunctions,
+                        )
                     }
                 );
             }
-
         });
     }
 
@@ -102,13 +102,13 @@ class Plugin {
      */
     configureEnvironment() {
         this.log('Configuring environment');
-        // TODO: @diego[FIX] Probably, there is a better way to retrieves credentials in the Serverless framework...
+        // TODO: @diego[FIX] Probably, there is a better way to retrieve credentials in the Serverless framework...
         const awsCredentials = new AWS.SharedIniFileCredentials({ profile: this.serverless.service.provider.profile });
         process.env.AWS_ACCESS_KEY_ID = awsCredentials.accessKeyId;
         process.env.AWS_SECRET_ACCESS_KEY = awsCredentials.secretAccessKey;
         process.env.AWS_SESSION_TOKEN = awsCredentials.sessionToken;
         if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
-            this.log('AWS credentials are empty', LOGGER_LEVELS.WARNING);
+            this.log('AWS credentials are empty', LOGGER_LEVEL.WARNING);
         }
         const envVars = this.serverless.service.provider.environment;
         Object.keys(envVars).map(envKey => process.env[envKey] = envVars[envKey]);
@@ -120,15 +120,15 @@ class Plugin {
      * @param {string} message
      * @param {string} level
      */
-    log(message, level = LOGGER_LEVELS.INFO) {
+    log(message, level = LOGGER_LEVEL.INFO) {
         switch (level) {
-            case LOGGER_LEVELS.INFO:
-                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.INFO}] ${message}`);
-            case LOGGER_LEVELS.ERROR:
-                return this.serverless.cli.log(chalk.red(`${LOGGER_PREFIX}[${LOGGER_LEVELS.ERROR}] ☠️  ${message}`));
-            case LOGGER_LEVELS.WARNING:
-                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVELS.WARNING}] ⚠️️  ${message}`);
-            case LOGGER_LEVELS.NO_TAGS:
+            case LOGGER_LEVEL.INFO:
+                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVEL.INFO}] ${message}`);
+            case LOGGER_LEVEL.ERROR:
+                return this.serverless.cli.log(chalk.red(`${LOGGER_PREFIX}[${LOGGER_LEVEL.ERROR}] ☠️  ${message}`));
+            case LOGGER_LEVEL.WARNING:
+                return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVEL.WARNING}] ⚠️️  ${message}`);
+            case LOGGER_LEVEL.NO_TAGS:
             default:
                 return this.serverless.cli.log(message);
         }
@@ -139,7 +139,7 @@ class Plugin {
      *
      */
     beforeStart() {
-        this.log(Utils.asciiGreeting(), LOGGER_LEVELS.NO_TAGS);
+        this.log(Utils.asciiGreeting(), LOGGER_LEVEL.NO_TAGS);
         this.configureEnvironment();
         this.configureFunctions();
         this.configureProxies();

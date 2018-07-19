@@ -1,2 +1,2 @@
-tests/**/*.test.js
+tests/**/*
 src/**/__mocks__
