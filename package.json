@@ -37,10 +37,12 @@
         "chokidar": "^2.0.4",
         "immutable": "^3.8.2",
         "koa": "^2.5.2",
+        "koa-bodyparser": "^4.2.1",
         "koa-convert": "^1.2.0",
         "koa-json-body": "^5.3.0",
         "koa-proxy": "^0.9.0",
-        "koa-router": "^7.4.0"
+        "koa-router": "^7.4.0",
+        "prettyjson": "^1.2.1"
     },
     "private": false,
     "jest": {

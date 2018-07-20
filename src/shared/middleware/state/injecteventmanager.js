@@ -1,4 +1,5 @@
 const eventManager = require('../../../events/Manager');
+const { fromJS } = require('immutable');
 
 /**
  * Inject eventsManager in to the state
@@ -6,11 +7,10 @@ const eventManager = require('../../../events/Manager');
  * @return {Function}
  */
 const factory = () => {
-    const { fromJS } = require('immutable');
     const manager = fromJS(eventManager);
     return async (ctx, next) => {
-        ctx.state = ctx.state.set('eventsManager', manager);
-        await next()
+        ctx.state = ctx.state.merge({ eventsManager: manager});
+        await next();
     }
 };
 

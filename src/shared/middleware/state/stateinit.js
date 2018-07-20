@@ -7,10 +7,9 @@ const { fromJS } = require('immutable');
  * @return {Function}
  */
 const factory = (defaultState = {}) => {
-    const state = fromJS(defaultState);
     return async (ctx, next) => {
-        ctx.state = state;
-        await next()
+        ctx.state = fromJS(defaultState);
+        await next();
     }
 };
 

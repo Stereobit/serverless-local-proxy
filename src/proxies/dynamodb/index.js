@@ -1,24 +1,17 @@
-const koa = require('koa');
+const Koa = require('koa');
+const Router = require('koa-router');
+const KoaProxy = require('koa-proxy');
 const body = require('koa-json-body');
-const index = require('koa-proxy');
 const convert = require('koa-convert');
-const { terraformSupport } = require('./middleware/terraform_support');
-const { dynamoDbTriggers } = require('./middleware/dynamo_triggers');
 const EventsManager = require('../../events/Manager');
+const { middlewareList } = require('./config/middlewarelist');
+const { middlewareFactoryGateway } = require('../factorygateway');
+const { factory: stateInitMiddleware } = require('../../shared/middleware/state/stateinit');
+const { factory: stateInjectEventsManagerMiddleware } = require('../../shared/middleware/state/injecteventmanager');
+const { factory: stateInjectProxyLoggerPrefixMiddleware } = require('../../shared/middleware/state/injectproxyloggerprefix');
 
 const LOG_PREFIX = 'DynamoDBProxy::';
 EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => DynamoDBProxy(config));
-
-const MIDDLEWARE_LIST = [
-    {
-        label: 'terraformSupport',
-        resolver: terraformSupport
-    },
-    {
-        label: 'dynamoDbTriggers',
-        resolver: dynamoDbTriggers
-    }
-];
 
 /**
  * DynamoDBTriggersProxy
@@ -28,33 +21,43 @@ const MIDDLEWARE_LIST = [
  * @param proxySettings
  */
 const DynamoDBProxy = (proxySettings) => {
-    const { OUTPUT_LOG_INFO, OUTPUT_LOG_WARNING, OUTPUT_LOG_ERROR } = EventsManager.eventsList;
+
+    validateProxyConfig(proxySettings);
+
+    const { proxy_host, proxy_port, dynamo_db_host } = proxySettings.config;
+
     try {
-        // Validation
-        validateProxyConfig(proxySettings);
-        const { isActive, proxy_host, proxy_port, dynamo_db_host, middleware } = proxySettings.config;
-        if (isActive === false)
-            return null;
+        const koaServer = new Koa();
+        const koaRouter = new Router();
 
-        // Start server
-        const app = new koa();
-        app.use(convert(body({ limit: '10kb', fallback: true })));
-
-        // Assign middleware
-        middleware.forEach(requestedMiddleware => {
-            const middleware = MIDDLEWARE_LIST.find(middleware => middleware.label === requestedMiddleware);
-            (middleware)
-                ? app.use(middleware.resolver)
-                : EventsManager.emit(OUTPUT_LOG_WARNING, `No middleware found with name ${requestedMiddleware} `);
+        const middlewareCollection = middlewareFactoryGateway({
+            middlewareList: middlewareList,
+            proxyConfig: proxySettings.config,
+            serviceFunctions: proxySettings.serviceFunctions,
+            eventsManager: EventsManager,
+            proxyLogPrefix: LOG_PREFIX
         });
-        // TODO: @diego[refactor] Move the proxy function as a middleware
-        app.use(convert(index({ host: dynamo_db_host }))).listen(proxy_port);
+        koaServer.use(convert(body({ limit: '10kb', fallback: true })));
+        koaServer.use(stateInitMiddleware({ diego: "ciao" }));
+        koaServer.use(stateInjectEventsManagerMiddleware());
+        koaServer.use(stateInjectProxyLoggerPrefixMiddleware(LOG_PREFIX));
 
-        // Done
-        EventsManager.emit(OUTPUT_LOG_INFO, `${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`);
+        const serverMiddleware = middlewareCollection.filter(middleware => middleware.factoryType === 'SERVER');
+        serverMiddleware.map(middleware => koaServer.use(middleware.resolver));
+
+        const routerMiddleware = middlewareCollection.filter(middleware => middleware.factoryType === 'ROUTER');
+        routerMiddleware.map(middleware => koaRouter[middleware.method](middleware.route, middleware.resolver));
+
+        koaServer.use(koaRouter.routes());
+        koaServer.use(koaRouter.allowedMethods());
+        koaServer.use(convert(KoaProxy({ host: dynamo_db_host }))).listen(proxy_port);
+
+        EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`);
+
     } catch (e) {
-        EventsManager.emit(OUTPUT_LOG_ERROR, `${LOG_PREFIX} ${e.message}`);
+        EventsManager.emitLogError(`${LOG_PREFIX} ${e.message}`);
     }
+
 };
 
 /**
@@ -69,3 +72,4 @@ const validateProxyConfig = (config) => {
 
 
 module.exports = { DynamoDBProxy };
+//
