@@ -9,7 +9,8 @@
     "travis-deploy-once": "travis-deploy-once",
     "lerna-bootstrap": "lerna bootstrap --use-workspaces",
     "lerna-test": "lerna run test --use-workspaces",
-    "lerna-add": "lerna --use-workspaces add "
+    "lerna-add": "lerna --use-workspaces add ",
+    "lerna-publish" : "lerna publish --use-workspaces --conventional-commits"
   },
   "repository": {
     "type": "git",
