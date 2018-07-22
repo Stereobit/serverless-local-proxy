@@ -1,5 +1,11 @@
-const { factory: mockApiFactory, MIDDLEWARE_NAME: mockApiName } = require('@serverless-local-proxy/ddb_mock_api');
-const { factory: queryLoggerFactory, MIDDLEWARE_NAME: queryLoggerName } = require('@serverless-local-proxy/ddb_query_logger');
+const {
+    factory: mockApiFactory,
+    MIDDLEWARE_NAME: mockApiName
+} = require('@serverless-local-proxy/mw_ddb_mock_api');
+const {
+    factory: queryLoggerFactory,
+    MIDDLEWARE_NAME: queryLoggerName
+} = require('@serverless-local-proxy/mw_ddb_query_logger');
 
 const middlewareList = [
     {

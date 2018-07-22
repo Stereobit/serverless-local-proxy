@@ -1,5 +1,5 @@
 {
-    "name": "@serverless-local-proxy/",
+    "name": "@serverless-local-proxy/mw_ddb_mock_api",
     "version": "1.3.2",
     "description": "Serverless plugin",
     "main": "src/index.js",

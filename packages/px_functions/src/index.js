@@ -2,14 +2,15 @@ const EventsManager = require('@serverless-local-proxy/events_manager');
 const Koa = require('koa');
 const Router = require('koa-router');
 const { middlewareList } = require('./config/middlewarelist');
-const { middlewareFactoryGateway } = require('../factorygateway');
-const { factory: stateInjectStoreMiddleware } = require('../../shared/middleware/state/injectstore');
-const { factory: stateInjectEventsManagerMiddleware } = require('../../shared/middleware/state/injecteventmanager');
-const { factory: stateInjectProxyLoggerPrefixMiddleware } = require('../../shared/middleware/state/injectproxyloggerprefix');
-const { factory: storeInjectServiceFunctionsMiddleware } = require('../../shared/middleware/store/injectservicefunctions');
+const { middlewareFactoryGateway } = require('@serverless-local-proxy/utils_middleware');
+const { factory: stateInject } = require('@serverless-local-proxy/mw_state_inject');
+// const { factory: storeInjectServiceFunctionsMiddleware } = require('../../shared/middleware/store/injectservicefunctions');
 const LOG_PREFIX = 'FunctionsProxy::';
 
-EventsManager.bind(EventsManager.eventsList.PROXY_START_FUNCTIONS, (config) => functionsProxy(config));
+const init = (store) => {
+    EventsManager.bind(EventsManager.eventsList.PROXY_START_FUNCTIONS, (config) => functionsProxy(config, store));
+};
+
 
 /**
  * FunctionsProxy
@@ -35,10 +36,9 @@ const functionsProxy = async (proxySettings) => {
             proxyLogPrefix: LOG_PREFIX
         });
 
-        koaServer.use(stateInjectStoreMiddleware());
-        koaServer.use(stateInjectEventsManagerMiddleware());
-        koaServer.use(stateInjectProxyLoggerPrefixMiddleware(LOG_PREFIX));
-        koaServer.use(storeInjectServiceFunctionsMiddleware(proxySettings.serviceFunctions));
+        koaServer.use(stateInject('eventsManager', EventsManager));
+        koaServer.use(stateInject('proxyLoggerPrefix', LOG_PREFIX));
+        // koaServer.use(storeInjectServiceFunctionsMiddleware(proxySettings.serviceFunctions));
 
         middlewareCollection.map(middleware => (middleware.factoryType === 'SERVER')
             ? koaServer.use(middleware.resolver)
@@ -59,4 +59,4 @@ const validateProxyConfig = () => {
 
 };
 
-module.exports = { functionsProxy };
+module.exports = { init };

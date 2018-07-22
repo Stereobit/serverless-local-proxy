@@ -1,38 +1,69 @@
-const MIDDLEWARE_NAME = 'http_request_logger';
-const LOG_PREFIX = 'HttpRequestLogger::';
-const chalk = require('chalk');
-const { middlewareFormattedOutput } = require('@serverless-local-proxy/utils_middleware');
+const EventsManager = require('@serverless-local-proxy/events_manager');
+const Koa = require('koa');
+const Router = require('koa-router');
+const KoaProxy = require('koa-proxy');
+const body = require('koa-json-body');
+const convert = require('koa-convert');
+const { middlewareList } = require('./config/middlewarelist');
+const { middlewareFactoryGateway } = require('@serverless-local-proxy/utils_middleware');
+const { factory: stateInject } = require('@serverless-local-proxy/mw_state_inject');
+
+const LOG_PREFIX = 'DynamoDBProxy::';
+EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => DynamoDBProxy(config));
 
 /**
- * Factory
+ * DynamoDBTriggersProxy
  *
+ * @return {null}
+ * @constructor
+ * @param proxySettings
  */
-const factory = (config) => {
-    const { name: middlewareName } = config.middlewareConfig;
-    return {
-        middlewareName,
-        factoryType: 'SERVER',
-        resolver: async (ctx, next) => {
-            console.log(middlewareName);
-            const request = ctx.request;
-            const title = 'New http request';
-            const method = chalk.cyan(`METHOD: ${chalk.magenta(request.method)}`);
-            const url = chalk.cyan(`URL: ${chalk.magenta(request.url)}`);
-            const accept = chalk.cyan(`ACCEPT: ${chalk.magenta(request.header.accept)}`);
-            middlewareFormattedOutput(ctx, LOG_PREFIX, title, formatLogMessage(method, url, accept));
-            await next();
-        }
+const DynamoDBProxy = (proxySettings) => {
+
+    validateProxyConfig(proxySettings);
+
+    const { proxy_host, proxy_port, dynamo_db_host } = proxySettings.config;
+
+    try {
+        const koaServer = new Koa();
+        const koaRouter = new Router();
+
+        const middlewareCollection = middlewareFactoryGateway({
+            middlewareList: middlewareList,
+            proxyConfig: proxySettings.config,
+            serviceFunctions: proxySettings.serviceFunctions,
+            eventsManager: EventsManager,
+            proxyLogPrefix: LOG_PREFIX
+        });
+        koaServer.use(convert(body({ limit: '10kb', fallback: true })));
+        koaServer.use(stateInject('eventsManager', EventsManager));
+        koaServer.use(stateInject('proxyLoggerPrefix', LOG_PREFIX));
+
+        middlewareCollection.map(middleware => (middleware.factoryType === 'SERVER')
+            ? koaServer.use(middleware.resolver)
+            : koaRouter[middleware.method](middleware.route, middleware.resolver));
+
+        koaServer.use(koaRouter.routes());
+        koaServer.use(koaRouter.allowedMethods());
+        koaServer.use(convert(KoaProxy({ host: dynamo_db_host }))).listen(proxy_port);
+
+        EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`);
+
+    } catch (e) {
+        EventsManager.emitLogError(`${LOG_PREFIX} ${e.message}`);
     }
+
 };
 
 /**
- * FormatLogMessage
  *
- * @param method
- * @param url
- * @param accept
- * @return {string}
+ * @param config
+ * @return {*}
  */
-const formatLogMessage = (method, url, accept) => `${method} - ${url} \n${accept}`;
+const validateProxyConfig = (config) => {
+    //TODO: Validate config
+    return config;
+};
 
-module.exports = { factory,  };
+
+module.exports = { DynamoDBProxy };

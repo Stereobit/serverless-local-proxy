@@ -1,80 +1,77 @@
-const { fromJS } = require('immutable');
-const chalk = require('chalk');
-
-/**
- * GetMiddlewareState
- *
- * @param {{}} ctx
- * @param {string} middlewareName
- */
-const getMiddlewareState = (ctx, middlewareName) => {
-    const state = ctx.state.get(`${middlewareName}`);
-    return (state) ? state : createMiddlewareState(ctx, middlewareName);
+const EventEmitter = require('events').EventEmitter;
+const EVENTS = {
+    OUTPUT_LOG_INFO: 'OUTPUT_LOG_INFO',
+    OUTPUT_LOG_ERROR: 'OUTPUT_LOG_ERROR',
+    OUTPUT_LOG_WARNING: 'OUTPUT_LOG_WARNING',
+    FUNCTION_LIST_READY: 'FUNCTION_LIST_READY',
+    PROXY_START_DDB: 'PROXY_START_DDB',
+    PROXY_START_FUNCTIONS: 'PROXY_START_FUNCTIONS',
+    OUTPUT_MIDDLEWARE: 'OUTPUT_MIDDLEWARE'
 };
 
-/**
- * CreateMiddlewareState
- *
- * @param {{}} ctx
- * @param {string} middlewareName
- */
-const createMiddlewareState = (ctx, middlewareName) => {
-    ctx.state = ctx.state.set(middlewareName, fromJS({}));
-    return getMiddlewareState(ctx, middlewareName);
-};
+class EventsManager {
 
-/**
- * UpdateOutputState
- *
- * @param ctx
- * @param data
- */
-const updateMiddlewareOutputState = (ctx, data) => {
+    /**
+     * Constructor
+     *
+     */
+    constructor() {
+        this.emitter = new EventEmitter();
+        this.eventsList = {
+            [EVENTS.FUNCTION_LIST_READY]: EVENTS.FUNCTION_LIST_READY,
+            [EVENTS.PROXY_START_DDB]: EVENTS.PROXY_START_DDB,
+            [EVENTS.PROXY_START_FUNCTIONS]: EVENTS.PROXY_START_FUNCTIONS,
+            [EVENTS.OUTPUT_LOG_INFO]: EVENTS.OUTPUT_LOG_INFO,
+            [EVENTS.OUTPUT_LOG_ERROR]: EVENTS.OUTPUT_LOG_ERROR,
+            [EVENTS.OUTPUT_LOG_WARNING]: EVENTS.OUTPUT_LOG_WARNING,
+            [EVENTS.OUTPUT_MIDDLEWARE]: EVENTS.OUTPUT_MIDDLEWARE,
+        }
+    }
 
-    const output = ctx.state.get('output');
-    const outputMerged = output.merge({ 'output': data });
-    const valid = ctx.state.merge(outputMerged);
-    ctx.state.set(valid);
-};
+    /**
+     * BindEvent
+     *
+     */
+    bind(eventType, resolver) {
+        this.emitter.on(eventType, resolver)
+    }
 
-/**
- * UpdateMiddlewareState
- *
- * @param {{}} ctx
- * @param {string} middlewareName
- * @param {*} data
- */
-const updateMiddlewareState = (ctx, middlewareName, data) => {
-    getMiddlewareState(ctx, middlewareName);
-    ctx.state = ctx.state.merge({ [middlewareName]: fromJS(data) });
-};
+    /**
+     * Emit
+     *
+     * @param eventType
+     * @param data
+     */
+    emit(eventType, data) {
+        this.emitter.emit(eventType, data);
+    }
 
-/**
- * MiddlewareFormattedOutput
- *
- * @param {{}} ctx
- * @param {string} middlewareLogPrefix
- * @param {string} title
- * @param {string }message
- */
-const middlewareFormattedOutput = (ctx, middlewareLogPrefix, title, message) => {
-    const proxyPrefix = ctx.state.get('proxyLoggerPrefix');
-    const eventsManager = ctx.state.get('eventsManager');
-    const formattedTitle = chalk.cyan(`::: ${proxyPrefix.toUpperCase()}${middlewareLogPrefix.toUpperCase()}:: ${title.toUpperCase()}`);
-    const formattedMessage = `
-    
-${formattedTitle}
-${message}
+    /**
+     * EmitEventOutputLogInfo
+     *
+     * @param data
+     */
+    emitMiddlewareOutput(data) {
+        this.emit(EVENTS.OUTPUT_MIDDLEWARE, data)
+    }
 
-${chalk.dim.gray('________________________________________________________________________________________________________________________')}
-`;
-    eventsManager.emitMiddlewareOutput(formattedMessage)
-};
+    /**
+     * EmitEventOutputLogInfo
+     *
+     * @param data
+     */
+    emitLogInfo(data) {
+        this.emit(EVENTS.OUTPUT_LOG_INFO, data)
+    }
 
-module.exports = {
-    getMiddlewareState,
-    createMiddlewareState,
-    updateMiddlewareState,
-    middlewareFormattedOutput,
-    updateMiddlewareOutputState
-};
+    /**
+     * EmitEventOutputLogInfo
+     *
+     * @param data
+     */
+    emitLogError(data) {
+        this.emit(EVENTS.OUTPUT_LOG_ERROR, data)
+    }
+}
+
+module.exports = new EventsManager;

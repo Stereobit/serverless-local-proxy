@@ -1,3 +1,4 @@
+const MIDDLEWARE_NAME = 'functions_to_http';
 const LOG_PREFIX = 'Http::';
 const HTTP_METHODS = { GET: 'get', POST: 'post' };
 /**
@@ -28,8 +29,8 @@ const factory = (config) => {
                             : null
                     )
                 };
-                const dispatch = ctx.state.get('store').get('dispatch');
-                dispatch({ type: 'SUPERPOWER' });
+                //const dispatch = ctx.state.get('store').get('dispatch');
+                //dispatch({ type: 'SUPERPOWER' });
                 await next();
             }
         }
@@ -68,4 +69,4 @@ const logEndpointCreated = (config, httpMethod, functionName) => {
     );
 };
 
-module.exports = { factory };
+module.exports = { factory, MIDDLEWARE_NAME };

@@ -1,8 +1,8 @@
 const manifest = require('../../config/manifest');
+const EventsManager = require('@serverless-local-proxy/events_manager');
 const { Utils } = require('../utils/utils');
 const { mapMiddlewareSettingsToFunctions } = require('../utils/functions');
 const AWS = require('aws-sdk');
-const EventsManager = require('../events/Manager');
 const chalk = require('chalk');
 const AVAILABLE_PROXIES = {
     DYNAMODB: 'dynamodb',
