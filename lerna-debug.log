@@ -1,0 +1,42 @@
+0 silly input [ 'test' ]
+1 silly flags { _: [ 'run' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   'use-workspaces': true,
+1 silly flags   useWorkspaces: true,
+1 silly flags   script: 'test',
+1 silly flags   args: [] }
+2 verbose rootPath /Users/danniballo/development/lab/serverless-proxy
+3 info version 2.11.0
+4 silly existsSync /Users/danniballo/development/lab/serverless-proxy/VERSION
+5 silly initialize attempt
+6 silly initialize success
+7 silly execute attempt
+8 silly runScriptInDir test [] mw_functions_to_http
+9 silly getExecOpts { cwd: '/Users/danniballo/development/lab/serverless-proxy/packages/mw_functions_to_http' }
+10 error test Errored while running script in '@serverless-local-proxy/mw_functions_to_http'
+11 error execute callback with error
+12 error Error: Command failed: npm run test
+12 error npm ERR! code ELIFECYCLE
+12 error npm ERR! errno 1
+12 error npm ERR! @serverless-local-proxy/mw_functions_to_http@1.3.2 test: `jest`
+12 error npm ERR! Exit status 1
+12 error npm ERR!
+12 error npm ERR! Failed at the @serverless-local-proxy/mw_functions_to_http@1.3.2 test script.
+12 error npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+12 error
+12 error npm ERR! A complete log of this run can be found in:
+12 error npm ERR!     /Users/danniballo/.npm/_logs/2018-07-22T11_56_23_121Z-debug.log
+12 error
+12 error > @serverless-local-proxy/mw_functions_to_http@1.3.2 test /Users/danniballo/development/lab/serverless-proxy/packages/mw_functions_to_http
+12 error > jest
+12 error
+12 error No tests found
+12 error In /Users/danniballo/development/lab/serverless-proxy/packages/mw_functions_to_http
+12 error   4 files checked.
+12 error   testMatch: **/__tests__/**/*.js?(x),**/?(*.)+(spec|test).js?(x) - 0 matches
+12 error   testPathIgnorePatterns: /node_modules/ - 4 matches
+12 error Pattern:  - 0 matches
+12 error
+12 error     at Promise.all.then.arr (/Users/danniballo/development/lab/serverless-proxy/node_modules/lerna/node_modules/execa/index.js:236:11)
+12 error     at <anonymous>

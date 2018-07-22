@@ -1,14 +1,25 @@
 language: node_js
+node_js:
+  - '9'
+  - '8'
+install:
+  - npm install -g yarn
+  - npm install -g jest
+  - npm install -g codecov
+  - npm install -g lerna
+  - npm install
+script:
+- yarn lerna-bootstrap
+- yarn lerna-test
 cache:
   directories:
     - ~/.npm
 notifications:
   email: false
-node_js:
-  - '9'
-  - '8'
+
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  # - npm run travis-deploy-once "npm run lerna-test"
+
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
