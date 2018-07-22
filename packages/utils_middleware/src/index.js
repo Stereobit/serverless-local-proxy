@@ -1,5 +1,5 @@
-const { fromJS } = require('immutable');
-const chalk = require('chalk');
+const { fromJS } = require('immutable')
+const chalk = require('chalk')
 
 /**
  * GetMiddlewareState
@@ -8,9 +8,9 @@ const chalk = require('chalk');
  * @param {string} middlewareName
  */
 const getMiddlewareState = (ctx, middlewareName) => {
-    const state = ctx.state.get(`${middlewareName}`);
-    return (state) ? state : createMiddlewareState(ctx, middlewareName);
-};
+  const state = ctx.state.get(`${middlewareName}`)
+  return (state) || createMiddlewareState(ctx, middlewareName)
+}
 
 /**
  * CreateMiddlewareState
@@ -19,9 +19,9 @@ const getMiddlewareState = (ctx, middlewareName) => {
  * @param {string} middlewareName
  */
 const createMiddlewareState = (ctx, middlewareName) => {
-    ctx.state = ctx.state.set(middlewareName, fromJS({}));
-    return getMiddlewareState(ctx, middlewareName);
-};
+  ctx.state = ctx.state.set(middlewareName, fromJS({}))
+  return getMiddlewareState(ctx, middlewareName)
+}
 
 /**
  * UpdateOutputState
@@ -30,12 +30,11 @@ const createMiddlewareState = (ctx, middlewareName) => {
  * @param data
  */
 const updateMiddlewareOutputState = (ctx, data) => {
-
-    const output = ctx.state.get('output');
-    const outputMerged = output.merge({ 'output': data });
-    const valid = ctx.state.merge(outputMerged);
-    ctx.state.set(valid);
-};
+  const output = ctx.state.get('output')
+  const outputMerged = output.merge({ 'output': data })
+  const valid = ctx.state.merge(outputMerged)
+  ctx.state.set(valid)
+}
 
 /**
  * UpdateMiddlewareState
@@ -45,9 +44,9 @@ const updateMiddlewareOutputState = (ctx, data) => {
  * @param {*} data
  */
 const updateMiddlewareState = (ctx, middlewareName, data) => {
-    getMiddlewareState(ctx, middlewareName);
-    ctx.state = ctx.state.merge({ [middlewareName]: fromJS(data) });
-};
+  getMiddlewareState(ctx, middlewareName)
+  ctx.state = ctx.state.merge({ [middlewareName]: fromJS(data) })
+}
 
 /**
  * MiddlewareFactoryGateway
@@ -56,27 +55,26 @@ const updateMiddlewareState = (ctx, middlewareName, data) => {
  * @return {Array}
  */
 const middlewareFactoryGateway = (config) => {
-    const { proxyConfig, middlewareList } = config;
-    const factoriesArray = [];
-    proxyConfig.middleware.forEach(proxyConfigMiddleware => {
-        const middleware = middlewareList.find(availableMiddleware => availableMiddleware.name === proxyConfigMiddleware);
-        if (middleware)
-            factoriesArray.push(middleware);
-    });
-    const middlewareArray = [];
-    factoriesArray.forEach(middleware => {
-        const factoryResult = middleware.factory({
-            middlewareConfig: extractMiddlewareConfig(proxyConfig, middleware.name),
-            ...config
-        });
-        if (factoryResult instanceof Array) {
-            factoryResult.forEach(factoryElement => middlewareArray.push(factoryElement))
-        } else {
-            middlewareArray.push(factoryResult);
-        }
-    });
-    return middlewareArray;
-};
+  const { proxyConfig, middlewareList } = config
+  const factoriesArray = []
+  proxyConfig.middleware.forEach(proxyConfigMiddleware => {
+    const middleware = middlewareList.find(availableMiddleware => availableMiddleware.name === proxyConfigMiddleware)
+    if (middleware) { factoriesArray.push(middleware) }
+  })
+  const middlewareArray = []
+  factoriesArray.forEach(middleware => {
+    const factoryResult = middleware.factory({
+      middlewareConfig: extractMiddlewareConfig(proxyConfig, middleware.name),
+      ...config
+    })
+    if (factoryResult instanceof Array) {
+      factoryResult.forEach(factoryElement => middlewareArray.push(factoryElement))
+    } else {
+      middlewareArray.push(factoryResult)
+    }
+  })
+  return middlewareArray
+}
 
 /**
  * Extract middleware global settings
@@ -86,9 +84,9 @@ const middlewareFactoryGateway = (config) => {
  * @return {*}
  */
 const extractMiddlewareConfig = (proxyConfig, middlewareName) => {
-    const nameWithSuffix = `${middlewareName}_middleware`;
-    return Object.assign({}, proxyConfig[nameWithSuffix], { name: nameWithSuffix });
-};
+  const nameWithSuffix = `${middlewareName}_middleware`
+  return Object.assign({}, proxyConfig[nameWithSuffix], { name: nameWithSuffix })
+}
 
 /**
  * MiddlewareFormattedOutput
@@ -98,26 +96,25 @@ const extractMiddlewareConfig = (proxyConfig, middlewareName) => {
  * @param {string} title
  * @param {string }message
  */
-const middlewareFormattedOutput = (ctx = '', middlewareLogPrefix, title='', message='') => {
-    const proxyPrefix = ctx.state.get('proxyLoggerPrefix');
-    const eventsManager = ctx.state.get('eventsManager');
-    const formattedTitle = chalk.cyan(`::: ${proxyPrefix.toUpperCase()}${middlewareLogPrefix.toUpperCase()}:: ${title.toUpperCase()}`);
-    const formattedMessage = `    
+const middlewareFormattedOutput = (ctx = '', middlewareLogPrefix, title = '', message = '') => {
+  const proxyPrefix = ctx.state.get('proxyLoggerPrefix')
+  const eventsManager = ctx.state.get('eventsManager')
+  const formattedTitle = chalk.cyan(`::: ${proxyPrefix.toUpperCase()}${middlewareLogPrefix.toUpperCase()}:: ${title.toUpperCase()}`)
+  const formattedMessage = `    
 ${formattedTitle}
 ${message}
 
 ${chalk.dim.gray('________________________________________________________________________________________________________________________')}
-`;
-    eventsManager.emitMiddlewareOutput(formattedMessage)
-};
-
+`
+  eventsManager.emitMiddlewareOutput(formattedMessage)
+}
 
 module.exports = {
-    getMiddlewareState,
-    createMiddlewareState,
-    updateMiddlewareState,
-    middlewareFormattedOutput,
-    updateMiddlewareOutputState,
-    middlewareFactoryGateway,
-    extractMiddlewareConfig
-};
+  getMiddlewareState,
+  createMiddlewareState,
+  updateMiddlewareState,
+  middlewareFormattedOutput,
+  updateMiddlewareOutputState,
+  middlewareFactoryGateway,
+  extractMiddlewareConfig
+}

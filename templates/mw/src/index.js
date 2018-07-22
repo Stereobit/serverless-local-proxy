@@ -1,5 +1,5 @@
-const MIDDLEWARE_NAME = 'your_middleware_name';
-const LOG_PREFIX = 'YOUR_MIDDLEWARE_LOG_PREFIX::';
+const MIDDLEWARE_NAME = 'your_middleware_name'
+const LOG_PREFIX = 'YOUR_MIDDLEWARE_LOG_PREFIX::'
 
 /**
  * Factory
@@ -8,16 +8,14 @@ const LOG_PREFIX = 'YOUR_MIDDLEWARE_LOG_PREFIX::';
  * @return {{middlewareName: *, factoryType: string, resolver: resolver}}
  */
 const factory = (config) => {
-    const { name: middlewareName } = config.middlewareConfig;
-    return {
-        middlewareName,
-        factoryType: 'SERVER',
-        resolver: async (ctx, next) => {
-
-            await next();
-        }
+  const { name: middlewareName } = config.middlewareConfig
+  return {
+    middlewareName,
+    factoryType: 'SERVER',
+    resolver: async (ctx, next) => {
+      await next()
     }
-};
+  }
+}
 
-
-module.exports = { factory, MIDDLEWARE_NAME };
+module.exports = { factory, MIDDLEWARE_NAME }

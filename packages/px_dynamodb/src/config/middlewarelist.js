@@ -1,21 +1,21 @@
 const {
-    factory: mockApiFactory,
-    MIDDLEWARE_NAME: mockApiName
-} = require('@serverless-local-proxy/mw_ddb_mock_api');
+  factory: mockApiFactory,
+  MIDDLEWARE_NAME: mockApiName
+} = require('@serverless-local-proxy/mw_ddb_mock_api')
 const {
-    factory: queryLoggerFactory,
-    MIDDLEWARE_NAME: queryLoggerName
-} = require('@serverless-local-proxy/mw_ddb_query_logger');
+  factory: queryLoggerFactory,
+  MIDDLEWARE_NAME: queryLoggerName
+} = require('@serverless-local-proxy/mw_ddb_query_logger')
 
 const middlewareList = [
-    {
-        name: mockApiName,
-        factory: mockApiFactory
-    },
-    {
-        name: queryLoggerName,
-        factory: queryLoggerFactory
-    },
-];
+  {
+    name: mockApiName,
+    factory: mockApiFactory
+  },
+  {
+    name: queryLoggerName,
+    factory: queryLoggerFactory
+  }
+]
 
-module.exports = { middlewareList };
+module.exports = { middlewareList }

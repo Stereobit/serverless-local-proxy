@@ -1,5 +1,5 @@
-const MIDDLEWARE_NAME = 'state_inject';
-const { fromJS } = require('immutable');
+const MIDDLEWARE_NAME = 'state_inject'
+const { fromJS } = require('immutable')
 
 /**
  * Inject store
@@ -7,14 +7,14 @@ const { fromJS } = require('immutable');
  * @return {Function}
  */
 const factory = (key, value) => {
-    return async (ctx, next) => {
-        if (Object.values(ctx.state) <= 0) {
-            ctx.state = fromJS({});
-        }
-        const { state } = ctx;
-        ctx.state = state.set(key, fromJS(value));
-        await next();
+  return async (ctx, next) => {
+    if (Object.values(ctx.state) <= 0) {
+      ctx.state = fromJS({})
     }
-};
+    const { state } = ctx
+    ctx.state = state.set(key, fromJS(value))
+    await next()
+  }
+}
 
-module.exports = { factory, MIDDLEWARE_NAME };
+module.exports = { factory, MIDDLEWARE_NAME }
