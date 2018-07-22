@@ -9,14 +9,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **Lerna:** Implement lerna ([3fc9709](https://github.com/serverless-local-proxy/commit/3fc9709))
-
-
-
-
-<a name="1.3.3"></a>
-## [1.3.3](https://github.com/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)
-
-
-
-
-**Note:** Version bump only for package @serverless-local-proxy/events_manager
