@@ -10,7 +10,7 @@
     "lerna-bootstrap": "lerna bootstrap --use-workspaces",
     "lerna-test": "lerna run test --use-workspaces",
     "lerna-add": "lerna --use-workspaces add ",
-    "lerna-publish" : "lerna publish --use-workspaces --conventional-commits"
+    "lerna-publish" : "lerna publish --use-workspaces --conventional-commits --npm-tag=latest"
   },
   "repository": {
     "type": "git",
