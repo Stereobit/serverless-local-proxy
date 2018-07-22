@@ -36,7 +36,7 @@ class Utils {
 
 
     static asciiGreeting() {
-        const packageInfo = require('../../package');
+        const packageInfo = require('../../../../package');
 
         return `
                                _                     _                 _                                 

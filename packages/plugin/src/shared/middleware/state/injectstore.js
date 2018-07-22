@@ -1,13 +1,13 @@
 const { fromJS } = require('immutable');
-const { store } = require('../../../redux');
+const { store } = require('../../../redux/index');
 /**
  * Inject store
  *
  * @return {Function}
  */
-const factory = (functionsList) => {
+const factory = () => {
     return async (ctx, next) => {
-        console.log(functionsList);
+        ctx.state = fromJS({ store });
         await next();
     }
 };
