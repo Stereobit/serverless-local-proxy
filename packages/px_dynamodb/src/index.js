@@ -4,12 +4,13 @@ const Router = require('koa-router')
 const KoaProxy = require('koa-proxy')
 const body = require('koa-json-body')
 const convert = require('koa-convert')
-const { middlewareList } = require('./config/middlewarelist')
-const { middlewareFactoryGateway } = require('@serverless-local-proxy/utils_middleware')
-const { factory: stateInject } = require('@serverless-local-proxy/mw_state_inject')
+const {middlewareList} = require('./config/middlewarelist')
+const {middlewareFactoryGateway} = require('@serverless-local-proxy/utils_middleware')
+const {factory: stateInject} = require('@serverless-local-proxy/mw_state_inject')
 
 const LOG_PREFIX = 'DynamoDBProxy::'
-EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => DynamoDBProxy(config))
+
+EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => dynamoDbProxy(config))
 
 /**
  * DynamoDBTriggersProxy
@@ -18,10 +19,11 @@ EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => DynamoD
  * @constructor
  * @param proxySettings
  */
-const DynamoDBProxy = (proxySettings) => {
-  validateProxyConfig(proxySettings)
+const dynamoDbProxy = (proxySettings) => {
 
-  const { proxy_host, proxy_port, dynamo_db_host } = proxySettings.config
+  validateProxyConfig(proxySettings)
+  const {store} = proxySettings
+  const {proxy_host, proxy_port, dynamo_db_host} = proxySettings.config
 
   try {
     const koaServer = new Koa()
@@ -34,9 +36,11 @@ const DynamoDBProxy = (proxySettings) => {
       eventsManager: EventsManager,
       proxyLogPrefix: LOG_PREFIX
     })
-    koaServer.use(convert(body({ limit: '10kb', fallback: true })))
+
+    koaServer.use(convert(body({limit: '10kb', fallback: true})))
     koaServer.use(stateInject('eventsManager', EventsManager))
     koaServer.use(stateInject('proxyLoggerPrefix', LOG_PREFIX))
+    koaServer.use(stateInject('store', store))
 
     middlewareCollection.map(middleware => (middleware.factoryType === 'SERVER')
       ? koaServer.use(middleware.resolver)
@@ -44,7 +48,7 @@ const DynamoDBProxy = (proxySettings) => {
 
     koaServer.use(koaRouter.routes())
     koaServer.use(koaRouter.allowedMethods())
-    koaServer.use(convert(KoaProxy({ host: dynamo_db_host }))).listen(proxy_port)
+    koaServer.use(convert(KoaProxy({host: dynamo_db_host}))).listen(proxy_port)
 
     EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`)
   } catch (e) {
@@ -62,4 +66,4 @@ const validateProxyConfig = (config) => {
   return config
 }
 
-module.exports = { DynamoDBProxy }
+module.exports = {dynamoDbProxy}

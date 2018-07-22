@@ -1,15 +1,12 @@
 const EventsManager = require('@serverless-local-proxy/events_manager')
 const Koa = require('koa')
 const Router = require('koa-router')
-const { middlewareList } = require('./config/middlewarelist')
-const { middlewareFactoryGateway } = require('@serverless-local-proxy/utils_middleware')
-const { factory: stateInject } = require('@serverless-local-proxy/mw_state_inject')
-// const { factory: storeInjectServiceFunctionsMiddleware } = require('../../shared/middleware/store/injectservicefunctions');
+const {middlewareList} = require('./config/middlewarelist')
+const {middlewareFactoryGateway} = require('@serverless-local-proxy/utils_middleware')
+const {factory: stateInject} = require('@serverless-local-proxy/mw_state_inject')
 const LOG_PREFIX = 'FunctionsProxy::'
 
-const init = (store) => {
-  EventsManager.bind(EventsManager.eventsList.PROXY_START_FUNCTIONS, (config) => functionsProxy(config, store))
-}
+EventsManager.bind(EventsManager.eventsList.PROXY_START_FUNCTIONS, (config) => functionsProxy(config))
 
 /**
  * FunctionsProxy
@@ -17,10 +14,11 @@ const init = (store) => {
  * @constructor
  * @param proxySettings
  */
-const functionsProxy = async (proxySettings) => {
+const functionsProxy = (proxySettings) => {
   validateProxyConfig(proxySettings)
 
-  const { proxy_host, proxy_port } = proxySettings.config
+  const {store} = proxySettings
+  const {proxy_host, proxy_port} = proxySettings.config
 
   try {
     const koaServer = new Koa()
@@ -36,7 +34,7 @@ const functionsProxy = async (proxySettings) => {
 
     koaServer.use(stateInject('eventsManager', EventsManager))
     koaServer.use(stateInject('proxyLoggerPrefix', LOG_PREFIX))
-    // koaServer.use(storeInjectServiceFunctionsMiddleware(proxySettings.serviceFunctions));
+    koaServer.use(stateInject('store', store))
 
     middlewareCollection.map(middleware => (middleware.factoryType === 'SERVER')
       ? koaServer.use(middleware.resolver)
@@ -56,4 +54,4 @@ const validateProxyConfig = () => {
 
 }
 
-module.exports = { init }
+module.exports = {functionsProxy}

@@ -1,23 +1,25 @@
 const manifest = require('../../config/manifest')
+const {store} = require('../redux')
 const EventsManager = require('@serverless-local-proxy/events_manager')
-const { Utils } = require('../utils/utils')
-const { mapMiddlewareSettingsToFunctions } = require('../utils/functions')
+const {Utils} = require('../utils/utils')
+const {mapMiddlewareSettingsToFunctions} = require('../utils/functions')
 const AWS = require('aws-sdk')
 const chalk = require('chalk')
 const AVAILABLE_PROXIES = {
   DYNAMODB: 'dynamodb',
   FUNCTIONS: 'functions'
 }
-const LOGGER_LEVEL = { INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS: 'NO_TAGS' }
+const LOGGER_LEVEL = {INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS: 'NO_TAGS'}
 const LOGGER_PREFIX = '[SLS-LOCAL-PROXY]'
 
 class Plugin {
+
   /**
-     * Constructor
-     *
-     * @param serverless
-     * @param options
-     */
+   * Constructor
+   *
+   * @param serverless
+   * @param options
+   */
   constructor (serverless, options) {
     this.serverless = serverless
     this.options = options
@@ -31,17 +33,14 @@ class Plugin {
   }
 
   /**
-     * ConfigureHooks
-     *
-     * @return {{
+   * ConfigureHooks
+   *
+   * @return {{
      *  "before:proxy:start:init": Function,
      *  "proxy:start:init": Function,
      *  "after:proxy:start:init": Function,
-     *  "before:proxy:stop:end": Function,
-     *  "proxy:stop:end": Function,
-     *  "after:proxy:stop:end": Function
      *  }}
-     */
+   */
   configureHooks () {
     return {
       'before:proxy:start:init': this.beforeStart.bind(this),
@@ -51,20 +50,22 @@ class Plugin {
   }
 
   /**
-     * ConfigureProxies
-     *
-     */
+   * ConfigureProxies
+   *
+   */
   configureProxies () {
     this.log('Configuring proxies')
     const proxiesConfig = this.serverless.service.custom.serverlessProxy
+
     proxiesConfig.proxies.map(proxy => {
       // Dynamo Proxy
       if (proxy.hasOwnProperty(AVAILABLE_PROXIES.DYNAMODB) && proxy[AVAILABLE_PROXIES.DYNAMODB].isActive) {
         EventsManager.emit(
           EventsManager.eventsList.PROXY_START_DDB,
           {
+            store,
             config: proxy[AVAILABLE_PROXIES.DYNAMODB],
-            serviceFunctions: this.functionsCollection[Symbol.iterator]()
+            serviceFunctions: Array.from(this.functionsCollection.values())
           }
         )
       }
@@ -73,11 +74,12 @@ class Plugin {
         EventsManager.emit(
           EventsManager.eventsList.PROXY_START_FUNCTIONS,
           {
+            store,
             config: proxy[AVAILABLE_PROXIES.FUNCTIONS],
             serviceFunctions: mapMiddlewareSettingsToFunctions(
               Array.from(this.functionsCollection.values()),
               proxy[AVAILABLE_PROXIES.FUNCTIONS].configFunctions
-            )
+            ),
           }
         )
       }
@@ -85,9 +87,9 @@ class Plugin {
   }
 
   /**
-     * ConfigureFunctions
-     *
-     */
+   * ConfigureFunctions
+   *
+   */
   configureFunctions () {
     this.log('Configuring functions')
     Utils.extractFunctionsList(this.serverless.service.functions)
@@ -97,13 +99,13 @@ class Plugin {
   }
 
   /**
-     * ConfigureEnvironment
-     *
-     */
+   * ConfigureEnvironment
+   *
+   */
   configureEnvironment () {
     this.log('Configuring environment')
     // TODO: @diego[FIX] Probably, there is a better way to retrieve credentials in the Serverless framework...
-    const awsCredentials = new AWS.SharedIniFileCredentials({ profile: this.serverless.service.provider.profile })
+    const awsCredentials = new AWS.SharedIniFileCredentials({profile: this.serverless.service.provider.profile})
     process.env.AWS_ACCESS_KEY_ID = awsCredentials.accessKeyId
     process.env.AWS_SECRET_ACCESS_KEY = awsCredentials.secretAccessKey
     process.env.AWS_SESSION_TOKEN = awsCredentials.sessionToken
@@ -115,11 +117,11 @@ class Plugin {
   }
 
   /**
-     * Log
-     *
-     * @param {string} message
-     * @param {string} level
-     */
+   * Log
+   *
+   * @param {string} message
+   * @param {string} level
+   */
   log (message, level = LOGGER_LEVEL.INFO) {
     switch (level) {
       case LOGGER_LEVEL.INFO:
@@ -135,9 +137,9 @@ class Plugin {
   }
 
   /**
-     * BeforeStart
-     *
-     */
+   * BeforeStart
+   *
+   */
   beforeStart () {
     this.log(Utils.asciiGreeting(), LOGGER_LEVEL.NO_TAGS)
     this.configureEnvironment()
@@ -146,18 +148,18 @@ class Plugin {
   }
 
   /**
-     * ProxyStart
-     */
+   * ProxyStart
+   */
   proxyStart () {
     this.log('Proxy start command done')
   }
 
   /**
-     * AfterStart
-     */
+   * AfterStart
+   */
   afterStart () {
     this.log(`All proxies were loaded\n`)
   }
 }
 
-module.exports = { Plugin }
+module.exports = {Plugin}

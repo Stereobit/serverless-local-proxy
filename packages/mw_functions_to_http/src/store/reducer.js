@@ -1,12 +1,19 @@
-const ACTIONS = require('./actions')
+const {ACTIONS} = require('./actions')
 
+/**
+ * Reducer
+ *
+ * @param state
+ * @param action
+ * @return {{functionName: *}}
+ */
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case ACTIONS.INVOKED_FUNCTION:
-      return { ...state, functionName: action.functionName }
+      return {...state, functionName: action.functionName}
     default:
       return state
   }
 }
 
-module.exports = { reducer }
+module.exports = {reducer}

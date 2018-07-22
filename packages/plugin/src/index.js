@@ -4,5 +4,5 @@ require('@serverless-local-proxy/px_dynamodb')
 require('@serverless-local-proxy/px_functions')
 require('@serverless-local-proxy/hotreload')
 require('https')
-const { Plugin: ServerlessLocalProxy } = require('./plugin')
+const {Plugin: ServerlessLocalProxy} = require('./plugin')
 module.exports = ServerlessLocalProxy
