@@ -1,0 +1,58 @@
+0 silly input [ 'test' ]
+1 silly flags { _: [ 'run' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   'use-workspaces': true,
+1 silly flags   useWorkspaces: true,
+1 silly flags   script: 'test',
+1 silly flags   args: [] }
+2 verbose rootPath /Users/danniballo/development/lab/serverless-proxy
+3 info version 2.11.0
+4 silly existsSync /Users/danniballo/development/lab/serverless-proxy/VERSION
+5 silly initialize attempt
+6 silly initialize success
+7 silly execute attempt
+8 silly runScriptInDir test [] plugin
+9 silly getExecOpts { cwd: '/Users/danniballo/development/lab/serverless-proxy/packages/plugin' }
+10 error test Errored while running script in 'serverless-local-proxy'
+11 error execute callback with error
+12 error Error: Command failed: npm run test
+12 error PASS tests/test.test.js
+12 error   ✓ adds 1 + 2 to equal 3 (7ms)
+12 error
+12 error FAIL tests/shared/middleware/state.test.js
+12 error   ● Test suite failed to run
+12 error
+12 error     Cannot find module '../../../src/shared/middleware/state/stateinit' from 'state.test.js'
+12 error
+12 error     > 1 | const { factory } = require('../../../src/shared/middleware/state/stateinit');
+12 error         |                                                ^
+12 error       2 |
+12 error       3 | const { testMiddleware } = require('../../library/middleware');
+12 error       4 |
+12 error
+12 error       at Resolver.resolveModule (../../node_modules/jest-resolve/build/index.js:221:17)
+12 error       at Object.<anonymous> (tests/shared/middleware/state.test.js:1:48)
+12 error
+12 error Test Suites: 1 failed, 1 passed, 2 total
+12 error Tests:       1 passed, 1 total
+12 error Snapshots:   0 total
+12 error Time:        1.207s
+12 error Ran all test suites.
+12 error npm ERR! code ELIFECYCLE
+12 error npm ERR! errno 1
+12 error npm ERR! serverless-local-proxy@1.3.1 test: `jest`
+12 error npm ERR! Exit status 1
+12 error npm ERR!
+12 error npm ERR! Failed at the serverless-local-proxy@1.3.1 test script.
+12 error npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+12 error
+12 error npm ERR! A complete log of this run can be found in:
+12 error npm ERR!     /Users/danniballo/.npm/_logs/2018-07-22T11_01_23_513Z-debug.log
+12 error
+12 error > serverless-local-proxy@1.3.1 test /Users/danniballo/development/lab/serverless-proxy/packages/plugin
+12 error > jest
+12 error
+12 error
+12 error     at Promise.all.then.arr (/usr/local/lib/node_modules/lerna/node_modules/execa/index.js:236:11)
+12 error     at <anonymous>

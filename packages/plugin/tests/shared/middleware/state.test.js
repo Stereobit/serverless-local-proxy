@@ -1,4 +1,4 @@
-const { factory } = require('../../../src/shared/middleware/state/stateinit');
+const { factory } = require('../../../src/shared/middleware/state/injectstore');
 
 const { testMiddleware } = require('../../library/middleware');
 
