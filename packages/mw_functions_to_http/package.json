@@ -17,11 +17,9 @@
     },
     "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
     "peerDependencies": {
-        "serverless": "^1.28.0"
     },
     "devDependencies": {
         "babel-eslint": "^8.2.3",
-        "commitizen": "^2.7.6",
         "eslint": "^4.19.1",
         "jest": "^23.4.1"
     },

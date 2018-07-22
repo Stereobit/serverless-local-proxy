@@ -14,7 +14,6 @@ function counter(state = 0, action) {
 }
 
 const rootReducer = combineReducers({ testReducer: counter });
-
 const config = (process.env.LOCAL_PROXY_ENABLE_DEV) ? { realtime: true, port: 8001 } : { realtime: false };
 const store = createStore(rootReducer, devToolsEnhancer(config));
 
