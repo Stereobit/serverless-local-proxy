@@ -6,7 +6,7 @@ const convert = require('koa-convert');
 const EventsManager = require('../../events/Manager');
 const { middlewareList } = require('./config/middlewarelist');
 const { middlewareFactoryGateway } = require('../factorygateway');
-const { factory: stateInitMiddleware } = require('../../shared/middleware/state/stateinit');
+const { factory: stateInjectStore } = require('../../shared/middleware/state/injectstore');
 const { factory: stateInjectEventsManagerMiddleware } = require('../../shared/middleware/state/injecteventmanager');
 const { factory: stateInjectProxyLoggerPrefixMiddleware } = require('../../shared/middleware/state/injectproxyloggerprefix');
 
@@ -38,7 +38,7 @@ const DynamoDBProxy = (proxySettings) => {
             proxyLogPrefix: LOG_PREFIX
         });
         koaServer.use(convert(body({ limit: '10kb', fallback: true })));
-        koaServer.use(stateInitMiddleware({ diego: "ciao" }));
+        koaServer.use(stateInjectStore());
         koaServer.use(stateInjectEventsManagerMiddleware());
         koaServer.use(stateInjectProxyLoggerPrefixMiddleware(LOG_PREFIX));
 

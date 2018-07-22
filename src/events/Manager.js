@@ -5,7 +5,8 @@ const EVENTS = {
     OUTPUT_LOG_WARNING: 'OUTPUT_LOG_WARNING',
     FUNCTION_LIST_READY: 'FUNCTION_LIST_READY',
     PROXY_START_DDB: 'PROXY_START_DDB',
-    PROXY_START_FUNCTIONS: 'PROXY_START_FUNCTIONS'
+    PROXY_START_FUNCTIONS: 'PROXY_START_FUNCTIONS',
+    OUTPUT_MIDDLEWARE: 'OUTPUT_MIDDLEWARE'
 };
 
 class EventsManager {
@@ -23,6 +24,7 @@ class EventsManager {
             [EVENTS.OUTPUT_LOG_INFO]: EVENTS.OUTPUT_LOG_INFO,
             [EVENTS.OUTPUT_LOG_ERROR]: EVENTS.OUTPUT_LOG_ERROR,
             [EVENTS.OUTPUT_LOG_WARNING]: EVENTS.OUTPUT_LOG_WARNING,
+            [EVENTS.OUTPUT_MIDDLEWARE]: EVENTS.OUTPUT_MIDDLEWARE,
         }
     }
 
@@ -42,6 +44,15 @@ class EventsManager {
      */
     emit(eventType, data) {
         this.emitter.emit(eventType, data);
+    }
+
+    /**
+     * EmitEventOutputLogInfo
+     *
+     * @param data
+     */
+    emitMiddlewareOutput(data) {
+        this.emit(EVENTS.OUTPUT_MIDDLEWARE, data)
     }
 
     /**

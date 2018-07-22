@@ -28,6 +28,7 @@ class Plugin {
         EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_INFO, (message) => this.log(message, LOGGER_LEVEL.INFO));
         EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_ERROR, (message) => this.log(message, LOGGER_LEVEL.ERROR));
         EventsManager.bind(EventsManager.eventsList.OUTPUT_LOG_WARNING, (message) => this.log(message, LOGGER_LEVEL.WARNING));
+        EventsManager.bind(EventsManager.eventsList.OUTPUT_MIDDLEWARE, (message) => this.log(message, LOGGER_LEVEL.NO_TAGS));
     }
 
     /**
@@ -130,7 +131,7 @@ class Plugin {
                 return this.serverless.cli.log(`${LOGGER_PREFIX}[${LOGGER_LEVEL.WARNING}] ⚠️️  ${message}`);
             case LOGGER_LEVEL.NO_TAGS:
             default:
-                return this.serverless.cli.log(message);
+                console.log(message);
         }
     }
 
@@ -156,7 +157,7 @@ class Plugin {
      * AfterStart
      */
     afterStart() {
-        this.log('All proxies were loaded');
+        this.log(`All proxies were loaded\n`);
     }
 }
 

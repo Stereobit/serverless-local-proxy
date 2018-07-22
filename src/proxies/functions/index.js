@@ -2,9 +2,10 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const { middlewareList } = require('./config/middlewarelist');
 const { middlewareFactoryGateway } = require('../factorygateway');
-const { factory: stateInitMiddleware } = require('../../shared/middleware/state/stateinit');
+const { factory: stateInjectStoreMiddleware } = require('../../shared/middleware/state/injectstore');
 const { factory: stateInjectEventsManagerMiddleware } = require('../../shared/middleware/state/injecteventmanager');
 const { factory: stateInjectProxyLoggerPrefixMiddleware } = require('../../shared/middleware/state/injectproxyloggerprefix');
+const { factory: storeInjectServiceFunctionsMiddleware } = require('../../shared/middleware/store/injectservicefunctions');
 
 const EventsManager = require('../../events/Manager');
 const LOG_PREFIX = 'FunctionsProxy::';
@@ -35,22 +36,20 @@ const functionsProxy = async (proxySettings) => {
             proxyLogPrefix: LOG_PREFIX
         });
 
-        koaServer.use(stateInitMiddleware({ diego: "ciao" }));
+        koaServer.use(stateInjectStoreMiddleware());
         koaServer.use(stateInjectEventsManagerMiddleware());
         koaServer.use(stateInjectProxyLoggerPrefixMiddleware(LOG_PREFIX));
+        koaServer.use(storeInjectServiceFunctionsMiddleware(proxySettings.serviceFunctions));
 
-        const serverMiddleware = middlewareCollection.filter(middleware => middleware.factoryType === 'SERVER');
-        serverMiddleware.map(middleware => koaServer.use(middleware.resolver));
-
-        const routerMiddleware = middlewareCollection.filter(middleware => middleware.factoryType === 'ROUTER');
-        routerMiddleware.map(middleware => koaRouter[middleware.method](middleware.route, middleware.resolver));
+        middlewareCollection.map(middleware => (middleware.factoryType === 'SERVER')
+            ? koaServer.use(middleware.resolver)
+            : koaRouter[middleware.method](middleware.route, middleware.resolver));
 
         koaServer.use(koaRouter.routes());
         koaServer.use(koaRouter.allowedMethods());
         koaServer.listen(proxy_port);
 
         EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`);
-
     } catch (e) {
         EventsManager.emitLogError(`${LOG_PREFIX} ${e.message}`);
     }

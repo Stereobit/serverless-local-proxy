@@ -8,7 +8,7 @@ const chalk = require('chalk');
  * @param {string} middlewareName
  */
 const getMiddlewareState = (ctx, middlewareName) => {
-    const state = ctx.state.get(middlewareName);
+    const state = ctx.state.get(`${middlewareName}`);
     return (state) ? state : createMiddlewareState(ctx, middlewareName);
 };
 
@@ -19,9 +19,22 @@ const getMiddlewareState = (ctx, middlewareName) => {
  * @param {string} middlewareName
  */
 const createMiddlewareState = (ctx, middlewareName) => {
-    const newStage = { [middlewareName]: {} };
-    ctx.state = ctx.state.merge(fromJS(newStage));
-    return ctx.state;
+    ctx.state = ctx.state.set(middlewareName, fromJS({}));
+    return getMiddlewareState(ctx, middlewareName);
+};
+
+/**
+ * UpdateOutputState
+ *
+ * @param ctx
+ * @param data
+ */
+const updateMiddlewareOutputState = (ctx, data) => {
+
+    const output = ctx.state.get('output');
+    const outputMerged = output.merge({ 'output': data });
+    const valid = ctx.state.merge(outputMerged);
+    ctx.state.set(valid);
 };
 
 /**
@@ -29,12 +42,11 @@ const createMiddlewareState = (ctx, middlewareName) => {
  *
  * @param {{}} ctx
  * @param {string} middlewareName
- * @param {{*}} data
+ * @param {*} data
  */
 const updateMiddlewareState = (ctx, middlewareName, data) => {
-    const newStage = { [middlewareName]: data };
-    ctx.state = ctx.state.merge(fromJS(newStage));
-    return ctx.state;
+    getMiddlewareState(ctx, middlewareName);
+    ctx.state = ctx.state.merge({ [middlewareName]: fromJS(data) });
 };
 
 /**
@@ -42,22 +54,27 @@ const updateMiddlewareState = (ctx, middlewareName, data) => {
  *
  * @param {{}} ctx
  * @param {string} middlewareLogPrefix
- * @param {string} }title
+ * @param {string} title
  * @param {string }message
  */
 const middlewareFormattedOutput = (ctx, middlewareLogPrefix, title, message) => {
     const proxyPrefix = ctx.state.get('proxyLoggerPrefix');
     const eventsManager = ctx.state.get('eventsManager');
-    const formattedTitle = chalk.cyan(`::: ${title}`);
-    const formattedMessage = `${proxyPrefix}${middlewareLogPrefix}'\n${formattedTitle}\n
+    const formattedTitle = chalk.cyan(`::: ${proxyPrefix.toUpperCase()}${middlewareLogPrefix.toUpperCase()}:: ${title.toUpperCase()}`);
+    const formattedMessage = `
+    
+${formattedTitle}
 ${message}
+
+${chalk.dim.gray('________________________________________________________________________________________________________________________')}
 `;
-    eventsManager.emitLogInfo(formattedMessage)
+    eventsManager.emitMiddlewareOutput(formattedMessage)
 };
 
 module.exports = {
     getMiddlewareState,
     createMiddlewareState,
     updateMiddlewareState,
-    middlewareFormattedOutput
+    middlewareFormattedOutput,
+    updateMiddlewareOutputState
 };

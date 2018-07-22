@@ -6,7 +6,8 @@
     "scripts": {
         "test": "jest",
         "semantic-release": "semantic-release",
-        "travis-deploy-once": "travis-deploy-once"
+        "travis-deploy-once": "travis-deploy-once",
+        "redux-dev-server": "remotedev --hostname=localhost --port=8001"
     },
     "repository": {
         "type": "git",
@@ -27,6 +28,10 @@
         "cz-conventional-changelog": "^2.1.0",
         "eslint": "^4.19.1",
         "jest": "^23.4.1",
+        "lerna": "^2.11.0",
+        "redux-devtools": "^3.4.1",
+        "remote-redux-devtools": "^0.5.12",
+        "remotedev-server": "^0.2.4",
         "semantic-release": "^15.8.0",
         "serverless": "^1.28.0",
         "travis-deploy-once": "^5.0.1"
@@ -38,11 +43,13 @@
         "immutable": "^3.8.2",
         "koa": "^2.5.2",
         "koa-bodyparser": "^4.2.1",
+        "koa-compose": "^4.1.0",
         "koa-convert": "^1.2.0",
         "koa-json-body": "^5.3.0",
         "koa-proxy": "^0.9.0",
         "koa-router": "^7.4.0",
-        "prettyjson": "^1.2.1"
+        "prettyjson": "^1.2.1",
+        "redux": "^4.0.0"
     },
     "private": false,
     "jest": {

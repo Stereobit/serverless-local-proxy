@@ -1,5 +1,6 @@
 const { factory: httpFactory } = require('../middleware/http');
 const { factory: httpRequestLoggerFactory } = require('../middleware/httprequestlogger');
+const { factory: invokeFactory } = require('../middleware/invoke');
 
 const middlewareList = [
     {
@@ -9,6 +10,10 @@ const middlewareList = [
     {
         name: 'http',
         factory: httpFactory
+    },
+    {
+        name: 'invoke',
+        factory: invokeFactory
     },
 ];
 

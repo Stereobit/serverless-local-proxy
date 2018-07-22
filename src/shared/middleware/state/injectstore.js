@@ -1,14 +1,13 @@
 const { fromJS } = require('immutable');
-
+const { store } = require('../../../redux');
 /**
- * Init Proxy state
+ * Inject store
  *
- * @param defaultState
  * @return {Function}
  */
-const factory = (defaultState = {}) => {
+const factory = () => {
     return async (ctx, next) => {
-        ctx.state = fromJS(defaultState);
+        ctx.state = fromJS({ store });
         await next();
     }
 };

@@ -1,5 +1,6 @@
-const LOG_PREFIX = 'Http::';
+const LOG_PREFIX = 'Invoke::';
 const HTTP_METHODS = { GET: 'get', POST: 'post' };
+const { updateMiddlewareState, updateMiddlewareOutputState } = require('../../../utils/middleware');
 /**
  * Factory
  *
@@ -7,34 +8,17 @@ const HTTP_METHODS = { GET: 'get', POST: 'post' };
  * @return {{factoryType: string, method: string, route: string, resolver: resolver}}
  */
 const factory = (config) => {
-    // Extract global middleware config
-    const { name: middlewareName, default_http_method } = config.middlewareConfig;
-    return config.serviceFunctions.map(functionDetails => {
-        // Extract middleware config from function
-        const { method: methodFromFunction } = functionDetails[middlewareName] || {};
-        const method = resolveHttpMethod(default_http_method, methodFromFunction);
-        logEndpointCreated(config, method, functionDetails.name);
+        const { name: middlewareName } = config.middlewareConfig;
         return {
             middlewareName,
-            factoryType: 'ROUTER',
-            method: method.toLowerCase(),
-            route: `/${functionDetails.name}`,
+            factoryType: 'SERVER',
             resolver: async (ctx, next) => {
-                const state = {
-                    functionName: functionDetails.name,
-                    functionPath: functionDetails.path,
-                    receiveEventType: (functionDetails.hasOwnProperty('awsEvents_middleware')
-                            ? functionDetails.awsEvents_middleware
-                            : null
-                    )
-                };
-                const dispatch = ctx.state.get('store').get('dispatch');
-                dispatch({ type: 'SUPERPOWER' });
+                console.log(middlewareName);
                 await next();
             }
         }
-    });
-};
+    }
+;
 
 /**
  * RevolveHttpMethod
