@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/serverless-local-proxy/plugin.git"
+    "url": "https://github.com/serverless-local-proxy"
   },
   "author": "Diego Anniballo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/serverless-local-proxy/plugin.git/issues"
+    "url": "https://github.com/serverless-local-proxy/issues"
   },
-  "homepage": "https://github.com/useless-stuff/serverless-local-proxy/plugin.git#readme",
+  "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
   "peerDependencies": {
     "serverless": "^1.28.0"
   },
@@ -39,11 +39,6 @@
   "dependencies": {
     "@serverless-local-proxy/events_manager": "^1.4.0",
     "@serverless-local-proxy/hotreload": "^1.4.0",
-    "@serverless-local-proxy/mw_ddb_mock_api": "^1.4.0",
-    "@serverless-local-proxy/mw_ddb_query_logger": "^1.4.0",
-    "@serverless-local-proxy/mw_functions_to_http": "^1.4.0",
-    "@serverless-local-proxy/mw_http_request_logger": "^1.4.0",
-    "@serverless-local-proxy/mw_state_inject": "^1.4.0",
     "@serverless-local-proxy/px_dynamodb": "^1.4.0",
     "@serverless-local-proxy/px_functions": "^1.4.0",
     "@serverless-local-proxy/utils_middleware": "^1.4.0",

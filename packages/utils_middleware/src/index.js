@@ -1,5 +1,56 @@
-const { fromJS } = require('immutable')
+const {fromJS} = require('immutable')
 const chalk = require('chalk')
+const watch = require('redux-watch')
+
+/**
+ * SubscribeToStoreChanges
+ *
+ * @param {{state:{}}} ctx
+ * @param {string} storePath
+ * @param {Function} resolver
+ */
+const subscribeToStoreChanges = (ctx, storePath, resolver) => {
+  const reduxSubscribe = getReduxSubscribeFunction(ctx)
+  const reduxGetState = getReduxGetStateFunction(ctx)
+  let w = watch(reduxGetState, storePath)
+  reduxSubscribe(w((newVal, oldVal, objectPath) => resolver(newVal, oldVal, objectPath)))
+}
+
+/**
+ * GetReduxStore
+ *
+ * @param ctx
+ */
+const getReduxStore = (ctx) => {
+  return ctx.state.get('store')
+}
+
+/**
+ * GetReduxState
+ *
+ * @param {{stage:{}}} ctx
+ */
+const getReduxState = (ctx) => {
+  return ctx.state.get('store').get('getState')()
+}
+
+/**
+ * GetReduxGetStateFunction
+ *
+ * @param ctx
+ */
+const getReduxGetStateFunction = (ctx) => {
+  return ctx.state.get('store').get('getState')
+}
+
+/**
+ * GetReduxSubscribeFunction
+ *
+ * @param ctx
+ */
+const getReduxSubscribeFunction = (ctx) => {
+  return ctx.state.get('store').get('subscribe')
+}
 
 /**
  * GetMiddlewareState
@@ -31,7 +82,7 @@ const createMiddlewareState = (ctx, middlewareName) => {
  */
 const updateMiddlewareOutputState = (ctx, data) => {
   const output = ctx.state.get('output')
-  const outputMerged = output.merge({ 'output': data })
+  const outputMerged = output.merge({'output': data})
   const valid = ctx.state.merge(outputMerged)
   ctx.state.set(valid)
 }
@@ -45,7 +96,7 @@ const updateMiddlewareOutputState = (ctx, data) => {
  */
 const updateMiddlewareState = (ctx, middlewareName, data) => {
   getMiddlewareState(ctx, middlewareName)
-  ctx.state = ctx.state.merge({ [middlewareName]: fromJS(data) })
+  ctx.state = ctx.state.merge({[middlewareName]: fromJS(data)})
 }
 
 /**
@@ -55,7 +106,7 @@ const updateMiddlewareState = (ctx, middlewareName, data) => {
  * @return {Array}
  */
 const middlewareFactoryGateway = (config) => {
-  const { proxyConfig, middlewareList } = config
+  const {proxyConfig, middlewareList} = config
   const factoriesArray = []
   proxyConfig.middleware.forEach(proxyConfigMiddleware => {
     const middleware = middlewareList.find(availableMiddleware => availableMiddleware.name === proxyConfigMiddleware)
@@ -85,7 +136,7 @@ const middlewareFactoryGateway = (config) => {
  */
 const extractMiddlewareConfig = (proxyConfig, middlewareName) => {
   const nameWithSuffix = `${middlewareName}_middleware`
-  return Object.assign({}, proxyConfig[nameWithSuffix], { name: nameWithSuffix })
+  return Object.assign({}, proxyConfig[nameWithSuffix], {name: nameWithSuffix})
 }
 
 /**
@@ -110,11 +161,16 @@ ${chalk.dim.gray('______________________________________________________________
 }
 
 module.exports = {
+  getReduxStore,
+  getReduxState,
+  getReduxGetStateFunction,
+  getReduxSubscribeFunction,
   getMiddlewareState,
   createMiddlewareState,
   updateMiddlewareState,
   middlewareFormattedOutput,
   updateMiddlewareOutputState,
   middlewareFactoryGateway,
-  extractMiddlewareConfig
+  extractMiddlewareConfig,
+  subscribeToStoreChanges
 }

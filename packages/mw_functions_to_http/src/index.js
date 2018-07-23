@@ -12,6 +12,7 @@ const {reducer} = require('./store/reducer')
  */
 const factory = (config) => {
   // Extract global middleware config
+  const {name: proxyName} = config.proxyConfig
   const {name: middlewareName, default_http_method} = config.middlewareConfig
   return config.serviceFunctions.map(functionDetails => {
     // Extract middleware config from function
@@ -25,7 +26,7 @@ const factory = (config) => {
       route: `/${functionDetails.name}`,
       resolver: async (ctx, next) => {
         const dispatch = ctx.state.get('store').get('dispatch')
-        dispatch(ACTIONS.INVOKED_FUNCTION_TRIGGER(functionDetails.name))
+        dispatch(ACTIONS.INVOKED_FUNCTION_TRIGGER(functionDetails.name, proxyName))
         await next()
       }
     }
