@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_functions_to_http",
-  "version": "1.4.2",
+  "version": "1.4.4",
   "description": "Create an HTTP endpoint for every serverless function",
   "main": "src/index.js",
   "scripts": {
@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "@serverless-local-proxy/aws_events_faker": "1.4.2",
-    "@serverless-local-proxy/utils_middleware": "1.4.2"
+    "@serverless-local-proxy/utils_middleware": "1.4.4"
   }
 }

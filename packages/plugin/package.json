@@ -1,6 +1,6 @@
 {
   "name": "serverless-local-proxy",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -39,14 +39,14 @@
     "@serverless-local-proxy/mw_ddb_mock_api": "1.4.2",
     "@serverless-local-proxy/mw_ddb_query_logger": "1.4.2",
     "@serverless-local-proxy/px_dynamodb": "1.4.2",
-    "@serverless-local-proxy/px_functions": "1.4.2",
-    "@serverless-local-proxy/utils_middleware": "^1.4.2",
-    "redux-devtools": "^3.4.1",
-    "remote-redux-devtools": "^0.5.12",
-    "remotedev-server": "^0.2.4",
+    "@serverless-local-proxy/px_functions": "1.4.4",
+    "@serverless-local-proxy/utils_middleware": "1.4.4",
     "aws-sdk": "^2.276.1",
     "chalk": "^2.4.1",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-devtools": "^3.4.1",
+    "remote-redux-devtools": "^0.5.12",
+    "remotedev-server": "^0.2.4"
   },
   "private": false,
   "publishConfig": {
