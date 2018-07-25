@@ -1,14 +1,14 @@
 const MIDDLEWARE_NAME = 'http_request_logger'
 const LOG_PREFIX = 'HttpRequestLogger::'
 const chalk = require('chalk')
-const { middlewareFormattedOutput } = require('@serverless-local-proxy/utils_middleware')
-
+const {middlewareFormattedOutput} = require('@serverless-local-proxy/utils_middleware')
+const prettyJson = require('prettyJson')
 /**
  * Factory
  *
  */
 const factory = (config) => {
-  const { name: middlewareName } = config.middlewareConfig
+  const {name: middlewareName} = config.middlewareConfig
   return {
     middlewareName,
     factoryType: 'SERVER',
@@ -18,7 +18,8 @@ const factory = (config) => {
       const method = chalk.cyan(`METHOD: ${chalk.magenta(request.method)}`)
       const url = chalk.cyan(`URL: ${chalk.magenta(request.url)}`)
       const accept = chalk.cyan(`ACCEPT: ${chalk.magenta(request.header.accept)}`)
-      middlewareFormattedOutput(ctx, LOG_PREFIX, title, formatLogMessage(method, url, accept))
+      const body = chalk.cyan(`BODY REQUEST: \n${prettyBody(ctx.request.body)}`)
+      middlewareFormattedOutput(ctx, LOG_PREFIX, title, formatLogMessage(method, url, accept, body))
       await next()
     }
   }
@@ -27,11 +28,24 @@ const factory = (config) => {
 /**
  * FormatLogMessage
  *
- * @param method
- * @param url
- * @param accept
+ * @param {string} method
+ * @param {string} url
+ * @param {string} accept
+ * @param {string} body
  * @return {string}
  */
-const formatLogMessage = (method, url, accept) => `${method} - ${url} \n${accept}`
+const formatLogMessage = (method, url, accept, body) => `${method} - ${url} \n${accept}\n${body}`
 
-module.exports = { factory, MIDDLEWARE_NAME }
+/**
+ * PrettyBody
+ *
+ * @param { JSON } body
+ * @return {*}
+ */
+const prettyBody = (body) => prettyJson.render(body, {
+  keysColor: 'cyan',
+  dashColor: 'magenta',
+  stringColor: 'magenta'
+})
+
+module.exports = {factory, MIDDLEWARE_NAME}

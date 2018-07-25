@@ -9,8 +9,8 @@ const {ACTIONS} = require('../actions/actions')
  */
 const reducer = (state = {}, action) => {
   switch (action.type) {
-    case ACTIONS.LIST_FUNCTIONS:
-      return {...state, functionName: action.functionName, proxyName: action.proxyName}
+    case ACTIONS.LIST_SERVICE_FUNCTIONS:
+      return {...state, functionsSettings: action.functionsList}
     default:
       return state
   }

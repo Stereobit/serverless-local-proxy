@@ -3,6 +3,28 @@ const chalk = require('chalk')
 const watch = require('redux-watch')
 
 /**
+ * LogInfo
+ *
+ * @param ctx
+ * @param middlewarePrefix
+ * @param message
+ */
+const logInfo = (ctx, middlewarePrefix, message) => {
+  const proxyPrefix = ctx.state.get('proxyLoggerPrefix')
+  const eventsManager = ctx.state.get('eventsManager')
+  eventsManager.emitLogInfo(`${proxyPrefix}:${middlewarePrefix}:: ${message}`)
+}
+
+/**
+ * GetEventsManager
+ *
+ * @param {{}} ctx
+ */
+const getEventsManager = (ctx) => {
+  return ctx.state.get('eventsManager')
+}
+
+/**
  * SubscribeToStoreChanges
  *
  * @param {{state:{}}} ctx
@@ -41,6 +63,15 @@ const getReduxState = (ctx) => {
  */
 const getReduxGetStateFunction = (ctx) => {
   return ctx.state.get('store').get('getState')
+}
+
+/**
+ * GetReduxDispatchFunction
+ *
+ * @param ctx
+ */
+const getReduxDispatchFunction = (ctx) => {
+  return ctx.state.get('store').get('dispatch')
 }
 
 /**
@@ -172,5 +203,8 @@ module.exports = {
   updateMiddlewareOutputState,
   middlewareFactoryGateway,
   extractMiddlewareConfig,
-  subscribeToStoreChanges
+  subscribeToStoreChanges,
+  getReduxDispatchFunction,
+  getEventsManager,
+  logInfo
 }
