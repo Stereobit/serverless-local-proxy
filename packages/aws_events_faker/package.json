@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/aws_events_faker",
-  "version": "1.3.2",
-  "description": "Serverless plugin",
+  "version": "1.4.2",
+  "description": "Mocks AWS events",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
@@ -16,12 +16,8 @@
     "url": "https://github.com/serverless-local-proxy/issues"
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
-  "peerDependencies": {
-  },
   "devDependencies": {
     "jest": "^23.4.1"
-  },
-  "dependencies": {
   },
   "private": false,
   "publishConfig": {

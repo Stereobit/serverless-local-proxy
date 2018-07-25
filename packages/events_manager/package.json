@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/events_manager",
-  "version": "1.4.0",
-  "description": "Serverless plugin",
+  "version": "1.4.2",
+  "description": "Events manager for serverless-local-proxy",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"

@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/hotreload",
-  "version": "1.4.0",
-  "description": "Serverless plugin",
+  "version": "1.4.2",
+  "description": "Cache invalidator for serverless-local-proxy",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
