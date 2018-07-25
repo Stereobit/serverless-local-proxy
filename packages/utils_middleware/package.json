@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "immutable": "^3.8.2"
+    "immutable": "^3.8.2",
+    "redux-watch": "^1.1.1"
   },
   "private": false,
   "publishConfig": {

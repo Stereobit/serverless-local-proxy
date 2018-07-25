@@ -1,13 +1,16 @@
+const fs = require('fs')
+
 class Utils {
+
   /**
-     * ExtractFunctionsFromServerless
-     *
-     * @param functions
-     */
+   * ExtractFunctionsFromServerless
+   *
+   * @param functions
+   */
   static extractFunctionsList (functions) {
     return Object.keys(functions)
       .map(functionKey => {
-        const { path, name } = Utils.extractFunctionPathFromHandler(functions[functionKey].handler)
+        const {path, name} = Utils.extractFunctionPathFromHandler(functions[functionKey].handler)
         return {
           name,
           path,
@@ -17,11 +20,11 @@ class Utils {
   }
 
   /**
-     * ExtractFunctionPathFromHandler
-     *
-     * @param {string} functionHandler
-     * @return {{path: string, name: string}}
-     */
+   * ExtractFunctionPathFromHandler
+   *
+   * @param {string} functionHandler
+   * @return {{path: string, name: string}}
+   */
   static extractFunctionPathFromHandler (functionHandler) {
     const functionPath = `${process.cwd()}/${functionHandler}`.split('.')
     if (!functionPath[0] || !functionPath[1]) {
@@ -34,8 +37,12 @@ class Utils {
   }
 
   static asciiGreeting () {
-    const packageInfo = require('../../../../package')
-
+    const path = `${process.cwd()}/node_modules/serverless-local-proxy/package.json`
+    let packageInfo = {}
+    packageInfo.version = '0.0.0.development'
+    if (fs.existsSync(path)) {
+      packageInfo = require(path)
+    }
     return `
                                _                     _                 _                                 
   ___  ___ _ ____   _____ _ __| | ___  ___ ___      | | ___   ___ __ _| |      _ __  _ __ _____  ___   _ 
@@ -48,4 +55,4 @@ class Utils {
   }
 }
 
-module.exports = { Utils }
+module.exports = {Utils}
