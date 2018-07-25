@@ -1,6 +1,6 @@
 {
   "name": "serverless-local-proxy",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -34,13 +34,13 @@
     "travis-deploy-once": "^5.0.1"
   },
   "dependencies": {
-    "@serverless-local-proxy/events_manager": "1.4.2",
-    "@serverless-local-proxy/hotreload": "1.4.2",
-    "@serverless-local-proxy/mw_ddb_mock_api": "1.4.2",
-    "@serverless-local-proxy/mw_ddb_query_logger": "1.4.2",
-    "@serverless-local-proxy/px_dynamodb": "1.4.2",
-    "@serverless-local-proxy/px_functions": "1.4.4",
-    "@serverless-local-proxy/utils_middleware": "1.4.4",
+    "@serverless-local-proxy/events_manager": "1.4.5",
+    "@serverless-local-proxy/hotreload": "1.4.5",
+    "@serverless-local-proxy/mw_ddb_mock_api": "1.4.5",
+    "@serverless-local-proxy/mw_ddb_query_logger": "1.4.5",
+    "@serverless-local-proxy/px_dynamodb": "1.4.5",
+    "@serverless-local-proxy/px_functions": "1.4.5",
+    "@serverless-local-proxy/utils_middleware": "1.4.5",
     "aws-sdk": "^2.276.1",
     "chalk": "^2.4.1",
     "redux": "^4.0.0",

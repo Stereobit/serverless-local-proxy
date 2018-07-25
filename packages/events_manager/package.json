@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/events_manager",
-  "version": "1.4.2",
+  "version": "1.4.5",
   "description": "Events manager for serverless-local-proxy",
   "main": "src/index.js",
   "scripts": {
