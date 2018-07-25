@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_http_request_logger",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
