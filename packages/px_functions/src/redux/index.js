@@ -1,11 +1,9 @@
 const devToolsEnhancer = require('remote-redux-devtools').default
 const {createStore, combineReducers} = require('redux')
-const {storeSettings: mwFunctionsToHttpStoreSettings} = require('@serverless-local-proxy/mw_functions_to_http')
-const {storeSettings: pxFunctionsStoreSettings} = require('@serverless-local-proxy/px_functions')
+const {storeSettings: functionsToHttpStoreSettings} = require('@serverless-local-proxy/mw_functions_to_http')
 
 const reducers = {
-  [mwFunctionsToHttpStoreSettings.storeKey]: mwFunctionsToHttpStoreSettings.reducer,
-  [pxFunctionsStoreSettings.storeKey]: pxFunctionsStoreSettings.reducer
+  [functionsToHttpStoreSettings.storeKey]: functionsToHttpStoreSettings.reducer
 }
 
 const rootReducer = combineReducers(reducers)

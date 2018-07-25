@@ -13,7 +13,7 @@ const factory = (key, value) => {
     }
     const {state} = ctx
     ctx.state = state.set(key, fromJS(value))
-    await next()
+    await next(ctx)
   }
 }
 

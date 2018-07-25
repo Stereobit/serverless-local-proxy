@@ -9,7 +9,9 @@
     "travis-deploy-once": "travis-deploy-once",
     "lerna-bootstrap": "lerna bootstrap --use-workspaces",
     "lerna-test": "lerna run test --use-workspaces",
-    "lerna-add": "lerna --use-workspaces add "
+    "lerna-add": "lerna --use-workspaces add ",
+    "lerna-publish" : "lerna publish --use-workspaces --conventional-commits --npm-tag=latest",
+    "redux-dev-server": "packages/plugin/node_modules/.bin/remotedev --hostname=localhost --port=8001"
   },
   "repository": {
     "type": "git",
