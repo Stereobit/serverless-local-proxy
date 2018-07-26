@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/px_functions",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "Proxy functions for serverless-local-proxy",
   "main": "src/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@serverless-local-proxy/mw_functions_to_http": "1.4.7",
-    "@serverless-local-proxy/mw_http_request_logger": "1.4.5",
+    "@serverless-local-proxy/mw_http_request_logger": "1.4.8",
     "@serverless-local-proxy/mw_invoke_function": "1.4.7",
     "@serverless-local-proxy/mw_state_inject": "1.4.5",
     "@serverless-local-proxy/utils_middleware": "1.4.7",

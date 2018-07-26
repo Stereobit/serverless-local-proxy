@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.8](https://github.com/serverless-local-proxy/compare/v1.4.7...v1.4.8) (2018-07-26)
+
+
+### Bug Fixes
+
+* **PrettyJson:** Fix package name ([e91d20c](https://github.com/serverless-local-proxy/commit/e91d20c))
+
+
+
+
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)
 
 
