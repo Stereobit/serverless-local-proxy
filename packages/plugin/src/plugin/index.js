@@ -56,7 +56,10 @@ class Plugin {
   configureProxies () {
     this.log('Configuring proxies')
     const proxiesConfig = this.serverless.service.custom.serverlessProxy
-
+    if (proxiesConfig.proxies instanceof Array === false || proxiesConfig.proxies.length === 0) {
+      this.log('There aren\'t configurable proxies', LOGGER_LEVEL.ERROR)
+      return false
+    }
     proxiesConfig.proxies.map(proxy => {
       // Dynamo Proxy
       if (proxy.hasOwnProperty(AVAILABLE_PROXIES.DYNAMODB) && proxy[AVAILABLE_PROXIES.DYNAMODB].isActive) {

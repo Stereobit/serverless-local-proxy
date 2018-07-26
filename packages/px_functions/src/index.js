@@ -30,41 +30,8 @@ const functionsProxy = (proxySettings) => {
     const koaServer = new Koa()
     const koaRouter = new Router()
 
-    const middlewareCollection = middlewareFactoryGateway({
-      middlewareList: middlewareList,
-      proxyConfig: {...proxySettings.config, name: PROXY_NAME},
-      serviceFunctions: proxySettings.serviceFunctions,
-      eventsManager: EventsManager,
-      proxyLogPrefix: LOG_PREFIX,
-    })
+    console.log(proxySettings);
 
-    store.dispatch(ACTIONS.LIST_SERVICE_FUNCTIONS_TRIGGER(proxySettings.serviceFunctions))
-
-    // Init redux middleware, who doesn't follow the koa server flow then requires to have a different ctx
-    const reduxMiddlewareCollection = middlewareCollection
-      .filter(middleware => middleware.factoryType === 'REDUX')
-      .map(middleware => middleware.resolver)
-
-    compose([stateInject('store', store), ...reduxMiddlewareCollection])({state: {}})
-
-    // Init Koa flow
-    const koaMiddlewareCollection = middlewareCollection
-      .filter(middleware => middleware.factoryType === 'SERVER' || middleware.factoryType === 'ROUTER')
-    koaServer.use(convert(body({fallback: true})))
-    koaServer.use(stateInject('eventsManager', EventsManager))
-    koaServer.use(stateInject('proxyLoggerPrefix', LOG_PREFIX))
-    koaServer.use(stateInject('store', store))
-    koaMiddlewareCollection.map(middleware => (middleware.factoryType === 'SERVER')
-      ? koaServer.use(middleware.resolver)
-      : koaRouter[middleware.method](middleware.route, middleware.resolver))
-
-    koaServer.use(koaRouter.routes())
-    koaServer.use(koaRouter.allowedMethods())
-    koaServer.use(async (ctx, next) => {
-      ctx.response.status = 200
-      await next()
-    })
-    koaServer.listen(proxy_port)
 
     EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`)
   } catch (e) {
