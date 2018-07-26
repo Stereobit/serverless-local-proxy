@@ -8,12 +8,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-**Note:** Version bump only for package serverless-local-proxy
-
-<a name="1.3.3"></a>
-## [1.3.3](https://github.com/serverless-local-proxy/plugin/compare/v1.3.2...v1.3.3) (2018-07-22)
-
-
-
-
-**Note:** Version bump only for package serverless-local-proxy
+**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_trigger

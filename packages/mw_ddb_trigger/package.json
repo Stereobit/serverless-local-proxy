@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_ddb_trigger",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Dynamodb trigger middleware for serverless local proxy",
   "main": "src/index.js",
   "scripts": {
@@ -16,14 +16,12 @@
     "url": "https://github.com/serverless-local-proxy/issues"
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
-  "peerDependencies": {
-  },
   "devDependencies": {
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "@serverless-local-proxy/mw_invoke_http_function": "^1.4.6",
-    "@serverless-local-proxy/utils_middleware": "^1.4.5"
+    "@serverless-local-proxy/mw_invoke_http_function": "1.4.7",
+    "@serverless-local-proxy/utils_middleware": "1.4.7"
   },
   "private": false,
   "publishConfig": {

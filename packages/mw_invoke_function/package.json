@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_invoke_function",
-  "version": "1.4.5",
+  "version": "1.4.7",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "@serverless-local-proxy/utils_middleware": "1.4.5"
+    "@serverless-local-proxy/utils_middleware": "1.4.7"
   },
   "private": false,
   "publishConfig": {
