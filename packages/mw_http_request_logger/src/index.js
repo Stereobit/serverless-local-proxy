@@ -2,7 +2,7 @@ const MIDDLEWARE_NAME = 'http_request_logger'
 const LOG_PREFIX = 'HttpRequestLogger::'
 const chalk = require('chalk')
 const {middlewareFormattedOutput} = require('@serverless-local-proxy/utils_middleware')
-const prettyJson = require('prettyJson')
+const prettyJson = require('prettyjson')
 /**
  * Factory
  *
