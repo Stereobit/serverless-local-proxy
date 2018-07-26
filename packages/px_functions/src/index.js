@@ -60,6 +60,10 @@ const functionsProxy = (proxySettings) => {
 
     koaServer.use(koaRouter.routes())
     koaServer.use(koaRouter.allowedMethods())
+    koaServer.use(async (ctx, next) => {
+      ctx.response.status = 200
+      await next()
+    })
     koaServer.listen(proxy_port)
 
     EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`)

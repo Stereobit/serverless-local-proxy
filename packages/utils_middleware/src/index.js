@@ -112,10 +112,12 @@ const createMiddlewareState = (ctx, middlewareName) => {
  * @param data
  */
 const updateMiddlewareOutputState = (ctx, data) => {
-  const output = ctx.state.get('output')
-  const outputMerged = output.merge({'output': data})
-  const valid = ctx.state.merge(outputMerged)
-  ctx.state.set(valid)
+  let output = ctx.state.get('output')
+  if (!output) {
+    output = fromJS({output: {}})
+  }
+  const outputMerged = output.merge({output: data})
+  ctx.state = ctx.state.mergeDeep(outputMerged)
 }
 
 /**
@@ -206,5 +208,5 @@ module.exports = {
   subscribeToStoreChanges,
   getReduxDispatchFunction,
   getEventsManager,
-  logInfo
+  logInfo,
 }

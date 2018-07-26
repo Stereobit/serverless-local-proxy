@@ -65,7 +65,10 @@ class Plugin {
           {
             store,
             config: proxy[AVAILABLE_PROXIES.DYNAMODB],
-            serviceFunctions: Array.from(this.functionsCollection.values())
+            serviceFunctions: mapMiddlewareSettingsToFunctions(
+              Array.from(this.functionsCollection.values()),
+              proxy[AVAILABLE_PROXIES.DYNAMODB].configTables
+            ),
           }
         )
       }
@@ -104,7 +107,7 @@ class Plugin {
    */
   configureEnvironment () {
     this.log('Configuring environment')
-    // TODO: @diego[FIX] Probably, there is a better way to retrieve credentials in the Serverless framework...
+    // TODO: @diego[FIX] Probably, there is a better way to retrieve credentials from the Serverless framework...
     const awsCredentials = new AWS.SharedIniFileCredentials({profile: this.serverless.service.provider.profile})
     process.env.AWS_ACCESS_KEY_ID = awsCredentials.accessKeyId
     process.env.AWS_SECRET_ACCESS_KEY = awsCredentials.secretAccessKey

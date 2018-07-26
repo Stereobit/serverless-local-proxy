@@ -15,7 +15,7 @@ const modify = (payload) => {
     'SequenceNumber': '222',
     'Keys': {
       'Id': {
-        'N': '101'
+        'S': '101'
       }
     },
     'SizeBytes': 59,
@@ -32,7 +32,7 @@ const modify = (payload) => {
  * @return {{Records: *[]}}
  * @constructor
  */
-const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb:test:') => {
+const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb') => {
 
   const events = {
     REMOVE: 'REMOVE',
@@ -46,10 +46,10 @@ const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb:test:') => {
         'eventID': '3',
         'eventVersion': '1.0',
         'awsRegion': 'us-west-2',
-        'eventName': '',
+        'eventName': 'MODIFY',
         'eventSourceARN': arn,
         'eventSource': 'aws:dynamodb',
-        'dynamodb': modify(payload)
+        'dynamodb': modify(payload.Item) //TODO: Remove Item
       }
     ]
   }

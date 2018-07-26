@@ -3,7 +3,7 @@ const LOG_PREFIX = 'InvokeFunction::'
 
 // TODO: @diego[feature] this must be taken from the middleware yml config
 const WATCH_STORE_SECTION = 'functions_to_http'
-const {subscribeToStoreChanges, getReduxState} = require('@serverless-local-proxy/utils_middleware')
+const {subscribeToStoreChanges, getReduxState, logInfo} = require('@serverless-local-proxy/utils_middleware')
 
 /**
  * Factory
@@ -24,11 +24,12 @@ const factory = (config) => {
           return null
         }
         const reduxState = getReduxState(ctx)
+
         const functionDetails = reduxState.functionsProxy.functionsSettings
           .find(functionDetails => functionDetails.name === newStoreValue.functionName)
 
         if (functionDetails) {
-          await invokeFunction(functionDetails.name, functionDetails.path)
+          await invokeFunction(functionDetails.name, functionDetails.path, newStoreValue.requestPayload)
         }
 
       })
@@ -37,21 +38,20 @@ const factory = (config) => {
   }
 }
 
-const invokeFunction = async (functionName, functionPath) => {
-
+const invokeFunction = async (functionName, functionPath, requestPayload) => {
   const handler = require(functionPath)[functionName]
+  const logRow = `${LOG_PREFIX}:::Invoked function ${functionName}::`
   try {
     const callbackMock = (error, result) => {
-      console.log("INVOKE: ERROR IN CALLBACK")
-      console.log(error);
-      console.log("INVOKE: RESULT IN CALLBACK")
-      console.log(result);
+      if (error) {
+        console.log(`${logRow} Callback has error: ${error}`)
+      }
+      console.log(`${logRow} Callback result: ${result}`)
     }
     const ctx = {}
-    await handler({}, ctx, callbackMock)
+    await handler(requestPayload, ctx, callbackMock)
   } catch (e) {
-    console.log('INVOKE: EXCEPTION')
-    console.log(e)
+    console.log(`${logRow} Exception raised: ${e.message}`)
   }
 }
 

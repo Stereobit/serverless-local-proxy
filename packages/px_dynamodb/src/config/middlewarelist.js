@@ -6,6 +6,10 @@ const {
   factory: queryLoggerFactory,
   MIDDLEWARE_NAME: queryLoggerName
 } = require('@serverless-local-proxy/mw_ddb_query_logger')
+const {
+  factory: ddbTriggerFactory,
+  MIDDLEWARE_NAME: ddbTrigger
+} = require('@serverless-local-proxy/mw_ddb_trigger')
 
 const middlewareList = [
   {
@@ -15,7 +19,11 @@ const middlewareList = [
   {
     name: queryLoggerName,
     factory: queryLoggerFactory
+  },
+  {
+    name: ddbTrigger,
+    factory: ddbTriggerFactory
   }
 ]
 
-module.exports = { middlewareList }
+module.exports = {middlewareList}

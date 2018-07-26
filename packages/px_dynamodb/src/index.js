@@ -20,7 +20,6 @@ EventsManager.bind(EventsManager.eventsList.PROXY_START_DDB, (config) => dynamoD
  * @param proxySettings
  */
 const dynamoDbProxy = (proxySettings) => {
-
   validateProxyConfig(proxySettings)
   const {store} = proxySettings
   const {proxy_host, proxy_port, dynamo_db_host} = proxySettings.config
