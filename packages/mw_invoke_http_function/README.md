@@ -1,6 +1,6 @@
 # Invoke HTTP function middleware
 
-This package is part of the Monorepo project serverless-local-proxy 
+N.B. This package is part of the Monorepo project serverless-local-proxy
 
 ## Getting Started
 

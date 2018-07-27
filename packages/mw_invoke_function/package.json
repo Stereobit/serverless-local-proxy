@@ -10,18 +10,12 @@
     "type": "git",
     "url": "https://github.com/serverless-local-proxy"
   },
-  "author": "Diego Anniballo",
+  "author": "useless-stuff",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/serverless-local-proxy/issues"
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
-  "devDependencies": {
-    "jest": "^23.4.1"
-  },
-  "dependencies": {
-    "@serverless-local-proxy/utils_middleware": "1.4.7"
-  },
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -34,5 +28,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "devDependencies": {
+    "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "prettyjson": "^1.2.1",
+    "@serverless-local-proxy/utils_middleware": "1.4.7"
   }
 }

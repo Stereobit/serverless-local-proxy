@@ -3,24 +3,20 @@ const axios = require('axios')
 
 /**
  * Factory
- *
+ * TODO: @diego[feature] this middleware is not completed yet
  * @param config
- * @return {{middlewareName: *, factoryType: string, resolver: resolver}}
+ * @return {Function}
  */
 const factory = (config) => {
   const {name: middlewareName} = config.middlewareConfig
-  return {
-    middlewareName,
-    factoryType: 'SERVER',
-    resolver: async (ctx, next) => {
-      const input = ctx.state.get('output').toJS()
-      try {
-        await axios.post(`http://localhost:9002/${input.functionName}`, input.payload)
-      } catch (e) {
-        console.log(e)
-      }
-      await next()
+  return async (ctx, next) => {
+    const input = ctx.state.get('output').toJS()
+    try {
+      await axios.post(`http://localhost:9002/${input.functionName}`, input.payload)
+    } catch (e) {
+      console.log(e)
     }
+    await next()
   }
 }
 

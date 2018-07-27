@@ -1,29 +1,14 @@
-# INVOKE FUNCTION
+# INVOKE FUNCTION MIDDLEWARE
 
-This package is part of the monorepo serverless-local-proxy 
+N.B. This package is part of the monorepo serverless-local-proxy
 
-## Getting Started
+## State
 
-## Prerequisites
-
-## Installing
-
-## Running the tests
-
-## Break down into end to end tests
-
-## And coding style tests
-
-## Deployment
-
-## Built With
-
-## Contributing
-
-## Versioning 
-
-## Authors
-
-## License
-
-## Acknowledgments
+| Aspects input                  | Produces output                                                       |
+|--------------------------------|------------------------------------------------------------------------|
+| invokeFunctionName : string    | invokedFunction : Object<{functionName:string, functionPayload:<any>}> |
+| invokeFunctionPath : string    | invokedFunction.payload: Object<any>                                   |
+| invokeFunctionPayload : string | invokedFunction.callback: Object<{error:string, result:<any>}          |
+|                                | invokedFunction.exception: string                                      |
+|                                |                                                                        |
+|                                |                                                                        |
