@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_state_inject",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "immutable": "^3.8.2",
-    "@serverless-local-proxy/utils_middleware": "1.4.7"
+    "@serverless-local-proxy/utils_middleware": "1.5.0",
+    "immutable": "^3.8.2"
   }
 }

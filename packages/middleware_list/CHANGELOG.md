@@ -9,7 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-**Note:** Version bump only for package @serverless-local-proxy/px_dynamodb
+**Note:** Version bump only for package @serverless-local-proxy/middleware_list
 
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)
@@ -18,14 +18,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))
-
-
-
-
-<a name="1.3.3"></a>
-## [1.3.3](https://github.com/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)
-
-
-
-
-**Note:** Version bump only for package @serverless-local-proxy/px_dynamodb

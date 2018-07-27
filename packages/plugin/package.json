@@ -1,6 +1,6 @@
 {
   "name": "serverless-local-proxy",
-  "version": "1.4.8",
+  "version": "1.5.1",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -16,8 +16,6 @@
     "url": "https://github.com/serverless-local-proxy/issues"
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
-  "peerDependencies": {
-  },
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -35,13 +33,13 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "immutable": "^3.8.2",
-    "@serverless-local-proxy/utils_middleware": "1.4.7",
-    "@serverless-local-proxy/events_manager": "1.4.5",
-    "@serverless-local-proxy/hotreload": "1.4.5",
-    "@serverless-local-proxy/px_dynamodb": "1.4.7",
-    "@serverless-local-proxy/px_functions": "1.4.8",
+    "@serverless-local-proxy/events_manager": "1.5.0",
+    "@serverless-local-proxy/hotreload": "1.5.0",
+    "@serverless-local-proxy/px_dynamodb": "1.5.1",
+    "@serverless-local-proxy/px_functions": "1.5.1",
+    "@serverless-local-proxy/utils_middleware": "1.5.0",
     "aws-sdk": "^2.276.1",
-    "chalk": "^2.4.1"
+    "chalk": "^2.4.1",
+    "immutable": "^3.8.2"
   }
 }

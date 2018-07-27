@@ -1,4 +1,4 @@
-const MIDDLEWARE_NAME = 'payload-to-aws-event'
+const MIDDLEWARE_NAME = 'payload_to_aws_event'
 const {getMiddlewareOutputState, updateMiddlewareOutputState} = require('@serverless-local-proxy/utils_middleware')
 const {awsEventsFaker} = require('@serverless-local-proxy/aws_events_faker')
 

@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/hotreload",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "description": "Cache invalidator for serverless-local-proxy",
   "main": "src/index.js",
   "scripts": {
