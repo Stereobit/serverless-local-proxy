@@ -3,12 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.4.8](https://github.com/serverless-local-proxy/compare/v1.4.7...v1.4.8) (2018-07-26)
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)
+
+
+### Features
+
+* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))
 
 
 
-
-**Note:** Version bump only for package serverless-local-proxy
 
 <a name="1.3.3"></a>
 ## [1.3.3](https://github.com/serverless-local-proxy/plugin/compare/v1.3.2...v1.3.3) (2018-07-22)

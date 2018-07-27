@@ -3,12 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.4.8](https://github.com/useless-stuff/serverless-proxy/compare/v1.4.7...v1.4.8) (2018-07-26)
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/useless-stuff/serverless-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)
 
 
-### Bug Fixes
+### Features
 
-* **PrettyJson:** Fix package name ([e91d20c](https://github.com/useless-stuff/serverless-proxy/commit/e91d20c))
+* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/useless-stuff/serverless-proxy/commit/bf7ca98))
 
 
 

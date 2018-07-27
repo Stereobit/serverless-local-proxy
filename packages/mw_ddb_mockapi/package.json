@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_ddb_mock_api",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "description": "Mocks new DynamoDB APIs not supported by DynamoDB local",
   "main": "src/index.js",
   "scripts": {
@@ -31,7 +31,5 @@
   },
   "devDependencies": {
     "jest": "^23.4.1"
-  },
-  "dependencies": {
   }
 }

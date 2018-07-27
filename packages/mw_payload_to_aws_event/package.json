@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw-payload-to-aws-event",
-  "version": "1.4.8",
+  "version": "1.5.0",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -16,8 +16,6 @@
     "url": "https://github.com/serverless-local-proxy/issues"
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
-  "peerDependencies": {
-  },
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -35,7 +33,7 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "@serverless-local-proxy/utils_middleware": "1.4.7",
-    "@serverless-local-proxy/aws_events_faker": "1.4.7"
+    "@serverless-local-proxy/aws_events_faker": "1.5.0",
+    "@serverless-local-proxy/utils_middleware": "1.5.0"
   }
 }

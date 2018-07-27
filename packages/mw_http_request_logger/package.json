@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_http_request_logger",
-  "version": "1.4.8",
+  "version": "1.5.0",
   "description": "HTTP request logger fo serverless-local-proxy",
   "main": "src/index.js",
   "scripts": {
@@ -33,8 +33,8 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
+    "@serverless-local-proxy/utils_middleware": "1.5.0",
     "chalk": "^2.4.1",
-    "prettyjson": "^1.2.1",
-    "@serverless-local-proxy/utils_middleware": "1.4.7"
+    "prettyjson": "^1.2.1"
   }
 }
