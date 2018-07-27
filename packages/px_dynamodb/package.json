@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/px_dynamodb",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "@serverless-local-proxy/middleware_list": "1.5.0",
+    "@serverless-local-proxy/middleware_list": "1.5.1",
     "@serverless-local-proxy/utils_middleware": "1.5.0",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",

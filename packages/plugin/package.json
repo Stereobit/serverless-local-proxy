@@ -1,6 +1,6 @@
 {
   "name": "serverless-local-proxy",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
@@ -35,8 +35,8 @@
   "dependencies": {
     "@serverless-local-proxy/events_manager": "1.5.0",
     "@serverless-local-proxy/hotreload": "1.5.0",
-    "@serverless-local-proxy/px_dynamodb": "1.5.0",
-    "@serverless-local-proxy/px_functions": "1.5.0",
+    "@serverless-local-proxy/px_dynamodb": "1.5.1",
+    "@serverless-local-proxy/px_functions": "1.5.1",
     "@serverless-local-proxy/utils_middleware": "1.5.0",
     "aws-sdk": "^2.276.1",
     "chalk": "^2.4.1",
