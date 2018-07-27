@@ -1,13 +1,30 @@
+/**
+ * Insert
+ *
+ * TODO: @diego[feature]
+ * @return {{}}
+ */
 const insert = () => {
-  //TODO
   return {}
 }
 
+/**
+ * Remove
+ *
+ * TODO: @diego[feature]
+ * @return {{}}
+ */
 const remove = () => {
   //TODO
   return {}
 }
 
+/**
+ * Modify
+ *
+ * TODO: @diego[feature]
+ * @return {{}}
+ */
 const modify = (payload) => {
   return {
     'NewImage': payload,
@@ -26,11 +43,11 @@ const modify = (payload) => {
 /**
  * DynamoDBEvent
  *
+ * TODO: @diego[feature]
  * @param eventType
  * @param payload
  * @param arn
  * @return {{Records: *[]}}
- * @constructor
  */
 const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb') => {
 
@@ -39,7 +56,6 @@ const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb') => {
     MODIFY: 'MODIFY',
     INSERT: 'INSERT'
   }
-
   return {
     Records: [
       {
@@ -49,7 +65,7 @@ const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb') => {
         'eventName': 'MODIFY',
         'eventSourceARN': arn,
         'eventSource': 'aws:dynamodb',
-        'dynamodb': modify(payload.Item) //TODO: Remove Item
+        'dynamodb': modify(payload.Item) //TODO: Extract Item
       }
     ]
   }

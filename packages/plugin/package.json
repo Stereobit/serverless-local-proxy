@@ -4,49 +4,19 @@
   "description": "Serverless plugin",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once",
-    "redux-dev-server": "remotedev --hostname=localhost --port=8001"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/serverless-local-proxy"
   },
-  "author": "Diego Anniballo",
+  "author": "useless-stuff",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/serverless-local-proxy/issues"
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
   "peerDependencies": {
-    "serverless": "^1.28.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.2.3",
-    "commitizen": "^2.7.6",
-    "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^4.19.1",
-    "jest": "^23.4.1",
-    "lerna": "^2.11.0",
-    "semantic-release": "^15.8.0",
-    "serverless": "^1.28.0",
-    "travis-deploy-once": "^5.0.1"
-  },
-  "dependencies": {
-    "@serverless-local-proxy/events_manager": "1.4.5",
-    "@serverless-local-proxy/hotreload": "1.4.5",
-    "@serverless-local-proxy/mw_ddb_mock_api": "1.4.5",
-    "@serverless-local-proxy/mw_ddb_query_logger": "1.4.5",
-    "@serverless-local-proxy/px_dynamodb": "1.4.7",
-    "@serverless-local-proxy/px_functions": "1.4.8",
-    "@serverless-local-proxy/utils_middleware": "1.4.7",
-    "aws-sdk": "^2.276.1",
-    "chalk": "^2.4.1",
-    "redux": "^4.0.0",
-    "redux-devtools": "^3.4.1",
-    "remote-redux-devtools": "^0.5.12",
-    "remotedev-server": "^0.2.4"
   },
   "private": false,
   "publishConfig": {
@@ -60,5 +30,18 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "devDependencies": {
+    "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "immutable": "^3.8.2",
+    "@serverless-local-proxy/utils_middleware": "1.4.7",
+    "@serverless-local-proxy/events_manager": "1.4.5",
+    "@serverless-local-proxy/hotreload": "1.4.5",
+    "@serverless-local-proxy/px_dynamodb": "1.4.7",
+    "@serverless-local-proxy/px_functions": "1.4.8",
+    "aws-sdk": "^2.276.1",
+    "chalk": "^2.4.1"
   }
 }

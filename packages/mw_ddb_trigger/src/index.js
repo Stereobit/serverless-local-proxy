@@ -1,35 +1,43 @@
 const MIDDLEWARE_NAME = 'ddb_trigger'
-const {factory: invokeHttpFunctionFactory} = require('@serverless-local-proxy/mw_invoke_http_function')
 const {updateMiddlewareOutputState} = require('@serverless-local-proxy/utils_middleware')
 
 /**
  * Factory
  *
  * @param config
- * @return {{middlewareName: *, factoryType: string, resolver: resolver}}
+ * @return {Function}
  */
 const factory = (config) => {
-  const {name: middlewareName} = config.middlewareConfig
-  return {
-    middlewareName,
-    factoryType: 'SERVER',
-    resolver: async (ctx, next) => {
-      const tableName = validateTrigger(ctx)
-      if (tableName) {
-        const triggerFunction = getTriggerFunction(config.proxyConfig.configTables, tableName)
-        if (triggerFunction) {
-          const invokeHttpFunction = invokeHttpFunctionFactory(config).resolver
-          updateMiddlewareOutputState(ctx, {functionName: triggerFunction, payload: ctx.request.body})
-          await invokeHttpFunction(ctx, () => {})
+  return async (ctx, next) => {
+    const tableName = validateTrigger(ctx)
+    if (tableName) {
+      // Extract function
+      const triggerFunction = getTriggerFunction(config.proxyConfig.configTables, tableName)
+
+      // Find the function settings from the service functions
+      const functionDetails = config.serviceFunctions.find(sf => sf.name === triggerFunction)
+      if (functionDetails) {
+        const triggerResult = {
+          invokeFunctionName: functionDetails.name,
+          invokeFunctionPath: functionDetails.path,
+          // TODO: @diego[refactor] body.Item assumes that the query is PutItem...maybe needs a mw that process the
+          // TODO: @diego[refactor] query, something like mw_ddb_query_to_payload
+          invokeFunctionPayload: ctx.request.body.Item ? ctx.request.body.Item : ctx.request.body
         }
+        updateMiddlewareOutputState(ctx, triggerResult)
       }
-      await next()
     }
+    await next()
   }
+
 }
 
 /**
- * GetTableSettings
+ * GetTriggerFunction
+ *
+ * @param tableSettings
+ * @param tableName
+ * @return {*}
  */
 const getTriggerFunction = (tableSettings, tableName) => {
   if (tableSettings instanceof Array) {
@@ -43,6 +51,7 @@ const getTriggerFunction = (tableSettings, tableName) => {
 
 /**
  * ValidateTrigger
+ *
  * @param ctx
  * @return {*}
  */

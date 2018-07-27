@@ -10,15 +10,12 @@
     "type": "git",
     "url": "https://github.com/serverless-local-proxy"
   },
-  "author": "Diego Anniballo",
+  "author": "useless-stuff",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/serverless-local-proxy/issues"
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
-  "dependencies": {
-    "chokidar": "^2.0.4"
-  },
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -31,5 +28,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "chokidar": "^2.0.4"
   }
 }

@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
   "peerDependencies": {
-    "serverless": "^1.28.0"
   },
   "devDependencies": {
     "commitizen": "^2.7.6",

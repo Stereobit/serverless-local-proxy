@@ -1,0 +1,40 @@
+{
+  "name": "@serverless-local-proxy/mw_proxy_output",
+  "version": "1.4.8",
+  "description": "Serverless plugin",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/serverless-local-proxy"
+  },
+  "author": "Diego Anniballo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serverless-local-proxy/issues"
+  },
+  "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
+  "peerDependencies": {
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "@serverless-local-proxy/utils_middleware": "1.4.7"
+  }
+}

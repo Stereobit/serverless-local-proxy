@@ -8,20 +8,16 @@ const prettyJson = require('prettyjson')
  *
  */
 const factory = (config) => {
-  const {name: middlewareName} = config.middlewareConfig
-  return {
-    middlewareName,
-    factoryType: 'SERVER',
-    resolver: async (ctx, next) => {
-      const request = ctx.request
-      const title = 'New http request'
-      const method = chalk.cyan(`METHOD: ${chalk.magenta(request.method)}`)
-      const url = chalk.cyan(`URL: ${chalk.magenta(request.url)}`)
-      const accept = chalk.cyan(`ACCEPT: ${chalk.magenta(request.header.accept)}`)
-      const body = chalk.cyan(`BODY REQUEST: \n${prettyBody(ctx.request.body)}`)
-      middlewareFormattedOutput(ctx, LOG_PREFIX, title, formatLogMessage(method, url, accept, body))
-      await next()
-    }
+  const {proxyLogPrefix} = config
+  return async (ctx, next) => {
+    const request = ctx.request
+    const title = 'New http request'
+    const method = chalk.cyan(`METHOD: ${chalk.magenta(request.method)}`)
+    const url = chalk.cyan(`URL: ${chalk.magenta(request.url)}`)
+    const accept = chalk.cyan(`ACCEPT: ${chalk.magenta(request.header.accept)}`)
+    const body = chalk.cyan(`BODY REQUEST: \n${prettyBody(ctx.request.body)}`)
+    middlewareFormattedOutput(proxyLogPrefix, LOG_PREFIX, title, formatLogMessage(method, url, accept, body))
+    await next()
   }
 }
 

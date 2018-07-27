@@ -1,135 +1,36 @@
-const {fromJS} = require('immutable')
 const chalk = require('chalk')
-const watch = require('redux-watch')
+const EventsManager = require('@serverless-local-proxy/events_manager')
 
 /**
  * LogInfo
  *
- * @param ctx
- * @param middlewarePrefix
- * @param message
+ * @param {string} proxyLogPrefix
+ * @param {string} middlewareLogPrefix
+ * @param {string} message
  */
-const logInfo = (ctx, middlewarePrefix, message) => {
-  const proxyPrefix = ctx.state.get('proxyLoggerPrefix')
-  const eventsManager = ctx.state.get('eventsManager')
-  eventsManager.emitLogInfo(`${proxyPrefix}:${middlewarePrefix}:: ${message}`)
+const logInfo = (proxyLogPrefix, middlewareLogPrefix, message) => {
+  EventsManager.emitLogInfo(`${proxyLogPrefix}:${middlewareLogPrefix}:: ${message}`)
 }
 
 /**
- * GetEventsManager
+ * GetMiddlewareOutputState
  *
  * @param {{}} ctx
  */
-const getEventsManager = (ctx) => {
-  return ctx.state.get('eventsManager')
+const getMiddlewareOutputState = (ctx) => {
+  return ctx.state.get('output').toJS()
 }
 
 /**
- * SubscribeToStoreChanges
+ * UpdateMiddlewareOutputState
  *
- * @param {{state:{}}} ctx
- * @param {string} storePath
- * @param {Function} resolver
- */
-const subscribeToStoreChanges = (ctx, storePath, resolver) => {
-  const reduxSubscribe = getReduxSubscribeFunction(ctx)
-  const reduxGetState = getReduxGetStateFunction(ctx)
-  let w = watch(reduxGetState, storePath)
-  reduxSubscribe(w((newVal, oldVal, objectPath) => resolver(newVal, oldVal, objectPath)))
-}
-
-/**
- * GetReduxStore
- *
- * @param ctx
- */
-const getReduxStore = (ctx) => {
-  return ctx.state.get('store')
-}
-
-/**
- * GetReduxState
- *
- * @param {{stage:{}}} ctx
- */
-const getReduxState = (ctx) => {
-  return ctx.state.get('store').get('getState')()
-}
-
-/**
- * GetReduxGetStateFunction
- *
- * @param ctx
- */
-const getReduxGetStateFunction = (ctx) => {
-  return ctx.state.get('store').get('getState')
-}
-
-/**
- * GetReduxDispatchFunction
- *
- * @param ctx
- */
-const getReduxDispatchFunction = (ctx) => {
-  return ctx.state.get('store').get('dispatch')
-}
-
-/**
- * GetReduxSubscribeFunction
- *
- * @param ctx
- */
-const getReduxSubscribeFunction = (ctx) => {
-  return ctx.state.get('store').get('subscribe')
-}
-
-/**
- * GetMiddlewareState
- *
- * @param {{}} ctx
- * @param {string} middlewareName
- */
-const getMiddlewareState = (ctx, middlewareName) => {
-  const state = ctx.state.get(`${middlewareName}`)
-  return (state) || createMiddlewareState(ctx, middlewareName)
-}
-
-/**
- * CreateMiddlewareState
- *
- * @param {{}} ctx
- * @param {string} middlewareName
- */
-const createMiddlewareState = (ctx, middlewareName) => {
-  ctx.state = ctx.state.set(middlewareName, fromJS({}))
-  return getMiddlewareState(ctx, middlewareName)
-}
-
-/**
- * UpdateOutputState
- *
- * @param ctx
- * @param data
- */
-const updateMiddlewareOutputState = (ctx, data) => {
-  let output = ctx.state.get('output')
-  if (!output) {
-    output = fromJS({output: {}})
-  }
-  const outputMerged = output.merge({output: data})
-  ctx.state = ctx.state.mergeDeep(outputMerged)
-}
-
-/**
- * UpdateMiddlewareState
- *
- * @param {{}} ctx
- * @param {string} middlewareName
+ * @param {*} ctx
  * @param {*} data
  */
-const updateMiddlewareState = (ctx, middlewareName, data) => {
-  getMiddlewareState(ctx, middlewareName)
-  ctx.state = ctx.state.merge({[middlewareName]: fromJS(data)})
+const updateMiddlewareOutputState = (ctx, data) => {
+  const output = ctx.state.get('output')
+  const {state} = ctx
+  ctx.state = state.set('output', output.merge(data))
 }
 
 /**
@@ -175,38 +76,27 @@ const extractMiddlewareConfig = (proxyConfig, middlewareName) => {
 /**
  * MiddlewareFormattedOutput
  *
- * @param {{}} ctx
+ * @param {string} proxyLogPrefix
  * @param {string} middlewareLogPrefix
  * @param {string} title
  * @param {string }message
  */
-const middlewareFormattedOutput = (ctx = '', middlewareLogPrefix, title = '', message = '') => {
-  const proxyPrefix = ctx.state.get('proxyLoggerPrefix')
-  const eventsManager = ctx.state.get('eventsManager')
-  const formattedTitle = chalk.cyan(`::: ${proxyPrefix.toUpperCase()}${middlewareLogPrefix.toUpperCase()}:: ${title.toUpperCase()}`)
+const middlewareFormattedOutput = (proxyLogPrefix, middlewareLogPrefix, title = '', message = '') => {
+  const formattedTitle = chalk.cyan(`::: ${proxyLogPrefix.toUpperCase()}${middlewareLogPrefix.toUpperCase()}:: ${title.toUpperCase()}`)
   const formattedMessage = `    
 ${formattedTitle}
 ${message}
 
 ${chalk.dim.gray('________________________________________________________________________________________________________________________')}
 `
-  eventsManager.emitMiddlewareOutput(formattedMessage)
+  EventsManager.emitMiddlewareOutput(formattedMessage)
 }
 
 module.exports = {
-  getReduxStore,
-  getReduxState,
-  getReduxGetStateFunction,
-  getReduxSubscribeFunction,
-  getMiddlewareState,
-  createMiddlewareState,
-  updateMiddlewareState,
   middlewareFormattedOutput,
   updateMiddlewareOutputState,
   middlewareFactoryGateway,
   extractMiddlewareConfig,
-  subscribeToStoreChanges,
-  getReduxDispatchFunction,
-  getEventsManager,
   logInfo,
+  getMiddlewareOutputState
 }
