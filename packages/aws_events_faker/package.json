@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/aws_events_faker",
-  "version": "1.5.0",
+  "version": "1.5.2",
   "description": "Mocks AWS events",
   "main": "src/index.js",
   "keywords": [

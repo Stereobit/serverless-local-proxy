@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/mw_proxy_output",
-  "version": "1.5.0",
+  "version": "1.5.2",
   "description": "Serverless plugin",
   "main": "src/index.js",
   "keywords": [
@@ -43,6 +43,6 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "@serverless-local-proxy/utils_middleware": "1.5.0"
+    "@serverless-local-proxy/utils_middleware": "1.5.2"
   }
 }
