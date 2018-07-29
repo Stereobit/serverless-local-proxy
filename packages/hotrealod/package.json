@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/hotreload",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "serverless-local-proxy plugin: Cache invalidator",
   "main": "src/index.js",
   "keywords": [

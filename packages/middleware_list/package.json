@@ -1,6 +1,6 @@
 {
   "name": "@serverless-local-proxy/middleware_list",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "serverless-local-proxy plugin: Middleware list",
   "main": "src/index.js",
   "keywords": [
@@ -43,14 +43,14 @@
     }
   },
   "dependencies": {
-    "@serverless-local-proxy/mw-payload-to-aws-event": "1.5.2",
-    "@serverless-local-proxy/mw_ddb_mock_api": "1.5.2",
-    "@serverless-local-proxy/mw_ddb_query_logger": "1.5.2",
-    "@serverless-local-proxy/mw_ddb_trigger": "1.5.2",
-    "@serverless-local-proxy/mw_functions_to_http": "1.5.2",
-    "@serverless-local-proxy/mw_http_request_logger": "1.5.2",
-    "@serverless-local-proxy/mw_invoke_function": "1.5.2",
-    "@serverless-local-proxy/mw_proxy_output": "1.5.2",
-    "@serverless-local-proxy/mw_state_inject": "1.5.2"
+    "@serverless-local-proxy/mw-payload-to-aws-event": "1.5.3",
+    "@serverless-local-proxy/mw_ddb_mock_api": "1.5.3",
+    "@serverless-local-proxy/mw_ddb_query_logger": "1.5.3",
+    "@serverless-local-proxy/mw_ddb_trigger": "1.5.3",
+    "@serverless-local-proxy/mw_functions_to_http": "1.5.3",
+    "@serverless-local-proxy/mw_http_request_logger": "1.5.3",
+    "@serverless-local-proxy/mw_invoke_function": "1.5.3",
+    "@serverless-local-proxy/mw_proxy_output": "1.5.3",
+    "@serverless-local-proxy/mw_state_inject": "1.5.3"
   }
 }

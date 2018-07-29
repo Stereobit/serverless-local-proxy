@@ -1,6 +1,6 @@
 {
   "name": "serverless-local-proxy",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Serverless plugin that speeds up your local development workflow",
   "main": "src/index.js",
   "keywords": [
@@ -43,11 +43,11 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "@serverless-local-proxy/events_manager": "1.5.2",
-    "@serverless-local-proxy/hotreload": "1.5.2",
-    "@serverless-local-proxy/px_dynamodb": "1.5.2",
-    "@serverless-local-proxy/px_functions": "1.5.2",
-    "@serverless-local-proxy/utils_middleware": "1.5.2",
+    "@serverless-local-proxy/events_manager": "1.5.3",
+    "@serverless-local-proxy/hotreload": "1.5.3",
+    "@serverless-local-proxy/px_dynamodb": "1.5.3",
+    "@serverless-local-proxy/px_functions": "1.5.3",
+    "@serverless-local-proxy/utils_middleware": "1.5.3",
     "aws-sdk": "^2.276.1",
     "chalk": "^2.4.1",
     "immutable": "^3.8.2"
