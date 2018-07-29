@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/mw_functions_to_http",
   "version": "1.5.2",
-  "description": "Create an HTTP endpoint for every serverless function",
+  "description": "serverless-local-proxy plugin: Create an HTTP endpoint for every serverless function",
   "main": "src/index.js",
   "keywords": [
     "serverless",

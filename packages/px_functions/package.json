@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/px_functions",
   "version": "1.5.2",
-  "description": "Proxy functions for serverless-local-proxy",
+  "description": "serverless-local-proxy plugin: FunctionsProxy",
   "main": "src/index.js",
   "keywords": [
     "serverless",

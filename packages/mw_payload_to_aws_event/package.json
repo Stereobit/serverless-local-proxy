@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/mw-payload-to-aws-event",
   "version": "1.5.2",
-  "description": "Serverless plugin",
+  "description": "serverless-local-proxy plugin: Request Payload to AWS event",
   "main": "src/index.js",
   "keywords": [
     "serverless",

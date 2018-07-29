@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/mw_ddb_query_logger",
   "version": "1.5.2",
-  "description": "DymnamoDB query logger for serverless-local-proxy",
+  "description": "serverless-local-proxy plugin: DymnamoDB query logger",
   "main": "src/index.js",
   "keywords": [
     "serverless",

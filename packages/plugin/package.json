@@ -1,7 +1,7 @@
 {
   "name": "serverless-local-proxy",
   "version": "1.5.2",
-  "description": "Serverless plugin that speeds up your development workflow",
+  "description": "Serverless plugin that speeds up your local development workflow",
   "main": "src/index.js",
   "keywords": [
     "serverless",

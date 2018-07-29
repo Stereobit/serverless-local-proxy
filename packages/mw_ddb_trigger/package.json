@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/mw_ddb_trigger",
   "version": "1.5.2",
-  "description": "Dynamodb trigger middleware for serverless local proxy",
+  "description": "serverless-local-proxy plugin: Dynamodb trigger middleware",
   "main": "src/index.js",
   "keywords": [
     "serverless",

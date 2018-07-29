@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/utils_middleware",
   "version": "1.5.2",
-  "description": "Middleware utils package for serverless-local-proxy",
+  "description": "serverless-local-proxy plugin: Middleware utils package",
   "main": "src/index.js",
   "keywords": [
     "serverless",

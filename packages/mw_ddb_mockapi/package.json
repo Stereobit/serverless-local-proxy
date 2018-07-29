@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/mw_ddb_mock_api",
   "version": "1.5.2",
-  "description": "Mocks new DynamoDB APIs not supported by DynamoDB local",
+  "description": "serverless-local-proxy plugin: Mocks new DynamoDB APIs not supported by DynamoDB local",
   "main": "src/index.js",
   "keywords": [
     "serverless",

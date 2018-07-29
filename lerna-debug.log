@@ -1,0 +1,1333 @@
+0 silly input [ 'publish' ]
+1 silly flags { _: [ 'publish' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   'conventional-commits': true,
+1 silly flags   conventionalCommits: true,
+1 silly flags   exact: true,
+1 silly flags   'use-workspaces': true,
+1 silly flags   useWorkspaces: true,
+1 silly flags   'npm-tag': 'latest',
+1 silly flags   npmTag: 'latest' }
+2 verbose rootPath /Users/danniballo/development/serverless-local-proxy
+3 info version 2.11.0
+4 silly isInitialized
+5 silly isInitialized true
+6 silly existsSync /Users/danniballo/development/serverless-local-proxy/VERSION
+7 silly initialize attempt
+8 info current version 1.5.1
+9 silly isDetachedHead
+10 silly getCurrentBranch
+11 verbose getCurrentBranch master
+12 verbose isDetachedHead false
+13 silly getCurrentBranch
+14 verbose getCurrentBranch master
+15 silly getUpdates
+16 info Checking for updated packages...
+17 silly hasTags
+18 verbose hasTags true
+19 silly getLastTag
+20 verbose getLastTag v1.5.1
+21 info Comparing with v1.5.1.
+22 silly diffSinceIn v1.5.1 packages/aws_events_faker
+23 silly diff packages/aws_events_faker/package.json
+23 silly diff packages/aws_events_faker/src/dynamodb/index.js
+24 silly diffSinceIn v1.5.1 packages/events_manager
+25 silly diff packages/events_manager/package.json
+26 silly diffSinceIn v1.5.1 packages/hotrealod
+27 silly diff packages/hotrealod/package.json
+28 silly diffSinceIn v1.5.1 packages/middleware_list
+29 silly diff packages/middleware_list/package.json
+29 silly diff packages/middleware_list/src/index.js
+30 silly diffSinceIn v1.5.1 packages/mw_ddb_mockapi
+31 silly diff packages/mw_ddb_mockapi/README.md
+31 silly diff packages/mw_ddb_mockapi/package.json
+31 silly diff packages/mw_ddb_mockapi/src/index.js
+32 silly diffSinceIn v1.5.1 packages/mw_ddb_query_logger
+33 silly diff packages/mw_ddb_query_logger/README.md
+33 silly diff packages/mw_ddb_query_logger/package.json
+33 silly diff packages/mw_ddb_query_logger/src/index.js
+34 silly diffSinceIn v1.5.1 packages/mw_ddb_trigger
+35 silly diff packages/mw_ddb_trigger/README.md
+35 silly diff packages/mw_ddb_trigger/package.json
+35 silly diff packages/mw_ddb_trigger/src/index.js
+36 silly diffSinceIn v1.5.1 packages/mw_functions_to_http
+37 silly diff packages/mw_functions_to_http/README.md
+37 silly diff packages/mw_functions_to_http/package.json
+37 silly diff packages/mw_functions_to_http/src/index.js
+38 silly diffSinceIn v1.5.1 packages/mw_http_request_logger
+39 silly diff packages/mw_http_request_logger/README.md
+39 silly diff packages/mw_http_request_logger/package.json
+40 silly diffSinceIn v1.5.1 packages/mw_invoke_function
+41 silly diff packages/mw_invoke_function/README.md
+41 silly diff packages/mw_invoke_function/package.json
+42 silly diffSinceIn v1.5.1 packages/mw_invoke_http_function
+43 silly diff packages/mw_invoke_http_function/package.json
+44 silly diffSinceIn v1.5.1 packages/mw_payload_to_aws_event
+45 silly diff packages/mw_payload_to_aws_event/README.md
+45 silly diff packages/mw_payload_to_aws_event/package.json
+46 silly diffSinceIn v1.5.1 packages/mw_proxy_output
+47 silly diff packages/mw_proxy_output/package.json
+48 silly diffSinceIn v1.5.1 packages/mw_state_inject
+49 silly diff packages/mw_state_inject/package.json
+50 silly diffSinceIn v1.5.1 packages/plugin
+51 silly diff packages/plugin/README.md
+51 silly diff packages/plugin/package.json
+51 silly diff packages/plugin/src/plugin/index.js
+51 silly diff packages/plugin/src/redux/index.js
+51 silly diff packages/plugin/src/utils/functions.js
+51 silly diff packages/plugin/src/utils/utils.js
+52 silly diffSinceIn v1.5.1 packages/px_dynamodb
+53 silly diff packages/px_dynamodb/package-lock.json
+53 silly diff packages/px_dynamodb/package.json
+53 silly diff packages/px_dynamodb/src/index.js
+53 silly diff packages/px_dynamodb/src/initkoa.js
+54 silly diffSinceIn v1.5.1 packages/px_functions
+55 silly diff packages/px_functions/package.json
+55 silly diff packages/px_functions/src/index.js
+56 silly diffSinceIn v1.5.1 packages/utils_middleware
+57 silly diff packages/utils_middleware/package.json
+58 verbose updated @serverless-local-proxy/aws_events_faker
+59 verbose updated @serverless-local-proxy/events_manager
+60 verbose updated @serverless-local-proxy/hotreload
+61 verbose updated @serverless-local-proxy/middleware_list
+62 verbose updated @serverless-local-proxy/mw_ddb_mock_api
+63 verbose updated @serverless-local-proxy/mw_ddb_query_logger
+64 verbose updated @serverless-local-proxy/mw_ddb_trigger
+65 verbose updated @serverless-local-proxy/mw_functions_to_http
+66 verbose updated @serverless-local-proxy/mw_http_request_logger
+67 verbose updated @serverless-local-proxy/mw_invoke_function
+68 verbose updated @serverless-local-proxy/mw_invoke_http_function
+69 verbose updated @serverless-local-proxy/mw-payload-to-aws-event
+70 verbose updated @serverless-local-proxy/mw_proxy_output
+71 verbose updated @serverless-local-proxy/mw_state_inject
+72 verbose updated serverless-local-proxy
+73 verbose updated @serverless-local-proxy/px_dynamodb
+74 verbose updated @serverless-local-proxy/px_functions
+75 verbose updated @serverless-local-proxy/utils_middleware
+76 info Checking for prereleased packages...
+77 silly collectDependents
+78 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/aws_events_faker
+79 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/events_manager
+80 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/hotreload
+81 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/middleware_list
+82 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_ddb_mock_api
+83 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_ddb_query_logger
+84 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_ddb_trigger
+85 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_functions_to_http
+86 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_http_request_logger
+87 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_invoke_function
+88 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_invoke_http_function
+89 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw-payload-to-aws-event
+90 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_proxy_output
+91 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_state_inject
+92 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker serverless-local-proxy
+93 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/px_dynamodb
+94 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/px_functions
+95 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/utils_middleware
+96 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/aws_events_faker
+97 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/events_manager
+98 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/hotreload
+99 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/middleware_list
+100 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_mock_api
+101 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_query_logger
+102 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_trigger
+103 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_functions_to_http
+104 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_http_request_logger
+105 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_invoke_function
+106 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_invoke_http_function
+107 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw-payload-to-aws-event
+108 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_proxy_output
+109 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_state_inject
+110 silly isPackageDependentOf @serverless-local-proxy/events_manager serverless-local-proxy
+111 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/px_dynamodb
+112 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/px_functions
+113 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/utils_middleware
+114 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/aws_events_faker
+115 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/events_manager
+116 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/hotreload
+117 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/middleware_list
+118 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_ddb_mock_api
+119 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_ddb_query_logger
+120 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_ddb_trigger
+121 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_functions_to_http
+122 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_http_request_logger
+123 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_invoke_function
+124 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_invoke_http_function
+125 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw-payload-to-aws-event
+126 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_proxy_output
+127 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_state_inject
+128 silly isPackageDependentOf @serverless-local-proxy/hotreload serverless-local-proxy
+129 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/px_dynamodb
+130 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/px_functions
+131 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/utils_middleware
+132 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/aws_events_faker
+133 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/aws_events_faker
+134 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/aws_events_faker
+135 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/aws_events_faker
+136 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/aws_events_faker
+137 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+138 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/aws_events_faker
+139 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/aws_events_faker
+140 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+141 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/aws_events_faker
+142 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+143 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/aws_events_faker
+144 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+145 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/aws_events_faker
+146 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+147 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/aws_events_faker
+148 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+149 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/aws_events_faker
+150 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/events_manager
+151 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/events_manager
+152 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/events_manager
+153 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+154 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/events_manager
+155 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/events_manager
+156 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/events_manager
+157 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+158 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/events_manager
+159 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+160 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/events_manager
+161 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+162 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/events_manager
+163 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+164 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/events_manager
+165 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+166 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/events_manager
+167 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+168 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/events_manager
+169 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/hotreload
+170 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/hotreload
+171 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/hotreload
+172 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+173 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/hotreload
+174 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/hotreload
+175 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/hotreload
+176 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/hotreload
+177 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+178 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/hotreload
+179 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+180 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/hotreload
+181 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+182 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/hotreload
+183 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+184 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/hotreload
+185 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+186 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/hotreload
+187 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+188 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/middleware_list
+189 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/middleware_list
+190 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/middleware_list
+191 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+192 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/middleware_list
+193 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/middleware_list
+194 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/middleware_list
+195 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/middleware_list
+196 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+197 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/middleware_list
+198 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+199 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/middleware_list
+200 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+201 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/middleware_list
+202 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+203 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/middleware_list
+204 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+205 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/middleware_list
+206 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+207 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_mock_api
+208 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_ddb_mock_api
+209 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_query_logger
+210 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_ddb_query_logger
+211 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_trigger
+212 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_ddb_trigger
+213 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_functions_to_http
+214 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_functions_to_http
+215 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_http_request_logger
+216 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_http_request_logger
+217 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_invoke_function
+218 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_invoke_function
+219 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_invoke_http_function
+220 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_invoke_http_function
+221 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_invoke_http_function
+222 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+223 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_invoke_http_function
+224 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_invoke_http_function
+225 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_invoke_http_function
+226 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_invoke_http_function
+227 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+228 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_invoke_http_function
+229 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+230 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_invoke_http_function
+231 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+232 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_invoke_http_function
+233 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+234 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_invoke_http_function
+235 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+236 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_invoke_http_function
+237 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+238 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw-payload-to-aws-event
+239 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw-payload-to-aws-event
+240 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_proxy_output
+241 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_proxy_output
+242 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_state_inject
+243 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/mw_state_inject
+244 silly isPackageDependentOf @serverless-local-proxy/middleware_list serverless-local-proxy
+245 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event serverless-local-proxy
+246 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker serverless-local-proxy
+247 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+248 silly isPackageDependentOf @serverless-local-proxy/events_manager serverless-local-proxy
+249 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api serverless-local-proxy
+250 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger serverless-local-proxy
+251 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger serverless-local-proxy
+252 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+253 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http serverless-local-proxy
+254 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+255 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger serverless-local-proxy
+256 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+257 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function serverless-local-proxy
+258 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+259 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output serverless-local-proxy
+260 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+261 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject serverless-local-proxy
+262 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+263 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/px_dynamodb
+264 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/px_dynamodb
+265 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/px_dynamodb
+266 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+267 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/px_dynamodb
+268 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/px_dynamodb
+269 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/px_dynamodb
+270 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/px_dynamodb
+271 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+272 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/px_dynamodb
+273 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+274 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/px_dynamodb
+275 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+276 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/px_dynamodb
+277 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+278 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/px_dynamodb
+279 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+280 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/px_dynamodb
+281 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+282 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/px_functions
+283 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/px_functions
+284 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/px_functions
+285 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+286 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/px_functions
+287 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/px_functions
+288 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/px_functions
+289 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/px_functions
+290 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+291 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/px_functions
+292 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+293 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/px_functions
+294 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+295 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/px_functions
+296 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+297 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/px_functions
+298 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+299 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/px_functions
+300 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+301 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/utils_middleware
+302 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/utils_middleware
+303 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/utils_middleware
+304 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/utils_middleware
+305 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/utils_middleware
+306 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/utils_middleware
+307 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/utils_middleware
+308 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/utils_middleware
+309 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/utils_middleware
+310 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/utils_middleware
+311 verbose dependent @serverless-local-proxy/middleware_list depends on @serverless-local-proxy/utils_middleware
+312 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/aws_events_faker
+313 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/events_manager
+314 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/hotreload
+315 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/middleware_list
+316 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_ddb_mock_api
+317 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_ddb_query_logger
+318 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_ddb_trigger
+319 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_functions_to_http
+320 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_http_request_logger
+321 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_invoke_function
+322 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_invoke_http_function
+323 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw-payload-to-aws-event
+324 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_proxy_output
+325 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/mw_state_inject
+326 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api serverless-local-proxy
+327 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/px_dynamodb
+328 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/px_functions
+329 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_mock_api @serverless-local-proxy/utils_middleware
+330 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/aws_events_faker
+331 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/events_manager
+332 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/hotreload
+333 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/middleware_list
+334 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_ddb_mock_api
+335 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_ddb_query_logger
+336 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_ddb_trigger
+337 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_functions_to_http
+338 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_http_request_logger
+339 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_invoke_function
+340 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_invoke_http_function
+341 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw-payload-to-aws-event
+342 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_proxy_output
+343 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/mw_state_inject
+344 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger serverless-local-proxy
+345 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/px_dynamodb
+346 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/px_functions
+347 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_query_logger @serverless-local-proxy/utils_middleware
+348 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/aws_events_faker
+349 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/events_manager
+350 verbose dependent @serverless-local-proxy/mw_ddb_trigger depends on @serverless-local-proxy/events_manager
+351 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/hotreload
+352 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/middleware_list
+353 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_ddb_mock_api
+354 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+355 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_mock_api
+356 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_ddb_query_logger
+357 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+358 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_query_logger
+359 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_ddb_trigger
+360 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+361 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_trigger
+362 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_functions_to_http
+363 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+364 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_functions_to_http
+365 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_http_request_logger
+366 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+367 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_http_request_logger
+368 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_invoke_function
+369 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+370 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_invoke_function
+371 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_invoke_http_function
+372 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw-payload-to-aws-event
+373 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+374 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw-payload-to-aws-event
+375 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_proxy_output
+376 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+377 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_proxy_output
+378 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/mw_state_inject
+379 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+380 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_state_inject
+381 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger serverless-local-proxy
+382 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/px_dynamodb
+383 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/px_functions
+384 silly isPackageDependentOf @serverless-local-proxy/mw_ddb_trigger @serverless-local-proxy/utils_middleware
+385 verbose dependent @serverless-local-proxy/mw_ddb_trigger depends on @serverless-local-proxy/utils_middleware
+386 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/aws_events_faker
+387 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/events_manager
+388 verbose dependent @serverless-local-proxy/mw_functions_to_http depends on @serverless-local-proxy/events_manager
+389 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/hotreload
+390 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/middleware_list
+391 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_ddb_mock_api
+392 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+393 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_ddb_query_logger
+394 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+395 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_ddb_trigger
+396 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+397 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_functions_to_http
+398 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+399 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_http_request_logger
+400 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+401 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_invoke_function
+402 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+403 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_invoke_http_function
+404 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw-payload-to-aws-event
+405 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+406 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_proxy_output
+407 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+408 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/mw_state_inject
+409 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+410 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http serverless-local-proxy
+411 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/px_dynamodb
+412 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/px_functions
+413 silly isPackageDependentOf @serverless-local-proxy/mw_functions_to_http @serverless-local-proxy/utils_middleware
+414 verbose dependent @serverless-local-proxy/mw_functions_to_http depends on @serverless-local-proxy/utils_middleware
+415 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/aws_events_faker
+416 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/events_manager
+417 verbose dependent @serverless-local-proxy/mw_http_request_logger depends on @serverless-local-proxy/events_manager
+418 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/hotreload
+419 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/middleware_list
+420 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_ddb_mock_api
+421 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+422 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_ddb_query_logger
+423 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+424 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_ddb_trigger
+425 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+426 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_functions_to_http
+427 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+428 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_http_request_logger
+429 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+430 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_invoke_function
+431 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+432 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_invoke_http_function
+433 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw-payload-to-aws-event
+434 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+435 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_proxy_output
+436 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+437 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/mw_state_inject
+438 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+439 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger serverless-local-proxy
+440 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/px_dynamodb
+441 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/px_functions
+442 silly isPackageDependentOf @serverless-local-proxy/mw_http_request_logger @serverless-local-proxy/utils_middleware
+443 verbose dependent @serverless-local-proxy/mw_http_request_logger depends on @serverless-local-proxy/utils_middleware
+444 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/aws_events_faker
+445 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/events_manager
+446 verbose dependent @serverless-local-proxy/mw_invoke_function depends on @serverless-local-proxy/events_manager
+447 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/hotreload
+448 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/middleware_list
+449 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_ddb_mock_api
+450 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+451 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_ddb_query_logger
+452 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+453 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_ddb_trigger
+454 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+455 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_functions_to_http
+456 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+457 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_http_request_logger
+458 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+459 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_invoke_function
+460 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+461 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_invoke_http_function
+462 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw-payload-to-aws-event
+463 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+464 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_proxy_output
+465 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+466 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/mw_state_inject
+467 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+468 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function serverless-local-proxy
+469 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/px_dynamodb
+470 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/px_functions
+471 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_function @serverless-local-proxy/utils_middleware
+472 verbose dependent @serverless-local-proxy/mw_invoke_function depends on @serverless-local-proxy/utils_middleware
+473 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/aws_events_faker
+474 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+475 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/events_manager
+476 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+477 verbose dependent @serverless-local-proxy/mw_invoke_http_function depends on @serverless-local-proxy/events_manager
+478 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/hotreload
+479 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+480 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/middleware_list
+481 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+482 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_ddb_mock_api
+483 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+484 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_ddb_query_logger
+485 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+486 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_ddb_trigger
+487 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+488 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_functions_to_http
+489 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+490 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_http_request_logger
+491 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+492 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_invoke_function
+493 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+494 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_invoke_http_function
+495 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+496 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw-payload-to-aws-event
+497 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+498 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_proxy_output
+499 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+500 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/mw_state_inject
+501 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+502 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function serverless-local-proxy
+503 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+504 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/px_dynamodb
+505 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+506 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/px_functions
+507 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+508 silly isPackageDependentOf @serverless-local-proxy/mw_invoke_http_function @serverless-local-proxy/utils_middleware
+509 verbose dependent @serverless-local-proxy/mw_invoke_http_function depends on @serverless-local-proxy/utils_middleware
+510 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/aws_events_faker
+511 verbose dependent @serverless-local-proxy/mw-payload-to-aws-event depends on @serverless-local-proxy/aws_events_faker
+512 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/events_manager
+513 verbose dependent @serverless-local-proxy/mw-payload-to-aws-event depends on @serverless-local-proxy/events_manager
+514 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/hotreload
+515 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/middleware_list
+516 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_ddb_mock_api
+517 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_ddb_mock_api
+518 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+519 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_ddb_query_logger
+520 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_ddb_query_logger
+521 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+522 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_ddb_trigger
+523 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_ddb_trigger
+524 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+525 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_functions_to_http
+526 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_functions_to_http
+527 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+528 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_http_request_logger
+529 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_http_request_logger
+530 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+531 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_invoke_function
+532 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_invoke_function
+533 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+534 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_invoke_http_function
+535 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw-payload-to-aws-event
+536 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw-payload-to-aws-event
+537 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+538 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_proxy_output
+539 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_proxy_output
+540 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+541 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/mw_state_inject
+542 silly isPackageDependentOf @serverless-local-proxy/aws_events_faker @serverless-local-proxy/mw_state_inject
+543 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+544 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event serverless-local-proxy
+545 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/px_dynamodb
+546 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/px_functions
+547 silly isPackageDependentOf @serverless-local-proxy/mw-payload-to-aws-event @serverless-local-proxy/utils_middleware
+548 verbose dependent @serverless-local-proxy/mw-payload-to-aws-event depends on @serverless-local-proxy/utils_middleware
+549 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/aws_events_faker
+550 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/events_manager
+551 verbose dependent @serverless-local-proxy/mw_proxy_output depends on @serverless-local-proxy/events_manager
+552 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/hotreload
+553 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/middleware_list
+554 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_ddb_mock_api
+555 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+556 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_ddb_query_logger
+557 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+558 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_ddb_trigger
+559 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+560 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_functions_to_http
+561 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+562 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_http_request_logger
+563 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+564 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_invoke_function
+565 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+566 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_invoke_http_function
+567 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw-payload-to-aws-event
+568 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+569 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_proxy_output
+570 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+571 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/mw_state_inject
+572 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+573 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output serverless-local-proxy
+574 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/px_dynamodb
+575 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/px_functions
+576 silly isPackageDependentOf @serverless-local-proxy/mw_proxy_output @serverless-local-proxy/utils_middleware
+577 verbose dependent @serverless-local-proxy/mw_proxy_output depends on @serverless-local-proxy/utils_middleware
+578 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/aws_events_faker
+579 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/events_manager
+580 verbose dependent @serverless-local-proxy/mw_state_inject depends on @serverless-local-proxy/events_manager
+581 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/hotreload
+582 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/middleware_list
+583 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_ddb_mock_api
+584 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+585 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_ddb_query_logger
+586 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+587 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_ddb_trigger
+588 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+589 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_functions_to_http
+590 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+591 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_http_request_logger
+592 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+593 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_invoke_function
+594 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+595 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_invoke_http_function
+596 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw-payload-to-aws-event
+597 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+598 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_proxy_output
+599 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+600 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/mw_state_inject
+601 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+602 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject serverless-local-proxy
+603 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/px_dynamodb
+604 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/px_functions
+605 silly isPackageDependentOf @serverless-local-proxy/mw_state_inject @serverless-local-proxy/utils_middleware
+606 verbose dependent @serverless-local-proxy/mw_state_inject depends on @serverless-local-proxy/utils_middleware
+607 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/aws_events_faker
+608 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/aws_events_faker
+609 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/aws_events_faker
+610 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/aws_events_faker
+611 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/aws_events_faker
+612 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+613 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/aws_events_faker
+614 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/aws_events_faker
+615 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+616 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+617 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/aws_events_faker
+618 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/events_manager
+619 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/events_manager
+620 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/hotreload
+621 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/hotreload
+622 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/middleware_list
+623 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/middleware_list
+624 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/middleware_list
+625 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/middleware_list
+626 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/middleware_list
+627 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+628 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/middleware_list
+629 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_ddb_mock_api
+630 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_mock_api
+631 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_ddb_mock_api
+632 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_ddb_mock_api
+633 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_mock_api
+634 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+635 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_ddb_mock_api
+636 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_mock_api
+637 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+638 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+639 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_ddb_mock_api
+640 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_ddb_query_logger
+641 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_query_logger
+642 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_ddb_query_logger
+643 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_ddb_query_logger
+644 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_query_logger
+645 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+646 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_ddb_query_logger
+647 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_query_logger
+648 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+649 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+650 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_ddb_query_logger
+651 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_ddb_trigger
+652 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_ddb_trigger
+653 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_ddb_trigger
+654 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_ddb_trigger
+655 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_trigger
+656 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+657 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_ddb_trigger
+658 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_ddb_trigger
+659 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+660 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+661 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_ddb_trigger
+662 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_functions_to_http
+663 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_functions_to_http
+664 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_functions_to_http
+665 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_functions_to_http
+666 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_functions_to_http
+667 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+668 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_functions_to_http
+669 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_functions_to_http
+670 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+671 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+672 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_functions_to_http
+673 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_http_request_logger
+674 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_http_request_logger
+675 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_http_request_logger
+676 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_http_request_logger
+677 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_http_request_logger
+678 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+679 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_http_request_logger
+680 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_http_request_logger
+681 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+682 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+683 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_http_request_logger
+684 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_invoke_function
+685 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_invoke_function
+686 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_invoke_function
+687 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_invoke_function
+688 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_invoke_function
+689 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+690 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_invoke_function
+691 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_invoke_function
+692 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+693 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+694 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_invoke_function
+695 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_invoke_http_function
+696 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_invoke_http_function
+697 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_invoke_http_function
+698 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_invoke_http_function
+699 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_invoke_http_function
+700 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+701 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_invoke_http_function
+702 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_invoke_http_function
+703 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+704 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+705 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw-payload-to-aws-event
+706 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw-payload-to-aws-event
+707 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw-payload-to-aws-event
+708 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw-payload-to-aws-event
+709 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw-payload-to-aws-event
+710 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+711 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw-payload-to-aws-event
+712 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw-payload-to-aws-event
+713 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+714 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+715 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw-payload-to-aws-event
+716 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_proxy_output
+717 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_proxy_output
+718 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_proxy_output
+719 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_proxy_output
+720 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_proxy_output
+721 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+722 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_proxy_output
+723 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_proxy_output
+724 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+725 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+726 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_proxy_output
+727 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/mw_state_inject
+728 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/mw_state_inject
+729 silly isPackageDependentOf @serverless-local-proxy/hotreload @serverless-local-proxy/mw_state_inject
+730 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_state_inject
+731 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_state_inject
+732 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+733 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_state_inject
+734 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/mw_state_inject
+735 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+736 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+737 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/mw_state_inject
+738 silly isPackageDependentOf serverless-local-proxy serverless-local-proxy
+739 silly isPackageDependentOf @serverless-local-proxy/events_manager serverless-local-proxy
+740 silly isPackageDependentOf @serverless-local-proxy/hotreload serverless-local-proxy
+741 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb serverless-local-proxy
+742 silly isPackageDependentOf @serverless-local-proxy/middleware_list serverless-local-proxy
+743 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+744 silly isPackageDependentOf @serverless-local-proxy/px_functions serverless-local-proxy
+745 silly isPackageDependentOf @serverless-local-proxy/middleware_list serverless-local-proxy
+746 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+747 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+748 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/px_dynamodb
+749 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/px_dynamodb
+750 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/px_functions
+751 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/px_functions
+752 silly isPackageDependentOf serverless-local-proxy @serverless-local-proxy/utils_middleware
+753 verbose dependent serverless-local-proxy depends on @serverless-local-proxy/utils_middleware
+754 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/aws_events_faker
+755 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/aws_events_faker
+756 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/events_manager
+757 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/events_manager
+758 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+759 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/events_manager
+760 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/hotreload
+761 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/hotreload
+762 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+763 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/middleware_list
+764 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/middleware_list
+765 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_ddb_mock_api
+766 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_ddb_mock_api
+767 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_ddb_query_logger
+768 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_ddb_query_logger
+769 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_ddb_trigger
+770 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_ddb_trigger
+771 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_functions_to_http
+772 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_functions_to_http
+773 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_http_request_logger
+774 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_http_request_logger
+775 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_invoke_function
+776 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_invoke_function
+777 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_invoke_http_function
+778 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw-payload-to-aws-event
+779 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw-payload-to-aws-event
+780 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_proxy_output
+781 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_proxy_output
+782 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/mw_state_inject
+783 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/mw_state_inject
+784 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb serverless-local-proxy
+785 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/px_dynamodb
+786 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/px_dynamodb
+787 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+788 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/px_functions
+789 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/px_functions
+790 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+791 silly isPackageDependentOf @serverless-local-proxy/px_dynamodb @serverless-local-proxy/utils_middleware
+792 verbose dependent @serverless-local-proxy/px_dynamodb depends on @serverless-local-proxy/utils_middleware
+793 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/aws_events_faker
+794 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/aws_events_faker
+795 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/events_manager
+796 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/events_manager
+797 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+798 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/events_manager
+799 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/hotreload
+800 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/hotreload
+801 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+802 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/middleware_list
+803 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/middleware_list
+804 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_ddb_mock_api
+805 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_ddb_mock_api
+806 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_ddb_query_logger
+807 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_ddb_query_logger
+808 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_ddb_trigger
+809 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_ddb_trigger
+810 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_functions_to_http
+811 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_functions_to_http
+812 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_http_request_logger
+813 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_http_request_logger
+814 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_invoke_function
+815 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_invoke_function
+816 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_invoke_http_function
+817 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw-payload-to-aws-event
+818 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw-payload-to-aws-event
+819 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_proxy_output
+820 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_proxy_output
+821 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/mw_state_inject
+822 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/mw_state_inject
+823 silly isPackageDependentOf @serverless-local-proxy/px_functions serverless-local-proxy
+824 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/px_dynamodb
+825 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/px_dynamodb
+826 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+827 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/px_functions
+828 silly isPackageDependentOf @serverless-local-proxy/middleware_list @serverless-local-proxy/px_functions
+829 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+830 silly isPackageDependentOf @serverless-local-proxy/px_functions @serverless-local-proxy/utils_middleware
+831 verbose dependent @serverless-local-proxy/px_functions depends on @serverless-local-proxy/utils_middleware
+832 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/aws_events_faker
+833 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/events_manager
+834 verbose dependent @serverless-local-proxy/utils_middleware depends on @serverless-local-proxy/events_manager
+835 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/hotreload
+836 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/middleware_list
+837 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_mock_api
+838 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_query_logger
+839 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_ddb_trigger
+840 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_functions_to_http
+841 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_http_request_logger
+842 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_function
+843 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_invoke_http_function
+844 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw-payload-to-aws-event
+845 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_proxy_output
+846 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/mw_state_inject
+847 silly isPackageDependentOf @serverless-local-proxy/utils_middleware serverless-local-proxy
+848 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_dynamodb
+849 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/px_functions
+850 silly isPackageDependentOf @serverless-local-proxy/utils_middleware @serverless-local-proxy/utils_middleware
+851 silly isPackageDependentOf @serverless-local-proxy/events_manager @serverless-local-proxy/utils_middleware
+852 silly collectUpdates
+853 verbose has filtered update @serverless-local-proxy/aws_events_faker
+854 verbose has filtered update @serverless-local-proxy/events_manager
+855 verbose has filtered update @serverless-local-proxy/hotreload
+856 verbose has filtered update @serverless-local-proxy/middleware_list
+857 verbose has filtered update @serverless-local-proxy/mw_ddb_mock_api
+858 verbose has filtered update @serverless-local-proxy/mw_ddb_query_logger
+859 verbose has filtered update @serverless-local-proxy/mw_ddb_trigger
+860 verbose has filtered update @serverless-local-proxy/mw_functions_to_http
+861 verbose has filtered update @serverless-local-proxy/mw_http_request_logger
+862 verbose has filtered update @serverless-local-proxy/mw_invoke_function
+863 verbose has filtered update @serverless-local-proxy/mw_invoke_http_function
+864 verbose has filtered update @serverless-local-proxy/mw-payload-to-aws-event
+865 verbose has filtered update @serverless-local-proxy/mw_proxy_output
+866 verbose has filtered update @serverless-local-proxy/mw_state_inject
+867 verbose has filtered update serverless-local-proxy
+868 verbose has filtered update @serverless-local-proxy/px_dynamodb
+869 verbose has filtered update @serverless-local-proxy/px_functions
+870 verbose has filtered update @serverless-local-proxy/utils_middleware
+871 verbose publish Overriding version of @serverless-local-proxy/aws_events_faker from  1.5.0 to 1.5.1
+872 verbose publish Overriding version of @serverless-local-proxy/events_manager from  1.5.0 to 1.5.1
+873 verbose publish Overriding version of @serverless-local-proxy/hotreload from  1.5.0 to 1.5.1
+874 verbose publish Overriding version of @serverless-local-proxy/mw_ddb_mock_api from  1.5.0 to 1.5.1
+875 verbose publish Overriding version of @serverless-local-proxy/mw_ddb_query_logger from  1.5.0 to 1.5.1
+876 verbose publish Overriding version of @serverless-local-proxy/mw_ddb_trigger from  1.5.0 to 1.5.1
+877 verbose publish Overriding version of @serverless-local-proxy/mw_functions_to_http from  1.5.0 to 1.5.1
+878 verbose publish Overriding version of @serverless-local-proxy/mw_http_request_logger from  1.5.0 to 1.5.1
+879 verbose publish Overriding version of @serverless-local-proxy/mw_invoke_function from  1.5.0 to 1.5.1
+880 verbose publish Overriding version of @serverless-local-proxy/mw_invoke_http_function from  1.5.0 to 1.5.1
+881 verbose publish Overriding version of @serverless-local-proxy/mw_proxy_output from  1.5.0 to 1.5.1
+882 verbose publish Overriding version of @serverless-local-proxy/mw_state_inject from  1.5.0 to 1.5.1
+883 verbose publish Overriding version of @serverless-local-proxy/utils_middleware from  1.5.0 to 1.5.1
+884 silly recommendFixedVersion for @serverless-local-proxy/aws_events_faker at /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker
+885 verbose recommendFixedVersion increment 1.5.1 by patch
+886 silly recommendFixedVersion for @serverless-local-proxy/events_manager at /Users/danniballo/development/serverless-local-proxy/packages/events_manager
+887 verbose recommendFixedVersion increment 1.5.1 by patch
+888 silly recommendFixedVersion for @serverless-local-proxy/hotreload at /Users/danniballo/development/serverless-local-proxy/packages/hotrealod
+889 verbose recommendFixedVersion increment 1.5.1 by patch
+890 silly recommendFixedVersion for @serverless-local-proxy/middleware_list at /Users/danniballo/development/serverless-local-proxy/packages/middleware_list
+891 verbose recommendFixedVersion increment 1.5.1 by patch
+892 silly recommendFixedVersion for @serverless-local-proxy/mw_ddb_mock_api at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi
+893 verbose recommendFixedVersion increment 1.5.1 by patch
+894 silly recommendFixedVersion for @serverless-local-proxy/mw_ddb_query_logger at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger
+895 verbose recommendFixedVersion increment 1.5.1 by patch
+896 silly recommendFixedVersion for @serverless-local-proxy/mw_ddb_trigger at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger
+897 verbose recommendFixedVersion increment 1.5.1 by patch
+898 silly recommendFixedVersion for @serverless-local-proxy/mw_functions_to_http at /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http
+899 verbose recommendFixedVersion increment 1.5.1 by patch
+900 silly recommendFixedVersion for @serverless-local-proxy/mw_http_request_logger at /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger
+901 verbose recommendFixedVersion increment 1.5.1 by patch
+902 silly recommendFixedVersion for @serverless-local-proxy/mw_invoke_function at /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function
+903 verbose recommendFixedVersion increment 1.5.1 by patch
+904 silly recommendFixedVersion for @serverless-local-proxy/mw_invoke_http_function at /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function
+905 verbose recommendFixedVersion increment 1.5.1 by patch
+906 silly recommendFixedVersion for @serverless-local-proxy/mw-payload-to-aws-event at /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event
+907 verbose recommendFixedVersion increment 1.5.1 by patch
+908 silly recommendFixedVersion for @serverless-local-proxy/mw_proxy_output at /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output
+909 verbose recommendFixedVersion increment 1.5.1 by patch
+910 silly recommendFixedVersion for @serverless-local-proxy/mw_state_inject at /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject
+911 verbose recommendFixedVersion increment 1.5.1 by patch
+912 silly recommendFixedVersion for serverless-local-proxy at /Users/danniballo/development/serverless-local-proxy/packages/plugin
+913 verbose recommendFixedVersion increment 1.5.1 by patch
+914 silly recommendFixedVersion for @serverless-local-proxy/px_dynamodb at /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb
+915 verbose recommendFixedVersion increment 1.5.1 by patch
+916 silly recommendFixedVersion for @serverless-local-proxy/px_functions at /Users/danniballo/development/serverless-local-proxy/packages/px_functions
+917 verbose recommendFixedVersion increment 1.5.1 by patch
+918 silly recommendFixedVersion for @serverless-local-proxy/utils_middleware at /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware
+919 verbose recommendFixedVersion increment 1.5.1 by patch
+920 silly initialize success
+921 silly execute attempt
+922 silly addFile /Users/danniballo/development/serverless-local-proxy/lerna.json
+923 silly runScriptSync preversion serverless-local-proxy-monorepo
+924 silly runScriptSync preversion @serverless-local-proxy/aws_events_faker
+925 silly runScriptSync version @serverless-local-proxy/aws_events_faker
+926 silly updateFixedChangelog for @serverless-local-proxy/aws_events_faker at /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker
+927 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/CHANGELOG.md
+928 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/CHANGELOG.md
+929 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/aws_events_faker"
+930 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/CHANGELOG.md',
+930 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/aws_events_faker\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.7](https://github.com/serverless-local-proxy/compare/v1.4.6...v1.4.7) (2018-07-26)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/aws_events_faker\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/aws_events_faker\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.2](https://github.com/serverless-local-proxy/compare/v1.4.1...v1.4.2) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/aws_events_faker' ]
+931 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/CHANGELOG.md
+932 silly runScriptSync preversion @serverless-local-proxy/events_manager
+933 silly runScriptSync version @serverless-local-proxy/events_manager
+934 silly updateFixedChangelog for @serverless-local-proxy/events_manager at /Users/danniballo/development/serverless-local-proxy/packages/events_manager
+935 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/events_manager/CHANGELOG.md
+936 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/events_manager/CHANGELOG.md
+937 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/events_manager"
+938 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/events_manager/CHANGELOG.md',
+938 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/events_manager\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n<a name="1.3.3"></a>\n## [1.3.3](https://github.com/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/events_manager' ]
+939 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/events_manager/CHANGELOG.md
+940 silly runScriptSync preversion @serverless-local-proxy/hotreload
+941 silly runScriptSync version @serverless-local-proxy/hotreload
+942 silly updateFixedChangelog for @serverless-local-proxy/hotreload at /Users/danniballo/development/serverless-local-proxy/packages/hotrealod
+943 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/hotrealod/CHANGELOG.md
+944 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/hotrealod/CHANGELOG.md
+945 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/hotreload"
+946 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/hotrealod/CHANGELOG.md',
+946 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/hotreload\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n<a name="1.3.3"></a>\n## [1.3.3](https://github.com/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/events_manager' ]
+947 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/hotrealod/CHANGELOG.md
+948 silly runScriptSync preversion @serverless-local-proxy/middleware_list
+949 silly runScriptSync version @serverless-local-proxy/middleware_list
+950 silly updateFixedChangelog for @serverless-local-proxy/middleware_list at /Users/danniballo/development/serverless-local-proxy/packages/middleware_list
+951 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/middleware_list/CHANGELOG.md
+952 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/middleware_list/CHANGELOG.md
+953 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/middleware_list"
+954 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/middleware_list/CHANGELOG.md',
+954 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/middleware_list\n\n<a name="1.5.1"></a>\n## [1.5.1](https://github.com/serverless-local-proxy/compare/v1.5.0...v1.5.1) (2018-07-27)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/middleware_list\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))' ]
+955 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/middleware_list/CHANGELOG.md
+956 silly runScriptSync preversion @serverless-local-proxy/mw_ddb_mock_api
+957 silly runScriptSync version @serverless-local-proxy/mw_ddb_mock_api
+958 silly updateFixedChangelog for @serverless-local-proxy/mw_ddb_mock_api at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi
+959 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/CHANGELOG.md
+960 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/CHANGELOG.md
+961 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_mock_api"
+962 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/CHANGELOG.md',
+962 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_mock_api\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_mock_api\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.2](https://github.com/serverless-local-proxy/compare/v1.4.1...v1.4.2) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_mock_api\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n# [1.4.0](https://github.com/serverless-local-proxy/compare/v1.3.3...v1.4.0) (2018-07-22)\n\n\n### Features\n\n* **Lerna:** Implement lerna ([3fc9709](https://github.com/serverless-local-proxy/commit/3fc9709))' ]
+963 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/CHANGELOG.md
+964 silly runScriptSync preversion @serverless-local-proxy/mw_ddb_query_logger
+965 silly runScriptSync version @serverless-local-proxy/mw_ddb_query_logger
+966 silly updateFixedChangelog for @serverless-local-proxy/mw_ddb_query_logger at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger
+967 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/CHANGELOG.md
+968 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/CHANGELOG.md
+969 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_query_logger"
+970 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/CHANGELOG.md',
+970 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_query_logger\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_query_logger\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.2](https://github.com/serverless-local-proxy/compare/v1.4.1...v1.4.2) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_query_logger\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n# [1.4.0](https://github.com/serverless-local-proxy/compare/v1.3.3...v1.4.0) (2018-07-22)\n\n\n### Features\n\n* **Lerna:** Implement lerna ([3fc9709](https://github.com/serverless-local-proxy/commit/3fc9709))' ]
+971 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/CHANGELOG.md
+972 silly runScriptSync preversion @serverless-local-proxy/mw_ddb_trigger
+973 silly runScriptSync version @serverless-local-proxy/mw_ddb_trigger
+974 silly updateFixedChangelog for @serverless-local-proxy/mw_ddb_trigger at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger
+975 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/CHANGELOG.md
+976 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/CHANGELOG.md
+977 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_trigger"
+978 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/CHANGELOG.md',
+978 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_trigger\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.7](https://github.com/serverless-local-proxy/compare/v1.4.6...v1.4.7) (2018-07-26)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_ddb_trigger' ]
+979 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/CHANGELOG.md
+980 silly runScriptSync preversion @serverless-local-proxy/mw_functions_to_http
+981 silly runScriptSync version @serverless-local-proxy/mw_functions_to_http
+982 silly updateFixedChangelog for @serverless-local-proxy/mw_functions_to_http at /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http
+983 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/CHANGELOG.md
+984 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/CHANGELOG.md
+985 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_functions_to_http"
+986 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/CHANGELOG.md',
+986 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_functions_to_http\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n<a name="1.3.3"></a>\n## [1.3.3](https://github.com/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_functions_to_http' ]
+987 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/CHANGELOG.md
+988 silly runScriptSync preversion @serverless-local-proxy/mw_http_request_logger
+989 silly runScriptSync version @serverless-local-proxy/mw_http_request_logger
+990 silly updateFixedChangelog for @serverless-local-proxy/mw_http_request_logger at /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger
+991 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/CHANGELOG.md
+992 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/CHANGELOG.md
+993 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_http_request_logger"
+994 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/CHANGELOG.md',
+994 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_http_request_logger\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.8](https://github.com/serverless-local-proxy/compare/v1.4.7...v1.4.8) (2018-07-26)\n\n\n### Bug Fixes\n\n* **PrettyJson:** Fix package name ([e91d20c](https://github.com/serverless-local-proxy/commit/e91d20c))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_http_request_logger\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.2](https://github.com/serverless-local-proxy/compare/v1.4.1...v1.4.2) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_http_request_logger\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n# [1.4.0](https://github.com/serverless-local-proxy/compare/v1.3.3...v1.4.0) (2018-07-22)\n\n\n### Features\n\n* **Lerna:** Implement lerna ([3fc9709](https://github.com/serverless-local-proxy/commit/3fc9709))' ]
+995 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/CHANGELOG.md
+996 silly runScriptSync preversion @serverless-local-proxy/mw_invoke_function
+997 silly runScriptSync version @serverless-local-proxy/mw_invoke_function
+998 silly updateFixedChangelog for @serverless-local-proxy/mw_invoke_function at /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function
+999 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/CHANGELOG.md
+1000 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/CHANGELOG.md
+1001 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_function"
+1002 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/CHANGELOG.md',
+1002 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_function\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.7](https://github.com/serverless-local-proxy/compare/v1.4.6...v1.4.7) (2018-07-26)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_function\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_function\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.4](https://github.com/serverless-local-proxy/compare/v1.4.3...v1.4.4) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_function\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.2](https://github.com/serverless-local-proxy/compare/v1.4.1...v1.4.2) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_function' ]
+1003 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/CHANGELOG.md
+1004 silly runScriptSync preversion @serverless-local-proxy/mw_invoke_http_function
+1005 silly runScriptSync version @serverless-local-proxy/mw_invoke_http_function
+1006 silly updateFixedChangelog for @serverless-local-proxy/mw_invoke_http_function at /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function
+1007 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/CHANGELOG.md
+1008 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/CHANGELOG.md
+1009 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_http_function"
+1010 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/CHANGELOG.md',
+1010 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_http_function\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.7](https://github.com/serverless-local-proxy/compare/v1.4.6...v1.4.7) (2018-07-26)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_invoke_http_function' ]
+1011 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/CHANGELOG.md
+1012 silly runScriptSync preversion @serverless-local-proxy/mw-payload-to-aws-event
+1013 silly runScriptSync version @serverless-local-proxy/mw-payload-to-aws-event
+1014 silly updateFixedChangelog for @serverless-local-proxy/mw-payload-to-aws-event at /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event
+1015 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/CHANGELOG.md
+1016 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/CHANGELOG.md
+1017 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw-payload-to-aws-event"
+1018 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/CHANGELOG.md',
+1018 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw-payload-to-aws-event\n\n<a name="1.5.1"></a>\n## [1.5.1](https://github.com/serverless-local-proxy/compare/v1.5.0...v1.5.1) (2018-07-27)\n\n\n### Bug Fixes\n\n* **PayloadToAwsEvent:** Fix wrong middleware name ([3f1538c](https://github.com/serverless-local-proxy/commit/3f1538c))\n\n\n\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))' ]
+1019 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/CHANGELOG.md
+1020 silly runScriptSync preversion @serverless-local-proxy/mw_proxy_output
+1021 silly runScriptSync version @serverless-local-proxy/mw_proxy_output
+1022 silly updateFixedChangelog for @serverless-local-proxy/mw_proxy_output at /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output
+1023 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/CHANGELOG.md
+1024 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/CHANGELOG.md
+1025 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_proxy_output"
+1026 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/CHANGELOG.md',
+1026 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_proxy_output\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))' ]
+1027 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/CHANGELOG.md
+1028 silly runScriptSync preversion @serverless-local-proxy/mw_state_inject
+1029 silly runScriptSync version @serverless-local-proxy/mw_state_inject
+1030 silly updateFixedChangelog for @serverless-local-proxy/mw_state_inject at /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject
+1031 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/CHANGELOG.md
+1032 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/CHANGELOG.md
+1033 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_state_inject"
+1034 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/CHANGELOG.md',
+1034 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_state_inject\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/mw_state_inject\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n# [1.4.0](https://github.com/serverless-local-proxy/compare/v1.3.3...v1.4.0) (2018-07-22)\n\n\n### Features\n\n* **Lerna:** Implement lerna ([3fc9709](https://github.com/serverless-local-proxy/commit/3fc9709))\n* **Redux:** Support redux and redux remote dev tools ([10b60d3](https://github.com/serverless-local-proxy/commit/10b60d3))' ]
+1035 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/CHANGELOG.md
+1036 silly runScriptSync preversion serverless-local-proxy
+1037 silly runScriptSync version serverless-local-proxy
+1038 silly updateFixedChangelog for serverless-local-proxy at /Users/danniballo/development/serverless-local-proxy/packages/plugin
+1039 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/plugin/CHANGELOG.md
+1040 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/plugin/CHANGELOG.md
+1041 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package serverless-local-proxy"
+1042 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/plugin/CHANGELOG.md',
+1042 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package serverless-local-proxy\n\n<a name="1.5.1"></a>\n## [1.5.1](https://github.com/serverless-local-proxy/compare/v1.5.0...v1.5.1) (2018-07-27)\n\n\n\n\n**Note:** Version bump only for package serverless-local-proxy\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n<a name="1.3.3"></a>\n## [1.3.3](https://github.com/serverless-local-proxy/plugin/compare/v1.3.2...v1.3.3) (2018-07-22)\n\n\n\n\n**Note:** Version bump only for package serverless-local-proxy' ]
+1043 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/plugin/CHANGELOG.md
+1044 silly runScriptSync preversion @serverless-local-proxy/px_dynamodb
+1045 silly runScriptSync version @serverless-local-proxy/px_dynamodb
+1046 silly updateFixedChangelog for @serverless-local-proxy/px_dynamodb at /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb
+1047 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/CHANGELOG.md
+1048 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/CHANGELOG.md
+1049 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_dynamodb"
+1050 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/CHANGELOG.md',
+1050 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_dynamodb\n\n<a name="1.5.1"></a>\n## [1.5.1](https://github.com/serverless-local-proxy/compare/v1.5.0...v1.5.1) (2018-07-27)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_dynamodb\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n<a name="1.3.3"></a>\n## [1.3.3](https://github.com/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_dynamodb' ]
+1051 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/CHANGELOG.md
+1052 silly runScriptSync preversion @serverless-local-proxy/px_functions
+1053 silly runScriptSync version @serverless-local-proxy/px_functions
+1054 silly updateFixedChangelog for @serverless-local-proxy/px_functions at /Users/danniballo/development/serverless-local-proxy/packages/px_functions
+1055 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/px_functions/CHANGELOG.md
+1056 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/px_functions/CHANGELOG.md
+1057 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_functions"
+1058 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/px_functions/CHANGELOG.md',
+1058 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_functions\n\n<a name="1.5.1"></a>\n## [1.5.1](https://github.com/serverless-local-proxy/compare/v1.5.0...v1.5.1) (2018-07-27)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_functions\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n<a name="1.3.3"></a>\n## [1.3.3](https://github.com/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/px_functions' ]
+1059 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/px_functions/CHANGELOG.md
+1060 silly runScriptSync preversion @serverless-local-proxy/utils_middleware
+1061 silly runScriptSync version @serverless-local-proxy/utils_middleware
+1062 silly updateFixedChangelog for @serverless-local-proxy/utils_middleware at /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware
+1063 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/CHANGELOG.md
+1064 silly readFileSync /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/CHANGELOG.md
+1065 silly updateFixedChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/utils_middleware"
+1066 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/CHANGELOG.md',
+1066 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/utils_middleware\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/serverless-local-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/serverless-local-proxy/commit/bf7ca98))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.7](https://github.com/serverless-local-proxy/compare/v1.4.6...v1.4.7) (2018-07-26)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/utils_middleware\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.5](https://github.com/serverless-local-proxy/compare/v1.4.4...v1.4.5) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/utils_middleware\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.4](https://github.com/serverless-local-proxy/compare/v1.4.3...v1.4.4) (2018-07-25)\n\n\n### Bug Fixes\n\n* **Packages:** Fix dependencies ([b63ca86](https://github.com/serverless-local-proxy/commit/b63ca86))\n\n\n\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n## [1.4.2](https://github.com/serverless-local-proxy/compare/v1.4.1...v1.4.2) (2018-07-25)\n\n\n\n\n**Note:** Version bump only for package @serverless-local-proxy/utils_middleware\n\n# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n# [1.4.0](https://github.com/serverless-local-proxy/compare/v1.3.3...v1.4.0) (2018-07-22)\n\n\n### Features\n\n* **Lerna:** Implement lerna ([3fc9709](https://github.com/serverless-local-proxy/commit/3fc9709))' ]
+1067 verbose updateFixedChangelog wrote /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/CHANGELOG.md
+1068 silly updateFixedRootChangelog for serverless-local-proxy-monorepo at /Users/danniballo/development/serverless-local-proxy
+1069 silly existsSync /Users/danniballo/development/serverless-local-proxy/CHANGELOG.md
+1070 silly readFileSync /Users/danniballo/development/serverless-local-proxy/CHANGELOG.md
+1071 silly updateFixedRootChangelog writing new entry: "<a name=\"1.5.2\"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package serverless-local-proxy-monorepo"
+1072 silly writeFileSync [ '/Users/danniballo/development/serverless-local-proxy/CHANGELOG.md',
+1072 silly writeFileSync   '# Change Log\n\nAll notable changes to this project will be documented in this file.\nSee [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n<a name="1.5.2"></a>\n## [1.5.2](https://github.com/serverless-local-proxy/serverless-local-proxy/compare/v1.5.1...v1.5.2) (2018-07-29)\n\n\n\n\n**Note:** Version bump only for package serverless-local-proxy-monorepo\n\n<a name="1.5.1"></a>\n## [1.5.1](https://github.com/useless-stuff/serverless-proxy/compare/v1.5.0...v1.5.1) (2018-07-27)\n\n\n### Bug Fixes\n\n* **PayloadToAwsEvent:** Fix wrong middleware name ([3f1538c](https://github.com/useless-stuff/serverless-proxy/commit/3f1538c))\n\n\n\n\n<a name="1.5.0"></a>\n# [1.5.0](https://github.com/useless-stuff/serverless-proxy/compare/v1.4.8...v1.5.0) (2018-07-27)\n\n\n### Features\n\n* **Architecture:** Middlewares are chainable and available across all the proxies ([bf7ca98](https://github.com/useless-stuff/serverless-proxy/commit/bf7ca98))\n\n\n\n\n<a name="1.3.3"></a>\n## [1.3.3](https://github.com/useless-stuff/serverless-local-proxy/compare/v1.3.2...v1.3.3) (2018-07-22)\n\n\n\n\n**Note:** Version bump only for package serverless-local-proxy-monorepo' ]
+1073 verbose updateFixedRootChangelog wrote /Users/danniballo/development/serverless-local-proxy/CHANGELOG.md
+1074 silly runScriptSync version serverless-local-proxy-monorepo
+1075 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/CHANGELOG.md
+1076 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/package.json
+1077 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/events_manager/CHANGELOG.md
+1078 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/events_manager/package.json
+1079 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/hotrealod/CHANGELOG.md
+1080 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/hotrealod/package.json
+1081 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/middleware_list/CHANGELOG.md
+1082 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/middleware_list/package.json
+1083 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/CHANGELOG.md
+1084 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/package.json
+1085 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/CHANGELOG.md
+1086 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/package.json
+1087 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/CHANGELOG.md
+1088 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/package.json
+1089 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/CHANGELOG.md
+1090 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/package.json
+1091 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/CHANGELOG.md
+1092 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/package.json
+1093 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/CHANGELOG.md
+1094 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/package.json
+1095 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/CHANGELOG.md
+1096 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/package.json
+1097 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/CHANGELOG.md
+1098 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/package.json
+1099 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/CHANGELOG.md
+1100 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/package.json
+1101 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/CHANGELOG.md
+1102 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/package.json
+1103 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/plugin/CHANGELOG.md
+1104 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/plugin/package.json
+1105 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/CHANGELOG.md
+1106 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/package.json
+1107 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/px_functions/CHANGELOG.md
+1108 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/px_functions/package.json
+1109 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/CHANGELOG.md
+1110 silly addFile /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/package.json
+1111 silly addFile /Users/danniballo/development/serverless-local-proxy/CHANGELOG.md
+1112 silly commit v1.5.2
+1113 verbose commit [ 'commit', '--no-verify', '-m', 'v1.5.2' ]
+1114 silly addTag v1.5.2
+1115 silly runScriptSync postversion @serverless-local-proxy/aws_events_faker
+1116 silly runScriptSync postversion @serverless-local-proxy/events_manager
+1117 silly runScriptSync postversion @serverless-local-proxy/hotreload
+1118 silly runScriptSync postversion @serverless-local-proxy/middleware_list
+1119 silly runScriptSync postversion @serverless-local-proxy/mw_ddb_mock_api
+1120 silly runScriptSync postversion @serverless-local-proxy/mw_ddb_query_logger
+1121 silly runScriptSync postversion @serverless-local-proxy/mw_ddb_trigger
+1122 silly runScriptSync postversion @serverless-local-proxy/mw_functions_to_http
+1123 silly runScriptSync postversion @serverless-local-proxy/mw_http_request_logger
+1124 silly runScriptSync postversion @serverless-local-proxy/mw_invoke_function
+1125 silly runScriptSync postversion @serverless-local-proxy/mw_invoke_http_function
+1126 silly runScriptSync postversion @serverless-local-proxy/mw-payload-to-aws-event
+1127 silly runScriptSync postversion @serverless-local-proxy/mw_proxy_output
+1128 silly runScriptSync postversion @serverless-local-proxy/mw_state_inject
+1129 silly runScriptSync postversion serverless-local-proxy
+1130 silly runScriptSync postversion @serverless-local-proxy/px_dynamodb
+1131 silly runScriptSync postversion @serverless-local-proxy/px_functions
+1132 silly runScriptSync postversion @serverless-local-proxy/utils_middleware
+1133 silly runScriptSync postversion serverless-local-proxy-monorepo
+1134 info publish Publishing packages to npm...
+1135 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/scripts/prepublish.js
+1136 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker/scripts/prepublish.js
+1137 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/events_manager/scripts/prepublish.js
+1138 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/events_manager/scripts/prepublish.js
+1139 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/hotrealod/scripts/prepublish.js
+1140 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/hotrealod/scripts/prepublish.js
+1141 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/middleware_list/scripts/prepublish.js
+1142 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/middleware_list/scripts/prepublish.js
+1143 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/scripts/prepublish.js
+1144 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi/scripts/prepublish.js
+1145 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/scripts/prepublish.js
+1146 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_query_logger/scripts/prepublish.js
+1147 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/scripts/prepublish.js
+1148 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_trigger/scripts/prepublish.js
+1149 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/scripts/prepublish.js
+1150 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_functions_to_http/scripts/prepublish.js
+1151 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/scripts/prepublish.js
+1152 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_http_request_logger/scripts/prepublish.js
+1153 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/scripts/prepublish.js
+1154 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_function/scripts/prepublish.js
+1155 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/scripts/prepublish.js
+1156 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_invoke_http_function/scripts/prepublish.js
+1157 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/scripts/prepublish.js
+1158 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_payload_to_aws_event/scripts/prepublish.js
+1159 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/scripts/prepublish.js
+1160 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_proxy_output/scripts/prepublish.js
+1161 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/scripts/prepublish.js
+1162 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/mw_state_inject/scripts/prepublish.js
+1163 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/plugin/scripts/prepublish.js
+1164 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/plugin/scripts/prepublish.js
+1165 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/scripts/prepublish.js
+1166 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/px_dynamodb/scripts/prepublish.js
+1167 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/px_functions/scripts/prepublish.js
+1168 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/px_functions/scripts/prepublish.js
+1169 silly existsSync /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/scripts/prepublish.js
+1170 verbose execScript No prepublish script found at /Users/danniballo/development/serverless-local-proxy/packages/utils_middleware/scripts/prepublish.js
+1171 verbose publishing @serverless-local-proxy/aws_events_faker
+1172 silly publishTaggedInDir latest aws_events_faker
+1173 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker' }
+1174 verbose publishing @serverless-local-proxy/events_manager
+1175 silly publishTaggedInDir latest events_manager
+1176 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/events_manager' }
+1177 verbose publishing @serverless-local-proxy/hotreload
+1178 silly publishTaggedInDir latest hotrealod
+1179 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/hotrealod' }
+1180 verbose publishing @serverless-local-proxy/mw_ddb_mock_api
+1181 silly publishTaggedInDir latest mw_ddb_mockapi
+1182 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi' }
+1183 error publish Retrying failed publish: @serverless-local-proxy/aws_events_faker
+1184 verbose publish error undefined
+1185 verbose publishing @serverless-local-proxy/aws_events_faker
+1186 silly publishTaggedInDir latest aws_events_faker
+1187 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker' }
+1188 error publish Retrying failed publish: @serverless-local-proxy/events_manager
+1189 verbose publish error undefined
+1190 verbose publishing @serverless-local-proxy/events_manager
+1191 silly publishTaggedInDir latest events_manager
+1192 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/events_manager' }
+1193 error publish Retrying failed publish: @serverless-local-proxy/mw_ddb_mock_api
+1194 verbose publish error undefined
+1195 verbose publishing @serverless-local-proxy/mw_ddb_mock_api
+1196 silly publishTaggedInDir latest mw_ddb_mockapi
+1197 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi' }
+1198 error publish Retrying failed publish: @serverless-local-proxy/hotreload
+1199 verbose publish error undefined
+1200 verbose publishing @serverless-local-proxy/hotreload
+1201 silly publishTaggedInDir latest hotrealod
+1202 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/hotrealod' }
+1203 error publish Retrying failed publish: @serverless-local-proxy/aws_events_faker
+1204 verbose publish error undefined
+1205 verbose publishing @serverless-local-proxy/aws_events_faker
+1206 silly publishTaggedInDir latest aws_events_faker
+1207 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker' }
+1208 error publish Retrying failed publish: @serverless-local-proxy/events_manager
+1209 verbose publish error undefined
+1210 verbose publishing @serverless-local-proxy/events_manager
+1211 silly publishTaggedInDir latest events_manager
+1212 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/events_manager' }
+1213 error publish Retrying failed publish: @serverless-local-proxy/hotreload
+1214 verbose publish error undefined
+1215 verbose publishing @serverless-local-proxy/hotreload
+1216 silly publishTaggedInDir latest hotrealod
+1217 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/hotrealod' }
+1218 error publish Retrying failed publish: @serverless-local-proxy/mw_ddb_mock_api
+1219 verbose publish error undefined
+1220 verbose publishing @serverless-local-proxy/mw_ddb_mock_api
+1221 silly publishTaggedInDir latest mw_ddb_mockapi
+1222 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi' }
+1223 error publish Retrying failed publish: @serverless-local-proxy/aws_events_faker
+1224 verbose publish error undefined
+1225 verbose publishing @serverless-local-proxy/aws_events_faker
+1226 silly publishTaggedInDir latest aws_events_faker
+1227 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker' }
+1228 error publish Retrying failed publish: @serverless-local-proxy/hotreload
+1229 verbose publish error undefined
+1230 verbose publishing @serverless-local-proxy/hotreload
+1231 silly publishTaggedInDir latest hotrealod
+1232 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/hotrealod' }
+1233 error publish Retrying failed publish: @serverless-local-proxy/events_manager
+1234 verbose publish error undefined
+1235 verbose publishing @serverless-local-proxy/events_manager
+1236 silly publishTaggedInDir latest events_manager
+1237 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/events_manager' }
+1238 error publish Retrying failed publish: @serverless-local-proxy/mw_ddb_mock_api
+1239 verbose publish error undefined
+1240 verbose publishing @serverless-local-proxy/mw_ddb_mock_api
+1241 silly publishTaggedInDir latest mw_ddb_mockapi
+1242 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi' }
+1243 error publish Retrying failed publish: @serverless-local-proxy/aws_events_faker
+1244 verbose publish error undefined
+1245 verbose publishing @serverless-local-proxy/aws_events_faker
+1246 silly publishTaggedInDir latest aws_events_faker
+1247 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/aws_events_faker' }
+1248 error publish Retrying failed publish: @serverless-local-proxy/hotreload
+1249 verbose publish error undefined
+1250 verbose publishing @serverless-local-proxy/hotreload
+1251 silly publishTaggedInDir latest hotrealod
+1252 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/hotrealod' }
+1253 error publish Retrying failed publish: @serverless-local-proxy/events_manager
+1254 verbose publish error undefined
+1255 verbose publishing @serverless-local-proxy/events_manager
+1256 silly publishTaggedInDir latest events_manager
+1257 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/events_manager' }
+1258 error publish Retrying failed publish: @serverless-local-proxy/mw_ddb_mock_api
+1259 verbose publish error undefined
+1260 verbose publishing @serverless-local-proxy/mw_ddb_mock_api
+1261 silly publishTaggedInDir latest mw_ddb_mockapi
+1262 silly getExecOpts { cwd: '/Users/danniballo/development/serverless-local-proxy/packages/mw_ddb_mockapi' }
+1263 error publish Ran out of retries while publishing @serverless-local-proxy/aws_events_faker Error: Command failed: yarn publish --tag latest --new-version 1.5.2
+1263 error publish error No token found and can't prompt for login when running with --non-interactive.
+1263 error publish [1/4] Bumping version...
+1263 error publish info Current version: 1.5.2
+1263 error publish [2/4] Logging in...
+1263 error publish info Visit https://yarnpkg.com/en/docs/cli/publish for documentation about this command.
+1263 error publish
+1263 error publish     at Promise.all.then.arr (/Users/danniballo/development/serverless-local-proxy/node_modules/lerna/node_modules/execa/index.js:236:11)
+1263 error publish     at <anonymous>
+1263 error publish     at process._tickCallback (internal/process/next_tick.js:188:7)
+1264 error execute callback with error
+1265 error Error: Command failed: yarn publish --tag latest --new-version 1.5.2
+1265 error error No token found and can't prompt for login when running with --non-interactive.
+1265 error [1/4] Bumping version...
+1265 error info Current version: 1.5.2
+1265 error [2/4] Logging in...
+1265 error info Visit https://yarnpkg.com/en/docs/cli/publish for documentation about this command.
+1265 error
+1265 error     at Promise.all.then.arr (/Users/danniballo/development/serverless-local-proxy/node_modules/lerna/node_modules/execa/index.js:236:11)
+1265 error     at <anonymous>

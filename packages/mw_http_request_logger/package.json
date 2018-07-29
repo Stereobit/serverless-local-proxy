@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/mw_http_request_logger",
   "version": "1.5.2",
-  "description": "HTTP request logger fo serverless-local-proxy",
+  "description": "serverless-local-proxy plugin: HTTP request logger",
   "main": "src/index.js",
   "keywords": [
     "serverless",

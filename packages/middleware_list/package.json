@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/middleware_list",
   "version": "1.5.2",
-  "description": "Serverless plugin",
+  "description": "serverless-local-proxy plugin: Middleware list",
   "main": "src/index.js",
   "keywords": [
     "serverless",

@@ -1,7 +1,7 @@
 {
   "name": "@serverless-local-proxy/mw_invoke_function",
   "version": "1.5.2",
-  "description": "Serverless plugin",
+  "description": "serverless-local-proxy plugin: Invoke function middleware",
   "main": "src/index.js",
   "keywords": [
     "serverless",
