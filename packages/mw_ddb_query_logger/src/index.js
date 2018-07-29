@@ -24,7 +24,6 @@ const factory = (config) => {
     }
     return await next()
   }
-
 }
 
 module.exports = {factory, MIDDLEWARE_NAME}

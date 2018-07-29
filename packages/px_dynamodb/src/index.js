@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const EventsManager = require('@serverless-local-proxy/events_manager')
 const {KoaServer, koaBody, koaConvert, koaCompose, koaProxy} = require('./initkoa')
 const {middlewareFactoryGateway} = require('@serverless-local-proxy/utils_middleware')
@@ -26,13 +27,12 @@ const dynamoDbProxy = (proxySettings) => {
       serviceFunctions: proxySettings.serviceFunctions,
       proxyLogPrefix: LOG_PREFIX
     })
-
     koaServer.use(koaConvert(koaBody({limit: '10kb', fallback: true})))
     koaServer.use(stateInject('input', {}))
     koaServer.use(stateInject('output', {}))
     koaServer.use(koaCompose(middlewareCollection))
-    koaServer.use(koaConvert(koaProxy({host: dynamo_db_host}))).listen(proxy_port)
-
+    koaServer.use(koaProxy(dynamo_db_host))
+    koaServer.listen(proxy_port)
     EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`)
   } catch (e) {
     EventsManager.emitLogError(`${LOG_PREFIX} ${e.message}`)

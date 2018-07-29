@@ -18,10 +18,10 @@ const factory = (config) => {
     const functionDetails = getFunctionDetails(config, ctx)
     if (functionDetails) {
       updateMiddlewareOutputState(ctx, {
-          invokeFunctionName: functionDetails.name,
-          invokeFunctionPath: functionDetails.path,
-          invokeFunctionPayload: ctx.request.body,
-        }
+        invokeFunctionName: functionDetails.name,
+        invokeFunctionPath: functionDetails.path,
+        invokeFunctionPayload: ctx.request.body
+      }
       )
     }
     await next()
@@ -52,9 +52,7 @@ const getFunctionDetails = (config, ctx) => {
   const spottedFunction = config.serviceFunctions
     .find(functionDetails => String(functionDetails.name).toLowerCase() === functionRequested)
 
-  return spottedFunction
-    ? spottedFunction
-    : false
+  return spottedFunction || false
 }
 
 module.exports = {factory, MIDDLEWARE_NAME}

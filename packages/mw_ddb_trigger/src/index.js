@@ -20,8 +20,7 @@ const factory = (config) => {
         const triggerResult = {
           invokeFunctionName: functionDetails.name,
           invokeFunctionPath: functionDetails.path,
-          // TODO: @diego[refactor] body.Item assumes that the query is PutItem...maybe needs a mw that process the
-          // TODO: @diego[refactor] query, something like mw_ddb_query_to_payload
+          // TODO: @diego[refactor] body.Item assumes that the query is PutItem...maybe needs a mw that process the query, something like mw_ddb_query_to_payload
           invokeFunctionPayload: ctx.request.body.Item ? ctx.request.body.Item : ctx.request.body
         }
         updateMiddlewareOutputState(ctx, triggerResult)
@@ -29,7 +28,6 @@ const factory = (config) => {
     }
     await next()
   }
-
 }
 
 /**

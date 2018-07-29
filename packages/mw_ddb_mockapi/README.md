@@ -1,29 +1,20 @@
 # DDB MOCK API
 
-This package is part of the monorepo project serverless-local-proxy 
+This middleware mocks the APIs that DynamoDB local doesn't have ( like DescribeTimeToLive, tags etc )
+It's useful if you use tools that require those APIs like [Terraform](https://www.terraform.io/) ( [issue](https://github.com/terraform-providers/terraform-provider-aws/issues/1059) ).
+It also allows you to redirect to the local DynamoDB /shell
 
-## Getting Started
+## Name:
+ddb_mock_api
 
-## Prerequisites
+## Middleware state
 
-## Installing
+| Input | Output |
+| --- | --- |
+| none | none |
 
-## Running the tests
+N.B. 
+This package is part of the monorepo [serverless-local-proxy](https://github.com/serverless-local-proxy/serverless-local-proxy)
 
-## Break down into end to end tests
 
-## And coding style tests
 
-## Deployment
-
-## Built With
-
-## Contributing
-
-## Versioning 
-
-## Authors
-
-## License
-
-## Acknowledgments

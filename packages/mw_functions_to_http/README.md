@@ -1,29 +1,19 @@
 # FUNCTIONS TO HTTP
 
-This package is part of the monorepo serverless-local-proxy 
+Will transform all the service's function to HTTP endpoints
 
-## Getting Started
+## Name:
+functions_to_http
 
-## Prerequisites
+## Middleware state
 
-## Installing
+Middleware state
 
-## Running the tests
+| Input | Output |
+| --- | --- |
+| none | invokeFunctionName:String |
+| none | invokeFunctionPath:String |
+| none | invokeFunctionPayload:Any |
 
-## Break down into end to end tests
-
-## And coding style tests
-
-## Deployment
-
-## Built With
-
-## Contributing
-
-## Versioning 
-
-## Authors
-
-## License
-
-## Acknowledgments
+N.B. 
+This package is part of the monorepo [serverless-local-proxy](https://github.com/serverless-local-proxy/serverless-local-proxy)

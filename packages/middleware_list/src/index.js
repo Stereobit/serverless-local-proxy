@@ -17,7 +17,7 @@ const middlewareList = [
   {name: invokeFunctionName, factory: invokeFunctionFactory},
   {name: functionsToHttpName, factory: functionsToHttpFactory},
   {name: httpRequestLoggerName, factory: httpRequestLoggerFactory},
-  {name: stateInjectName, factory: stateInjectFactory},
+  {name: stateInjectName, factory: stateInjectFactory}
 ]
 
 module.exports = {

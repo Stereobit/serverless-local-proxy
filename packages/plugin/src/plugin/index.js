@@ -9,7 +9,6 @@ const LOGGER_LEVEL = {INFO: 'INFO', ERROR: 'ERROR', WARNING: 'WARNING', NO_TAGS:
 const LOGGER_PREFIX = '[SLS-LOCAL-PROXY]'
 
 class Plugin {
-
   /**
    * Constructor
    *
@@ -66,7 +65,7 @@ class Plugin {
             serviceFunctions: dynamodbProxySettingsToFunctions(
               Array.from(this.functionsCollection.values()),
               proxy[AVAILABLE_PROXIES.DYNAMODB].configTables
-            ),
+            )
           }
         )
       }
@@ -79,7 +78,7 @@ class Plugin {
             serviceFunctions: functionsProxySettingsToFunctions(
               Array.from(this.functionsCollection.values()),
               proxy[AVAILABLE_PROXIES.FUNCTIONS].configFunctions
-            ),
+            )
           }
         )
       }

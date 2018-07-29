@@ -1,29 +1,22 @@
-# Project Title
+# PAYLOAD TO AWS EVENT
 
-This package is part of the Monorepo project serverless-local-proxy 
+Will transform a request payload to an [AWS event](https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html)
 
-## Getting Started
+## Name:
+payload_to_aws_event
 
-## Prerequisites
+## Middleware state
 
-## Installing
+| Input | Output |
+| --- | --- |
+| invokeFunctionPayload:Any | invokeFunctionPayload:AWSEventObject} |
+| invokeFunctionName:String |  |
 
-## Running the tests
+N.B. 
+This package is part of the monorepo [serverless-local-proxy](https://github.com/serverless-local-proxy/serverless-local-proxy)
 
-## Break down into end to end tests
 
-## And coding style tests
 
-## Deployment
 
-## Built With
 
-## Contributing
 
-## Versioning 
-
-## Authors
-
-## License
-
-## Acknowledgments

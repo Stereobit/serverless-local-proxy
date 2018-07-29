@@ -15,7 +15,7 @@ const insert = () => {
  * @return {{}}
  */
 const remove = () => {
-  //TODO
+  // TODO
   return {}
 }
 
@@ -50,7 +50,6 @@ const modify = (payload) => {
  * @return {{Records: *[]}}
  */
 const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb') => {
-
   const events = {
     REMOVE: 'REMOVE',
     MODIFY: 'MODIFY',
@@ -65,7 +64,7 @@ const dynamoDBEvent = (eventType, payload, arn = 'aws:dynamodb') => {
         'eventName': 'MODIFY',
         'eventSourceARN': arn,
         'eventSource': 'aws:dynamodb',
-        'dynamodb': modify(payload.Item) //TODO: Extract Item
+        'dynamodb': modify(payload.Item) // TODO: Extract Item
       }
     ]
   }

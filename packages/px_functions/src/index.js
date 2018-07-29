@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const {KoaServer, koaCompose, koaBody, koaConvert} = require('./initkoa')
 const EventsManager = require('@serverless-local-proxy/events_manager')
 const {middlewareFactoryGateway} = require('@serverless-local-proxy/utils_middleware')
@@ -31,7 +32,6 @@ const functionsProxy = (proxySettings) => {
     koaServer.use(koaCompose(middlewareCollection))
     koaServer.use(proxyOutput())
     koaServer.listen(proxy_port)
-
     EventsManager.emitLogInfo(`${LOG_PREFIX} proxy started at ${proxy_host}:${proxy_port}`)
   } catch (e) {
     EventsManager.emitLogError(`${LOG_PREFIX} ${e.message}`)

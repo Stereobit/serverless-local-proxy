@@ -36,7 +36,7 @@ const dynamodbProxySettingsToFunctions = (serviceFunctions, proxySettings) => {
     return serviceFunctions.map(functionDetail => {
       const match = tableSettings.find(tableSetting => tableSetting.trigger_function === functionDetail.name)
       if (match) {
-        const newMatchRef = JSON.parse(JSON.stringify(match));
+        const newMatchRef = JSON.parse(JSON.stringify(match))
         delete newMatchRef.trigger_function
         delete newMatchRef.name
         return Object.assign({}, newMatchRef, functionDetail)
@@ -44,7 +44,7 @@ const dynamodbProxySettingsToFunctions = (serviceFunctions, proxySettings) => {
       return functionDetail
     })
   }
-  return serviceFunctions;
+  return serviceFunctions
 }
 
 module.exports = {functionsProxySettingsToFunctions, dynamodbProxySettingsToFunctions}

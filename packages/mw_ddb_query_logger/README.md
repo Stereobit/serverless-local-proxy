@@ -1,29 +1,15 @@
 # DDB QUERY LOGGER
 
-This package is part of the monorepo serverless-local-proxy 
+Will produce a log row for all the queries to DynamoDB
 
-## Getting Started
+## Name:
+ddb_query_logger
 
-## Prerequisites
+## Middleware state
 
-## Installing
+| Input | Output |
+| --- | --- |
+| none | none |
 
-## Running the tests
-
-## Break down into end to end tests
-
-## And coding style tests
-
-## Deployment
-
-## Built With
-
-## Contributing
-
-## Versioning 
-
-## Authors
-
-## License
-
-## Acknowledgments
+N.B. 
+This package is part of the monorepo [serverless-local-proxy](https://github.com/serverless-local-proxy/serverless-local-proxy)

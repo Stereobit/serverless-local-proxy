@@ -3,19 +3,29 @@
   "version": "1.5.0",
   "description": "Mocks AWS events",
   "main": "src/index.js",
+  "keywords": [
+    "serverless",
+    "serverless local",
+    "servelss local proxy",
+    "serveless plugin",
+    "serveless local plugin",
+    "serverless local environment",
+    "serverless local functions",
+    "serverless local dynamodb"
+  ],
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/serverless-local-proxy"
+    "url": "https://github.com/serverless-local-proxy/serverless-local-proxy"
   },
   "author": "useless-stuff",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/serverless-local-proxy/issues"
+    "url": "https://github.com/serverless-local-proxy/serverless-local-proxy/issues"
   },
-  "homepage": "https://github.com/useless-stuff/serverless-local-proxy#readme",
+  "homepage": "https://github.com/serverless-local-proxy/serverless-local-proxy#readme",
   "devDependencies": {
     "jest": "^23.4.1"
   },

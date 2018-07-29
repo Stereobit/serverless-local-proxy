@@ -1,14 +1,21 @@
-# INVOKE FUNCTION MIDDLEWARE
+# INVOKE FUNCTION
 
-N.B. This package is part of the monorepo serverless-local-proxy
+Will invoke a service' function an will log the result
 
-## State
+## Name:
+invoke_function
 
-| Aspects input                  | Produces output                                                       |
-|--------------------------------|------------------------------------------------------------------------|
-| invokeFunctionName : string    | invokedFunction : Object<{functionName:string, functionPayload:<any>}> |
-| invokeFunctionPath : string    | invokedFunction.payload: Object<any>                                   |
-| invokeFunctionPayload : string | invokedFunction.callback: Object<{error:string, result:<any>}          |
-|                                | invokedFunction.exception: string                                      |
-|                                |                                                                        |
-|                                |                                                                        |
+## Middleware state
+
+Middleware state
+
+Middleware state
+
+| Input | Output |
+| --- | --- |
+| invokeFunctionName | invokedFunction:Object { functionName:String, payload:Any, exception:String, callback:Object { error:String, result:Any}  } |
+| invokeFunctionPath |  |
+| invokeFunctionPayload |  |
+
+N.B. 
+This package is part of the monorepo [serverless-local-proxy](https://github.com/serverless-local-proxy/serverless-local-proxy)

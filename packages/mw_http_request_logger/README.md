@@ -1,29 +1,20 @@
 # HTTP REQUEST LOGGER
 
-This package is part of the monorepo serverless-local-proxy 
+Will produce a log row for each HTTP request to the proxy where is attached to
 
-## Getting Started
+## Name:
+http_request_logger
 
-## Prerequisites
+## Middleware state
 
-## Installing
+Middleware state
 
-## Running the tests
+Middleware state
 
-## Break down into end to end tests
+| Input | Output |
+| --- | --- |
+| none | none |
 
-## And coding style tests
-
-## Deployment
-
-## Built With
-
-## Contributing
-
-## Versioning 
-
-## Authors
-
-## License
-
-## Acknowledgments
+N.B. 
+This package is part of the monorepo [serverless-local-proxy](https://github.com/serverless-local-proxy/serverless-local-proxy)
+ 

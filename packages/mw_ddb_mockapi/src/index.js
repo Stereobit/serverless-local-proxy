@@ -6,7 +6,6 @@ const MIDDLEWARE_NAME = 'ddb_mock_api'
  * @return {function(*, *): *}
  */
 const factory = () => {
-
   return async (ctx, next) => {
     const tableTtlMap = {}
 
