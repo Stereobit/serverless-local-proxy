@@ -16,9 +16,11 @@ Key features:
 
 Take a look to [DynamoDB triggers](#example-emulate-aws-dynamodb-triggers-in-your-local-env) or [Converting Lambda functions to HTTP endpoints](#example-converting-lambda-functions-to-http-endpoints) examples in order to have a quick overview
 
+Due to the weak documentation, you can refer to the [demo project](https://github.com/serverless-local-proxy/demo-project).
+
 N.B.
 The current version is far away to be stable.
-It's just a prototype that works for some specific cases.
+It's a prototype that works for some specific cases.
 
 If you like it, please get in touch, contributors are more then welcome.
 
@@ -41,7 +43,7 @@ If you like it, please get in touch, contributors are more then welcome.
  - [payload_to_aws_event](#payload_to_aws_event)
  - [state_inject](#state_inject)
  
-[Proxies and middleware a quick introduction](#proxies-and-middleware-a-quick-introduction)
+[Proxy and middleware a quick introduction](#proxy-and-middleware-a-quick-introduction)
  - [Middleware state](#middleware-state)
  
 ## Installing
